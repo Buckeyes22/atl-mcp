@@ -1,0 +1,88 @@
+# v1 compose: orchestrator + Postgres 16 + Redis 7 + Qdrant.
+# MCP, mgmt, and webhook ports are exposed with mgmt constrained to loopback.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: orchestrator
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: orchestrator
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orchestrator"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - redis-data:/data
+
+  qdrant:
+    image: qdrant/qdrant:v1.13.4
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6333:6333"
+    volumes:
+      - qdrant-data:/qdrant/storage
+
+  orchestrator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+    # Load .env if present — provides ATLASSIAN_*, TOKEN_MASTER_KEY, etc.
+    # File is gitignored. The keys below set explicit container-context values
+    # that override .env (transport, ports, log paths inside the container).
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      MCP_TRANSPORT: http
+      MCP_HTTP_PORT: "3000"
+      MCP_HTTP_HOST: "0.0.0.0"
+      MGMT_API_PORT: "3001"
+      MGMT_API_HOST: "0.0.0.0"  # bind 0.0.0.0 inside container; only exposed via 127.0.0.1 mapping below
+      WEBHOOK_HTTP_PORT: "3002"
+      WEBHOOK_HTTP_HOST: "0.0.0.0"
+      LOG_LEVEL: info
+      LOG_FILE_PATH: /var/log/orchestrator/orchestrator.log
+      NODE_ENV: development
+      DEPLOYMENT_TIER: dev
+      DATABASE_DEV_MODE: "false"
+      DATABASE_URL: postgres://orchestrator:dev@postgres:5432/orchestrator
+      REDIS_URL: redis://redis:6379
+      AGENT_MEMORY_QDRANT_URL: http://qdrant:6333
+    ports:
+      - "3000:3000"            # MCP — exposed publicly (host-network MCP clients)
+      - "127.0.0.1:3001:3001"  # Mgmt API — loopback only (open-edison F-130)
+      - "3002:3002"            # Webhook ingress — protect at ingress/firewall in shared environments
+    volumes:
+      - orchestrator-logs:/var/log/orchestrator
+
+volumes:
+  postgres-data:
+  redis-data:
+  qdrant-data:
+  orchestrator-logs:

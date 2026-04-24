@@ -1,0 +1,41 @@
+node_modules/
+dist/
+coverage/
+*.log
+.env
+.env.local
+.env.*.local
+.DS_Store
+.idea/
+.vscode/
+*.tsbuildinfo
+
+# Orchestrator runtime data
+.orchestrator/
+PHASE-STATE.json
+
+# Audit keys (never commit)
+~/.orchestrator/keys/
+*.key
+*.pem
+!**/keys/.gitkeep
+
+# Generated agent configs (regenerated from AGENTS.md by scripts/syncAgentConfigs.ts)
+# Tracked in git as the regeneration target, but the source of truth is AGENTS.md
+
+# Local working files / personal interview prep (not project canon)
+tmp/
+
+# Smoke / debug screenshots
+*-smoke*.png
+*-after-reload.png
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# OS / editor extras
+Thumbs.db
+*.swp
+*~

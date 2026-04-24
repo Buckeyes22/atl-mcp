@@ -1,0 +1,59 @@
+{
+  "name": "@atl-mcp/orchestrator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Agent Context Orchestrator MCP Server. Turns raw project requirements into agent-ready Atlassian + VCS workspaces.",
+  "type": "module",
+  "main": "dist/server.js",
+  "bin": {
+    "orchestrator": "dist/server.js"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-runtime-assets.mjs",
+    "start": "node scripts/start-server.mjs both",
+    "start:stdio": "node scripts/start-server.mjs stdio",
+    "start:http": "node scripts/start-server.mjs http",
+    "dev": "tsx watch src/server.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint:no-stdout": "node scripts/lint-no-stdout.mjs",
+    "lint:semgrep": "node scripts/lint-semgrep.mjs",
+    "manifest:build": "node scripts/build-framework-manifest.mjs",
+    "preflight": "tsx --env-file=.env scripts/preflight-cli.ts",
+    "blueprint": "tsx --env-file=.env scripts/blueprint-cli.ts",
+    "provision:preview": "tsx --env-file=.env scripts/provision-preview-cli.ts",
+    "provision:execute": "tsx --env-file=.env scripts/provision-execute-cli.ts",
+    "confluence:sync-sdlc": "tsx --env-file=.env scripts/sync-sdlc-confluence.ts",
+    "seed:demo": "tsx --env-file=.env scripts/seed-control-plane-demo.ts",
+    "audit:keys:init": "tsx --env-file=.env scripts/audit-keys-init.ts",
+    "sync:agents": "tsx scripts/syncAgentConfigs.ts",
+    "lint:anti-stub": "tsx scripts/anti-stub-scan.ts"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.4.4",
+    "@hono/node-server": "^1.13.0",
+    "@modelcontextprotocol/sdk": "^1.27.0",
+    "@noble/ciphers": "^2.2.0",
+    "@noble/curves": "^2.2.0",
+    "@noble/hashes": "^2.2.0",
+    "bullmq": "^5.76.2",
+    "canonicalize": "^3.0.0",
+    "drizzle-orm": "^0.45.2",
+    "hono": "^4.6.0",
+    "ioredis": "^5.10.1",
+    "pino": "^9.5.0",
+    "postgres": "^3.4.9",
+    "undici": "^7.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
