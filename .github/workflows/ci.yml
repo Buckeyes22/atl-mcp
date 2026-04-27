@@ -1,0 +1,71 @@
+name: ci
+
+# F-017 closure: cross-platform CI matrix verifies POSIX worktree behavior
+# (audit-findings-2026-04-25.md F-017).
+#
+# Includes a Postgres service so the migration-rehearsal parity tests run
+# (V-3 in audit-verification-plan-2026-04-25.md). The DATABASE_URL the runner
+# exports is consumed by `tests/integration/storage/migrationRehearsal.test.ts`.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: test (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    services:
+      postgres:
+        # Service containers only work on Linux runners.
+        # macOS + Windows runners run without DATABASE_URL — the migration
+        # rehearsal Postgres parity tests skip via describe.runIf.
+        image: postgres:16
+        env:
+          POSTGRES_USER: orchestrator
+          POSTGRES_PASSWORD: dev
+          POSTGRES_DB: orchestrator
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: install
+        run: npm ci
+
+      - name: typecheck
+        run: npm run typecheck
+
+      - name: lint:no-stdout
+        run: npm run lint:no-stdout
+
+      - name: lint:anti-stub
+        run: npm run lint:anti-stub
+
+      - name: test (PGlite + lint suite)
+        run: npm test
+
+      - name: test (Postgres parity, ubuntu only)
+        if: runner.os == 'Linux'
+        env:
+          DATABASE_URL: postgres://orchestrator:dev@localhost:5432/orchestrator
+        run: npm test

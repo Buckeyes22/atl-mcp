@@ -39,3 +39,7 @@ tmp/
 Thumbs.db
 *.swp
 *~
+
+# Claude Code local state / Playwright MCP cache
+.claude/
+.playwright-mcp/

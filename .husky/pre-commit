@@ -1,0 +1,50 @@
+#!/usr/bin/env sh
+# atl-mcp pre-commit gate. Adapted from velocity-ops-engine/.husky/pre-commit per
+# docs/velocity-ops-port-plan.md (Phase 0.3). Strips consulting-specific scan
+# rules, keeps the iron-law gates (no-stdout, anti-stub, semgrep) plus
+# large-file gate.
+
+set -eu
+
+if ! command -v npm >/dev/null 2>&1; then
+  echo '[pre-commit] npm not found; skipping framework hooks.' >&2
+  exit 0
+fi
+
+# Iron-law gate F-031: no stdout writes from src/.
+if [ -f package.json ] && grep -q '"lint:no-stdout"' package.json 2>/dev/null; then
+  echo '[pre-commit] Running npm run lint:no-stdout...'
+  npm run lint:no-stdout
+fi
+
+# Iron-law gate F-002: anti-stub scan on src/ + scripts/.
+if [ -f package.json ] && grep -q '"lint:anti-stub"' package.json 2>/dev/null; then
+  echo '[pre-commit] Running npm run lint:anti-stub...'
+  npm run lint:anti-stub
+fi
+
+# TypeScript strict-mode typecheck.
+if [ -f package.json ] && grep -q '"typecheck"' package.json 2>/dev/null; then
+  echo '[pre-commit] Running npm run typecheck...'
+  npm run typecheck
+fi
+
+# Semgrep stub-detection on staged source files (warn-skip if not installed).
+if [ -f package.json ] && grep -q '"lint:semgrep"' package.json 2>/dev/null; then
+  echo '[pre-commit] Running npm run lint:semgrep...'
+  npm run lint:semgrep
+fi
+
+# atl-mcp security scan (token encryption / migration safety / Redis keys / audit-key handling).
+if [ -x quality/pre-commit-security-scan.sh ]; then
+  echo '[pre-commit] Running quality/pre-commit-security-scan.sh...'
+  bash quality/pre-commit-security-scan.sh
+fi
+
+# Block staged files larger than 1 MiB to keep the repo lean.
+LARGE_FILES="$(git diff --cached --name-only --diff-filter=ACMR | while IFS= read -r file; do [ -f "$file" ] || continue; bytes=$(wc -c < "$file" | tr -d ' '); if [ "$bytes" -gt 1048576 ]; then printf '%s\n' "$file"; fi; done)"
+if [ -n "$LARGE_FILES" ]; then
+  echo '[pre-commit] Refusing commit with staged files larger than 1 MiB:' >&2
+  printf '%s\n' "$LARGE_FILES" >&2
+  exit 1
+fi
