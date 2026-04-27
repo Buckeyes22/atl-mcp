@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V16 — Role map · atl-mcp visualizations</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+<header class="viz-header">
+  <div>
+    <div class="viz-eyebrow">
+      <a href="index.html" class="viz-back">← all visualizations</a>
+      <span class="tier t3">tier 3</span><span class="viz-id">V16</span>
+    </div>
+    <h1 class="viz-title">Role map — humans, services, principals</h1>
+  </div>
+  <div class="viz-meta">
+    <div><span class="key">lands in </span><span class="val">04-design/security-architecture.md</span></div>
+    <div><span class="key">format    </span><span class="val">SVG actor map · 4 swimlanes</span></div>
+  </div>
+</header>
+
+<div class="stage" style="padding:48px 24px;">
+<svg viewBox="0 0 1200 580" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, system-ui">
+  <text x="40" y="28" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">DISTINCT ROLES · DISTINCT CREDENTIAL TYPES · NO ROLE INHERITS ANOTHER'S BLAST RADIUS</text>
+
+  <!-- lane backgrounds -->
+  <g>
+    <rect x="40"  y="60" width="280" height="500" fill="#faf9f6" stroke="#c8c3b6"/>
+    <rect x="320" y="60" width="280" height="500" fill="#fff"    stroke="#c8c3b6"/>
+    <rect x="600" y="60" width="280" height="500" fill="#faf9f6" stroke="#c8c3b6"/>
+    <rect x="880" y="60" width="280" height="500" fill="#fff"    stroke="#c8c3b6"/>
+  </g>
+
+  <!-- lane titles -->
+  <g font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.2" fill="#43434a">
+    <text x="58" y="84">HUMAN ROLES</text>
+    <text x="338" y="84">SERVICE PRINCIPALS</text>
+    <text x="618" y="84">EXTERNAL ACTORS</text>
+    <text x="898" y="84">SUBJECT (DATA)</text>
+  </g>
+
+  <!-- ============ HUMAN ROLES ============ -->
+  <!-- Operator -->
+  <g transform="translate(58,110)">
+    <rect width="244" height="100" fill="#fbeed8" stroke="#b96b16"/>
+    <circle cx="22" cy="22" r="10" fill="#7a4408"/>
+    <text x="42" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a4408">Operator</text>
+    <text x="14" y="56" font-family="IBM Plex Sans" font-size="11.5" fill="#7a4408">deploys, restores, rotates keys</text>
+    <text x="14" y="74" font-family="IBM Plex Mono" font-size="10.5" fill="#b96b16">SSH · KMS console · break-glass</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10" fill="#43434a">read: audit, metrics — never tokens</text>
+  </g>
+  <!-- Engineer -->
+  <g transform="translate(58,228)">
+    <rect width="244" height="100" fill="#dceee5" stroke="#1f6e54"/>
+    <circle cx="22" cy="22" r="10" fill="#0e3d2f"/>
+    <text x="42" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">Engineer</text>
+    <text x="14" y="56" font-family="IBM Plex Sans" font-size="11.5" fill="#0e3d2f">writes code, runs tests locally</text>
+    <text x="14" y="74" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">git push · CI account</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10" fill="#43434a">no prod access by default</text>
+  </g>
+  <!-- Auditor -->
+  <g transform="translate(58,346)">
+    <rect width="244" height="100" fill="#fbe7e4" stroke="#b8281d"/>
+    <circle cx="22" cy="22" r="10" fill="#7a1d14"/>
+    <text x="42" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a1d14">Auditor</text>
+    <text x="14" y="56" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">verifies controls + chain</text>
+    <text x="14" y="74" font-family="IBM Plex Mono" font-size="10.5" fill="#b8281d">read-only audit export</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10" fill="#43434a">cannot mutate, cannot delete</text>
+  </g>
+  <!-- End-user -->
+  <g transform="translate(58,464)">
+    <rect width="244" height="80" fill="#dde9f2" stroke="#1f5f8a"/>
+    <circle cx="22" cy="22" r="10" fill="#11364f"/>
+    <text x="42" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#11364f">End-user</text>
+    <text x="14" y="56" font-family="IBM Plex Sans" font-size="11.5" fill="#11364f">talks to an agent that</text>
+    <text x="14" y="72" font-family="IBM Plex Sans" font-size="11.5" fill="#11364f">talks to atl-mcp</text>
+  </g>
+
+  <!-- ============ SERVICE PRINCIPALS ============ -->
+  <g transform="translate(338,110)">
+    <rect width="244" height="100" fill="#ece1f3" stroke="#6e1a82"/>
+    <rect x="14" y="12" width="20" height="20" fill="#3e0d4d"/>
+    <text x="42" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#3e0d4d">McpServer (this app)</text>
+    <text x="14" y="56" font-family="IBM Plex Sans" font-size="11.5" fill="#3e0d4d">acts on behalf of end-user</text>
+    <text x="14" y="74" font-family="IBM Plex Mono" font-size="10.5" fill="#6e1a82">DB cred · KMS unwrap right</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10" fill="#43434a">audit-key SIGNING key (in mem)</text>
+  </g>
+  <g transform="translate(338,228)">
+    <rect width="244" height="100" fill="#ece1f3" stroke="#6e1a82"/>
+    <rect x="14" y="12" width="20" height="20" fill="#3e0d4d"/>
+    <text x="42" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#3e0d4d">JobRunner</text>
+    <text x="14" y="56" font-family="IBM Plex Sans" font-size="11.5" fill="#3e0d4d">background work; same trust</text>
+    <text x="14" y="72" font-family="IBM Plex Sans" font-size="11.5" fill="#3e0d4d">surface as McpServer</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10" fill="#43434a">no transport-facing</text>
+  </g>
+  <g transform="translate(338,346)">
+    <rect width="244" height="100" fill="#ece1f3" stroke="#6e1a82"/>
+    <rect x="14" y="12" width="20" height="20" fill="#3e0d4d"/>
+    <text x="42" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#3e0d4d">Scheduler</text>
+    <text x="14" y="56" font-family="IBM Plex Sans" font-size="11.5" fill="#3e0d4d">cron + retries; enqueues jobs</text>
+    <text x="14" y="74" font-family="IBM Plex Mono" font-size="10.5" fill="#6e1a82">cannot call providers directly</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10" fill="#43434a">audit-key VERIFY only</text>
+  </g>
+  <g transform="translate(338,464)">
+    <rect width="244" height="80" fill="#fbeed8" stroke="#b96b16"/>
+    <rect x="14" y="12" width="20" height="20" fill="#7a4408"/>
+    <text x="42" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a4408">CI / build agent</text>
+    <text x="14" y="56" font-family="IBM Plex Sans" font-size="11.5" fill="#7a4408">builds + signs images</text>
+    <text x="14" y="72" font-family="IBM Plex Sans" font-size="11.5" fill="#7a4408">no prod data access</text>
+  </g>
+
+  <!-- ============ EXTERNAL ACTORS ============ -->
+  <g transform="translate(618,110)">
+    <rect width="244" height="100" fill="#dde9f2" stroke="#1f5f8a"/>
+    <text x="14" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#11364f">MCP client / agent</text>
+    <text x="14" y="50" font-family="IBM Plex Sans" font-size="11.5" fill="#11364f">Claude Desktop, IDE plugin,</text>
+    <text x="14" y="66" font-family="IBM Plex Sans" font-size="11.5" fill="#11364f">orchestrator</text>
+    <text x="14" y="86" font-family="IBM Plex Mono" font-size="10.5" fill="#1f5f8a">OAuth2 PKCE token</text>
+  </g>
+  <g transform="translate(618,228)">
+    <rect width="244" height="100" fill="#dde9f2" stroke="#1f5f8a"/>
+    <text x="14" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#11364f">Atlassian Cloud (Bitbucket)</text>
+    <text x="14" y="50" font-family="IBM Plex Sans" font-size="11.5" fill="#11364f">target VCS for v1</text>
+    <text x="14" y="74" font-family="IBM Plex Mono" font-size="10.5" fill="#1f5f8a">webhook signer · API target</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10" fill="#43434a">UNTRUSTED INPUT to LLM</text>
+  </g>
+  <g transform="translate(618,346)">
+    <rect width="244" height="100" fill="#dde9f2" stroke="#1f5f8a"/>
+    <text x="14" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#11364f">Atlassian Cloud (Jira/Conf.)</text>
+    <text x="14" y="50" font-family="IBM Plex Sans" font-size="11.5" fill="#11364f">target collab tools for v1</text>
+    <text x="14" y="74" font-family="IBM Plex Mono" font-size="10.5" fill="#1f5f8a">API target</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10" fill="#43434a">UNTRUSTED INPUT to LLM</text>
+  </g>
+  <g transform="translate(618,464)">
+    <rect width="244" height="80" fill="#fbe7e4" stroke="#b8281d"/>
+    <text x="14" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a1d14">Adversary (modeled)</text>
+    <text x="14" y="50" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">prompt injection · stolen creds ·</text>
+    <text x="14" y="66" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">malicious PR template</text>
+  </g>
+
+  <!-- ============ SUBJECT ============ -->
+  <g transform="translate(898,110)">
+    <rect width="244" height="100" fill="#1a1a1c"/>
+    <text x="14" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#fff">Audit log</text>
+    <text x="14" y="50" font-family="IBM Plex Sans" font-size="11.5" fill="#c8c3b6">classification: confidential</text>
+    <text x="14" y="74" font-family="IBM Plex Mono" font-size="10.5" fill="#fff">append-only · signed · chained</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10" fill="#9a9690">Auditor read · no human delete</text>
+  </g>
+  <g transform="translate(898,228)">
+    <rect width="244" height="100" fill="#fbe7e4" stroke="#b8281d"/>
+    <text x="14" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a1d14">Tokens</text>
+    <text x="14" y="50" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">classification: secret</text>
+    <text x="14" y="74" font-family="IBM Plex Mono" font-size="10.5" fill="#b8281d">envelope-encrypted at rest</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10" fill="#43434a">McpServer only · never logged</text>
+  </g>
+  <g transform="translate(898,346)">
+    <rect width="244" height="100" fill="#fbeed8" stroke="#b96b16"/>
+    <text x="14" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a4408">Operational data</text>
+    <text x="14" y="50" font-family="IBM Plex Sans" font-size="11.5" fill="#7a4408">classification: internal</text>
+    <text x="14" y="74" font-family="IBM Plex Mono" font-size="10.5" fill="#b96b16">jobs · schedules · profiles</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10" fill="#43434a">redacted before export</text>
+  </g>
+  <g transform="translate(898,464)">
+    <rect width="244" height="80" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="14" y="26" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">Telemetry</text>
+    <text x="14" y="50" font-family="IBM Plex Sans" font-size="11.5" fill="#0e3d2f">classification: internal</text>
+    <text x="14" y="70" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">post-redaction; metrics + logs</text>
+  </g>
+</svg>
+</div>
+
+<div class="caption-block">
+  <div class="caption-card">
+    <h4>Caption (for the doc)</h4>
+    <p>Roles in atl-mcp's security model. Reading left to right: humans (with their credential type), services running inside atl-mcp (each with the narrowest right that lets it function — Scheduler can verify but not sign audit entries; CI never touches prod data), external systems (the MCP client is trusted-channel; Atlassian Cloud is treated as <em>untrusted input</em> to the LLM even though we trust it as a destination), and the data subjects, classified by sensitivity. The point of the diagram is the row-by-row pairing — every actor's blast radius is visible.</p>
+  </div>
+  <div class="caption-card insertion">
+    <h4>Insertion instruction</h4>
+    <p>Insert at the top of <code>docs/sdlc/04-design/security-architecture.md</code>'s <code>## Actors</code> section, replacing the current actor bullet list. The classifications dovetail with <code>docs/sdlc/05-security/classification.md</code>.</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

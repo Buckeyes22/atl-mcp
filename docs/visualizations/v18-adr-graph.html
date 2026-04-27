@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V18 — ADR dependency graph · atl-mcp visualizations</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+<header class="viz-header">
+  <div>
+    <div class="viz-eyebrow">
+      <a href="index.html" class="viz-back">← all visualizations</a>
+      <span class="tier t3">tier 3</span><span class="viz-id">V18</span>
+    </div>
+    <h1 class="viz-title">ADR dependency graph</h1>
+  </div>
+  <div class="viz-meta">
+    <div><span class="key">lands in </span><span class="val">12-governance/decision-log.md</span></div>
+    <div><span class="key">format    </span><span class="val">SVG DAG · 18 ADRs · 4 columns</span></div>
+  </div>
+</header>
+
+<div class="stage" style="padding:48px 24px;">
+<svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, system-ui">
+  <text x="40" y="28" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">EARLY DECISIONS CONSTRAIN LATER ONES · COLOR = STATUS · ARROW = "DEPENDS ON"</text>
+
+  <defs>
+    <marker id="ar18" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#43434a"/>
+    </marker>
+  </defs>
+
+  <!-- column headers -->
+  <g font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.2" fill="#43434a">
+    <text x="120" y="62">FOUNDATIONAL</text>
+    <text x="380" y="62">PLATFORM</text>
+    <text x="640" y="62">SECURITY</text>
+    <text x="900" y="62">SURFACE / OPS</text>
+  </g>
+
+  <!-- column dividers -->
+  <g stroke="#e3e0d8">
+    <line x1="320" y1="80" x2="320" y2="640"/>
+    <line x1="580" y1="80" x2="580" y2="640"/>
+    <line x1="840" y1="80" x2="840" y2="640"/>
+  </g>
+
+  <!-- ============ NODES ============ -->
+  <!-- Foundational -->
+  <g transform="translate(60,90)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0001 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">TypeScript / Node 22+</text>
+  </g>
+  <g transform="translate(60,166)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0002 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">Single-tenant (v1)</text>
+  </g>
+  <g transform="translate(60,242)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0003 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">Vendor-aware abstractions</text>
+  </g>
+  <g transform="translate(60,318)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0004 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">Spec-first (v6 is source)</text>
+  </g>
+  <g transform="translate(60,394)">
+    <rect width="240" height="56" fill="#fbeed8" stroke="#b96b16"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#b96b16">ADR-0005 · PROPOSED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a4408">Bitbucket Cloud only (v1)</text>
+  </g>
+
+  <!-- Platform -->
+  <g transform="translate(320,90)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0006 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">Postgres 17 (single instance)</text>
+  </g>
+  <g transform="translate(320,166)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0007 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">Kysely (no ORM)</text>
+  </g>
+  <g transform="translate(320,242)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0008 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">pglite for dev/test</text>
+  </g>
+  <g transform="translate(320,318)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0009 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">In-process job runner (v1)</text>
+  </g>
+  <g transform="translate(320,394)">
+    <rect width="240" height="56" fill="#fbeed8" stroke="#b96b16"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#b96b16">ADR-0010 · PROPOSED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a4408">Forward-only migrations</text>
+  </g>
+
+  <!-- Security -->
+  <g transform="translate(580,90)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0011 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">Ed25519 signed audit chain</text>
+  </g>
+  <g transform="translate(580,166)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0012 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">Envelope encryption + KMS</text>
+  </g>
+  <g transform="translate(580,242)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0013 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">OAuth2 PKCE for clients</text>
+  </g>
+  <g transform="translate(580,318)">
+    <rect width="240" height="56" fill="#fbeed8" stroke="#b96b16"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#b96b16">ADR-0014 · PROPOSED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a4408">Trifecta hard-block policy</text>
+  </g>
+  <g transform="translate(580,394)">
+    <rect width="240" height="56" fill="#fbe7e4" stroke="#b8281d"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#b8281d">ADR-0015 · DRAFT</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a1d14">Confirmation gate UX</text>
+  </g>
+
+  <!-- Surface / Ops -->
+  <g transform="translate(840,90)">
+    <rect width="240" height="56" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">ADR-0016 · ACCEPTED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">MCP transport: stdio + HTTP</text>
+  </g>
+  <g transform="translate(840,166)">
+    <rect width="240" height="56" fill="#fbeed8" stroke="#b96b16"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#b96b16">ADR-0017 · PROPOSED</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a4408">OTel + Prometheus + JSON logs</text>
+  </g>
+  <g transform="translate(840,242)">
+    <rect width="240" height="56" fill="#fbe7e4" stroke="#b8281d"/>
+    <text x="12" y="20" font-family="IBM Plex Mono" font-size="10.5" fill="#b8281d">ADR-0018 · DRAFT</text>
+    <text x="12" y="40" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a1d14">Cold restore (no auto failover, v1)</text>
+  </g>
+
+  <!-- ============ EDGES ============ -->
+  <g stroke="#43434a" fill="none" opacity="0.85">
+    <!-- 0006 depends on 0001, 0002 -->
+    <path d="M300,118 L320,118" marker-end="url(#ar18)"/>
+    <path d="M300,194 Q310,156 320,118" marker-end="url(#ar18)"/>
+    <!-- 0007 depends on 0006 -->
+    <path d="M440,146 L440,166" marker-end="url(#ar18)"/>
+    <!-- 0008 depends on 0007, 0001 -->
+    <path d="M440,222 L440,242" marker-end="url(#ar18)"/>
+    <path d="M300,118 Q310,180 320,270" marker-end="url(#ar18)"/>
+    <!-- 0009 depends on 0006, 0002 -->
+    <path d="M440,298 L440,318" marker-end="url(#ar18)"/>
+    <path d="M300,194 Q310,256 320,346" marker-end="url(#ar18)"/>
+    <!-- 0010 depends on 0006, 0007 -->
+    <path d="M440,222 Q450,310 440,394" marker-end="url(#ar18)"/>
+
+    <!-- 0011 depends on 0006, 0004 -->
+    <path d="M560,118 L580,118" marker-end="url(#ar18)"/>
+    <path d="M300,346 Q450,200 580,118" marker-end="url(#ar18)"/>
+    <!-- 0012 depends on 0006, 0011 -->
+    <path d="M820,118 Q830,140 700,166" marker-end="url(#ar18)"/>
+    <path d="M560,194 L580,194" marker-end="url(#ar18)"/>
+    <!-- 0013 depends on 0002, 0011 -->
+    <path d="M300,194 Q450,220 580,270" marker-end="url(#ar18)"/>
+    <path d="M700,146 L700,242" marker-end="url(#ar18)" stroke-dasharray="3 3"/>
+    <!-- 0014 depends on 0011, 0013 -->
+    <path d="M700,222 L700,318" marker-end="url(#ar18)"/>
+    <path d="M700,298 L700,318" marker-end="url(#ar18)"/>
+    <!-- 0015 depends on 0014, 0013 -->
+    <path d="M700,374 L700,394" marker-end="url(#ar18)"/>
+    <path d="M820,270 Q830,330 700,394" marker-end="url(#ar18)"/>
+
+    <!-- 0016 depends on 0001, 0013 -->
+    <path d="M300,118 Q570,80 840,118" marker-end="url(#ar18)"/>
+    <path d="M820,270 Q830,180 840,118" marker-end="url(#ar18)"/>
+    <!-- 0017 depends on 0006, 0011 -->
+    <path d="M820,194 L840,194" marker-end="url(#ar18)"/>
+    <path d="M820,118 Q830,156 840,194" marker-end="url(#ar18)"/>
+    <!-- 0018 depends on 0006, 0009, 0011 -->
+    <path d="M560,346 Q700,300 840,270" marker-end="url(#ar18)"/>
+    <path d="M820,118 Q970,200 960,242" marker-end="url(#ar18)"/>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(60,490)">
+    <rect width="1080" height="130" fill="#faf9f6" stroke="#c8c3b6"/>
+    <text x="20" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.4" fill="#9a9690">HOW TO READ</text>
+    <g font-family="IBM Plex Sans" font-size="11.5" fill="#1a1a1c">
+      <text x="20" y="46">• Columns = decision domain. Reading left→right is roughly chronological — the foundational column locks first, then platform, then security, then surface/ops.</text>
+      <text x="20" y="64">• Arrow A → B reads as "B depends on A": superseding A invalidates B's rationale. Most arrows enter the security column from foundational + platform — that's the design pressure.</text>
+      <text x="20" y="82">• Status colors: <tspan fill="#0e3d2f" font-weight="600">accepted</tspan> · <tspan fill="#7a4408" font-weight="600">proposed</tspan> · <tspan fill="#7a1d14" font-weight="600">draft</tspan>. ADRs are immutable once accepted; supersession creates a new ADR that links back.</text>
+      <text x="20" y="100">• Hot spot: ADR-0006 (Postgres) and ADR-0011 (audit chain) are the most depended-on nodes. Changing either is a major-version event.</text>
+      <text x="20" y="118">• Solid arrow = strict dependency · dashed arrow = informational / "consults".</text>
+    </g>
+  </g>
+</svg>
+</div>
+
+<div class="caption-block">
+  <div class="caption-card">
+    <h4>Caption (for the doc)</h4>
+    <p>The 18 ADRs that exist on day 1 of v1, arranged by domain (columns) with arrows showing dependency. The graph makes the structural truth visible: ADR-0006 (Postgres) and ADR-0011 (audit chain) are load-bearing — almost every security and ops decision rests on them. Status colors show that the security column has the most in-flight work, which matches where v1 risk concentrates.</p>
+  </div>
+  <div class="caption-card insertion">
+    <h4>Insertion instruction</h4>
+    <p>Insert at the top of <code>docs/sdlc/12-governance/decision-log.md</code>, above the ADR index table. Each box is a hyperlink to its ADR file in <code>12-governance/adr/NNNN-…md</code>.</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>atl-mcp · SDLC visualization plan</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* index-only styles, scoped */
+  .ix-page { max-width: 1320px; margin: 0 auto; padding: 56px 48px 96px; }
+  .ix-meta-line { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.4px; color: var(--ink-4); text-transform: uppercase; }
+  .ix-h1 { font-size: 40px; font-weight: 600; letter-spacing: -0.02em; margin: 8px 0 12px; line-height: 1.1; }
+  .ix-lede { font-size: 16px; color: var(--ink-2); max-width: 780px; line-height: 1.55; margin: 0 0 40px; }
+  .ix-lede strong { color: var(--ink); font-weight: 600; }
+
+  .ix-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border: 1px solid var(--line-strong); background: var(--surface);
+    margin-bottom: 56px;
+  }
+  .ix-stat { padding: 22px 28px; border-right: 1px solid var(--line); }
+  .ix-stat:last-child { border-right: none; }
+  .ix-stat-label { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 1.2px; color: var(--ink-4); text-transform: uppercase; }
+  .ix-stat-value { font-size: 32px; font-weight: 600; letter-spacing: -0.02em; margin-top: 6px; line-height: 1; }
+  .ix-stat-sub { font-size: 12px; color: var(--ink-3); margin-top: 4px; }
+
+  .ix-section { margin-bottom: 56px; }
+  .ix-section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    border-bottom: 1px solid var(--ink); padding-bottom: 12px; margin-bottom: 24px;
+  }
+  .ix-section-num { font-family: var(--font-mono); font-size: 12px; letter-spacing: 1.4px; color: var(--ink-4); }
+  .ix-section-title { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+  .ix-section-blurb { font-size: 13px; color: var(--ink-3); margin-left: auto; max-width: 480px; text-align: right; }
+
+  .ix-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .ix-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+  .ix-card {
+    display: flex; flex-direction: column;
+    background: var(--surface); border: 1px solid var(--line-strong);
+    text-decoration: none; color: inherit;
+    transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+    min-height: 220px;
+  }
+  .ix-card:hover {
+    transform: translateY(-2px); border-color: var(--ink); box-shadow: var(--shadow-md);
+    text-decoration: none;
+  }
+
+  .ix-card-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 18px; border-bottom: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .ix-card-id { font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--ink); letter-spacing: 0.5px; }
+  .ix-tier {
+    font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 1.2px;
+    padding: 2px 7px; text-transform: uppercase; border: 1px solid;
+  }
+  .ix-tier.t1 { color: #7a1d14; border-color: #7a1d14; background: #fbe7e4; }
+  .ix-tier.t2 { color: #7a4408; border-color: #7a4408; background: #fbeed8; }
+  .ix-tier.t3 { color: #11364f; border-color: #11364f; background: #dde9f2; }
+  .ix-format { margin-left: auto; font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); }
+
+  .ix-card-body { padding: 16px 18px 18px; flex: 1; display: flex; flex-direction: column; }
+  .ix-card-title { font-size: 16px; font-weight: 600; line-height: 1.3; margin: 0 0 8px; letter-spacing: -0.005em; }
+  .ix-card-desc { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; margin: 0 0 14px; }
+  .ix-card-meta {
+    margin-top: auto; display: flex; flex-direction: column; gap: 4px;
+    font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3);
+  }
+  .ix-card-meta .row { display: flex; gap: 8px; }
+  .ix-card-meta .k { color: var(--ink-4); width: 56px; flex-shrink: 0; }
+  .ix-card-meta .v { color: var(--ink-2); }
+
+  /* tier 1 visual emphasis */
+  .ix-card.tier-1 .ix-card-head { background: #fdf6f5; }
+  .ix-card.tier-1 { border-color: #e8a89e; }
+  .ix-card.tier-1:hover { border-color: #b8281d; }
+
+  .ix-foot {
+    margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;
+    font-size: 12px; color: var(--ink-3); line-height: 1.6;
+  }
+  .ix-foot h4 {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 1.4px;
+    color: var(--ink-4); text-transform: uppercase; margin: 0 0 10px; font-weight: 500;
+  }
+  .ix-foot ul { margin: 0; padding-left: 16px; }
+  .ix-foot li { margin-bottom: 4px; }
+  .ix-foot code { font-family: var(--font-mono); font-size: 11px; background: var(--surface-2); padding: 1px 5px; border: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<div class="ix-page">
+
+  <div class="ix-meta-line">atl-mcp · MCP server for Atlassian Cloud · SDLC documentation suite</div>
+  <h1 class="ix-h1">Visualization plan — eighteen places where a picture beats a paragraph</h1>
+  <p class="ix-lede">
+    The doc tree (<code>docs/sdlc/</code>) currently leans heavily on prose. This plan identifies <strong>18 specific spots</strong> across the suite where a static SVG figure would carry concepts the prose either belabors or fails to make precise. Each card below is a <strong>finished example</strong>, not a sketch — copy the SVG into the named markdown file and ship it. Tier&nbsp;1 figures are load-bearing; without them readers reconstruct the diagram in their head and get it wrong. Tier&nbsp;2 figures resolve a frequent reviewer question. Tier&nbsp;3 figures are nice-to-have for skim readability.
+  </p>
+
+  <div class="ix-stats">
+    <div class="ix-stat">
+      <div class="ix-stat-label">total figures</div>
+      <div class="ix-stat-value">18</div>
+      <div class="ix-stat-sub">19 SVG files (V15 = a + b)</div>
+    </div>
+    <div class="ix-stat">
+      <div class="ix-stat-label">tier 1 · must-have</div>
+      <div class="ix-stat-value">6</div>
+      <div class="ix-stat-sub">load-bearing concepts</div>
+    </div>
+    <div class="ix-stat">
+      <div class="ix-stat-label">tier 2 · should-have</div>
+      <div class="ix-stat-value">7</div>
+      <div class="ix-stat-sub">reviewer-question killers</div>
+    </div>
+    <div class="ix-stat">
+      <div class="ix-stat-label">tier 3 · nice-to-have</div>
+      <div class="ix-stat-value">5</div>
+      <div class="ix-stat-sub">skim-readability gains</div>
+    </div>
+  </div>
+
+  <!-- ============ TIER 1 ============ -->
+  <section class="ix-section">
+    <div class="ix-section-head">
+      <span class="ix-section-num">TIER 1</span>
+      <h2 class="ix-section-title">Must-have — load-bearing concepts</h2>
+      <div class="ix-section-blurb">Without these, the prose is technically correct but readers reconstruct the wrong picture. Build first.</div>
+    </div>
+    <div class="ix-grid">
+
+      <a class="ix-card tier-1" href="v01-audit-chain-construction.html">
+        <div class="ix-card-head">
+          <span class="ix-card-id">V1</span><span class="ix-tier t1">tier 1</span>
+          <span class="ix-format">SVG · sequence + chain</span>
+        </div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">Audit-log entry construction &amp; verification</h3>
+          <p class="ix-card-desc">How one event becomes a signed, hash-chained, append-only entry — and how a verifier later proves it. The prose covers canonical JSON, prev-hash, Ed25519 signing in 600 words; the figure shows the dependencies in one glance.</p>
+          <div class="ix-card-meta">
+            <div class="row"><span class="k">lands in</span><span class="v">05-security/audit-chain.md</span></div>
+            <div class="row"><span class="k">replaces</span><span class="v">3 numbered prose blocks</span></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="ix-card tier-1" href="v02-lethal-trifecta.html">
+        <div class="ix-card-head">
+          <span class="ix-card-id">V2</span><span class="ix-tier t1">tier 1</span>
+          <span class="ix-format">SVG · 3-circle Venn</span>
+        </div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">The lethal trifecta (prompt-injection model)</h3>
+          <p class="ix-card-desc">Untrusted input × access to private data × ability to exfiltrate = exploit. Locating every atl-mcp surface against the three sets makes "why we hard-block this combination" obvious without a paragraph.</p>
+          <div class="ix-card-meta">
+            <div class="row"><span class="k">lands in</span><span class="v">05-security/threat-model.md</span></div>
+            <div class="row"><span class="k">replaces</span><span class="v">prose definition + 5 examples</span></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="ix-card tier-1" href="v03-test-pyramid.html">
+        <div class="ix-card-head">
+          <span class="ix-card-id">V3</span><span class="ix-tier t1">tier 1</span>
+          <span class="ix-format">SVG · pyramid + counts</span>
+        </div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">Test pyramid — 9 layers, ratios, gates</h3>
+          <p class="ix-card-desc">v6 §31 specifies nine test types. The pyramid shows their relative volume, runtime budget, what each catches, and which CI gate they sit behind — anchoring all later test discussions.</p>
+          <div class="ix-card-meta">
+            <div class="row"><span class="k">lands in</span><span class="v">07-quality/test-strategy.md</span></div>
+            <div class="row"><span class="k">replaces</span><span class="v">9 short paragraphs in a row</span></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="ix-card tier-1" href="v04-milestone-gantt.html">
+        <div class="ix-card-head">
+          <span class="ix-card-id">V4</span><span class="ix-tier t1">tier 1</span>
+          <span class="ix-format">SVG · Gantt + milestones</span>
+        </div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">v1 milestone Gantt (M0–M5)</h3>
+          <p class="ix-card-desc">The roadmap currently lives in a markdown table that hides parallelism, slack, and gate dependencies. The Gantt makes "M3 starts before M2 ends" and "MCP work blocks beta" instantly legible.</p>
+          <div class="ix-card-meta">
+            <div class="row"><span class="k">lands in</span><span class="v">02-product/roadmap-v1.md</span></div>
+            <div class="row"><span class="k">replaces</span><span class="v">milestone table</span></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="ix-card tier-1" href="v05-token-envelope.html">
+        <div class="ix-card-head">
+          <span class="ix-card-id">V5</span><span class="ix-tier t1">tier 1</span>
+          <span class="ix-format">SVG · data flow</span>
+        </div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">Token at-rest — envelope encryption flow</h3>
+          <p class="ix-card-desc">DEK / KEK / KMS / database / process memory and the arrows between them. Auditors ask "where does the plaintext live and for how long?"; this answers in one figure.</p>
+          <div class="ix-card-meta">
+            <div class="row"><span class="k">lands in</span><span class="v">05-security/secrets-handling.md</span></div>
+            <div class="row"><span class="k">replaces</span><span class="v">numbered list of crypto steps</span></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="ix-card tier-1" href="v06-observability-pillars.html">
+        <div class="ix-card-head">
+          <span class="ix-card-id">V6</span><span class="ix-tier t1">tier 1</span>
+          <span class="ix-format">SVG · 4 columns</span>
+        </div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">Observability — three pillars + audit</h3>
+          <p class="ix-card-desc">Logs, metrics, traces, and the audit log side by side: what each captures, retention, where it goes, who reads it. Audit is intentionally <em>not</em> one of the three pillars; the figure shows why.</p>
+          <div class="ix-card-meta">
+            <div class="row"><span class="k">lands in</span><span class="v">09-observability/strategy.md</span></div>
+            <div class="row"><span class="k">replaces</span><span class="v">4-section prose comparison</span></div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ TIER 2 ============ -->
+  <section class="ix-section">
+    <div class="ix-section-head">
+      <span class="ix-section-num">TIER 2</span>
+      <h2 class="ix-section-title">Should-have — reviewer-question killers</h2>
+      <div class="ix-section-blurb">Each one short-circuits a question that comes up repeatedly in review. Build after Tier 1.</div>
+    </div>
+    <div class="ix-grid">
+
+      <a class="ix-card" href="v07-stride-matrix.html">
+        <div class="ix-card-head"><span class="ix-card-id">V7</span><span class="ix-tier t2">tier 2</span><span class="ix-format">SVG · STRIDE × asset</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">STRIDE matrix — threats × assets</h3>
+          <p class="ix-card-desc">Six STRIDE categories crossed with the assets we care about (audit, tokens, jobs, transport). Each cell links to the mitigation. Replaces a wall of bullets.</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">05-security/threat-model.md</span></div></div>
+        </div>
+      </a>
+
+      <a class="ix-card" href="v08-failure-ishikawa.html">
+        <div class="ix-card-head"><span class="ix-card-id">V8</span><span class="ix-tier t2">tier 2</span><span class="ix-format">SVG · Ishikawa</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">Failure-mode fishbone</h3>
+          <p class="ix-card-desc">Six bones (network, dep, data, identity, op, abuse) feed the spine "user-visible failure". Names the categories the runbook indexes against.</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">10-dr-bcp/failure-modes.md</span></div></div>
+        </div>
+      </a>
+
+      <a class="ix-card" href="v09-failure-fix-matrix.html">
+        <div class="ix-card-head"><span class="ix-card-id">V9</span><span class="ix-tier t2">tier 2</span><span class="ix-format">SVG · matrix</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">Failure → fix lookup matrix</h3>
+          <p class="ix-card-desc">Rows = symptoms; columns = control / runbook step / SLO impact. The on-call's "what do I open first?" reference, condensed.</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">10-dr-bcp/runbook.md</span></div></div>
+        </div>
+      </a>
+
+      <a class="ix-card" href="v10-key-rotation.html">
+        <div class="ix-card-head"><span class="ix-card-id">V10</span><span class="ix-tier t2">tier 2</span><span class="ix-format">SVG · timeline</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">Audit signing-key rotation timeline</h3>
+          <p class="ix-card-desc">Quarterly rotation: overlap window, verifier key bag, when an old key can be retired. Removes ambiguity from "rotate every 90 days".</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">05-security/key-rotation.md</span></div></div>
+        </div>
+      </a>
+
+      <a class="ix-card" href="v11-token-budget.html">
+        <div class="ix-card-head"><span class="ix-card-id">V11</span><span class="ix-tier t2">tier 2</span><span class="ix-format">SVG · stacked bar</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">MCP context-window budget</h3>
+          <p class="ix-card-desc">For each MCP tool, where the token budget actually goes: schemas, system prompt, retrieved context, response shape. Surfaces the heavy hitters.</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">04-design/mcp-tool-design.md</span></div></div>
+        </div>
+      </a>
+
+      <a class="ix-card" href="v12-provider-class.html">
+        <div class="ix-card-head"><span class="ix-card-id">V12</span><span class="ix-tier t2">tier 2</span><span class="ix-format">SVG · class diagram</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">Provider abstraction (class diagram)</h3>
+          <p class="ix-card-desc">Abstract VcsProvider with three realizations (Bitbucket ships in v1, GitHub/GitLab are runway). Shows where contract tests guarantee parity.</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">04-design/module-providers-vcs.md</span></div></div>
+        </div>
+      </a>
+
+      <a class="ix-card" href="v13-onboarding-tree.html">
+        <div class="ix-card-head"><span class="ix-card-id">V13</span><span class="ix-tier t2">tier 2</span><span class="ix-format">SVG · decision tree</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">"Which onboarding doc?" decision tree</h3>
+          <p class="ix-card-desc">Four roles → four first-30-min paths. Replaces the "if you're an X, read Y" prose at the top of the onboarding folder.</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">11-onboarding/README.md</span></div></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ TIER 3 ============ -->
+  <section class="ix-section">
+    <div class="ix-section-head">
+      <span class="ix-section-num">TIER 3</span>
+      <h2 class="ix-section-title">Nice-to-have — skim-readability gains</h2>
+      <div class="ix-section-blurb">Each makes its host doc faster to skim. Build last; defer if budget is tight.</div>
+    </div>
+    <div class="ix-grid">
+
+      <a class="ix-card" href="v14-dr-tree.html">
+        <div class="ix-card-head"><span class="ix-card-id">V14</span><span class="ix-tier t3">tier 3</span><span class="ix-format">SVG · flowchart</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">DR — what failed? decision tree</h3>
+          <p class="ix-card-desc">Process crash → host loss → DB corruption → restore. Branches ordered by recovery cost; v1 has cold restore only.</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">10-dr-bcp/failover.md</span></div></div>
+        </div>
+      </a>
+
+      <a class="ix-card" href="v15-c4-l3.html">
+        <div class="ix-card-head"><span class="ix-card-id">V15a + V15b</span><span class="ix-tier t3">tier 3</span><span class="ix-format">SVG · 2× C4-L3</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">C4 level 3 — Storage &amp; Security</h3>
+          <p class="ix-card-desc">Two component diagrams below the L2 container view: storage internals (writer, verifier, token store, KMS) and the security pipeline every entry point shares.</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">04-design/architecture-overview.md</span></div></div>
+        </div>
+      </a>
+
+      <a class="ix-card" href="v16-role-map.html">
+        <div class="ix-card-head"><span class="ix-card-id">V16</span><span class="ix-tier t3">tier 3</span><span class="ix-format">SVG · actor map</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">Role map — humans, services, data</h3>
+          <p class="ix-card-desc">Four swimlanes: human roles, service principals, external actors, data subjects. Shows blast radius per actor and classification per asset.</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">04-design/security-architecture.md</span></div></div>
+        </div>
+      </a>
+
+      <a class="ix-card" href="v17-cost-stack.html">
+        <div class="ix-card-head"><span class="ix-card-id">V17</span><span class="ix-tier t3">tier 3</span><span class="ix-format">SVG · stacked bar</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">v1 deployment monthly cost stack</h3>
+          <p class="ix-card-desc">Three deployment sizes (dev / small prod / mid prod), broken down by category. Order of magnitude — the shape matters more than the dollars.</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">12-governance/cost-model.md</span></div></div>
+        </div>
+      </a>
+
+      <a class="ix-card" href="v18-adr-graph.html">
+        <div class="ix-card-head"><span class="ix-card-id">V18</span><span class="ix-tier t3">tier 3</span><span class="ix-format">SVG · DAG</span></div>
+        <div class="ix-card-body">
+          <h3 class="ix-card-title">ADR dependency graph</h3>
+          <p class="ix-card-desc">18 ADRs, four columns by domain, arrows for "depends on". Surfaces the load-bearing decisions (Postgres, audit chain) that everything else rests on.</p>
+          <div class="ix-card-meta"><div class="row"><span class="k">lands in</span><span class="v">12-governance/decision-log.md</span></div></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ FOOT ============ -->
+  <footer class="ix-foot">
+    <div>
+      <h4>Editorial principles</h4>
+      <ul>
+        <li>Each figure must <strong>replace</strong> prose, not annotate it.</li>
+        <li>If a reviewer asks the same question twice in a doc, that's a figure.</li>
+        <li>Static SVG only — no interactivity, no JS dependencies. Versioned with the docs.</li>
+        <li>One typeface (IBM Plex), one ink color, semantic palette consistent across all 18.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Production notes</h4>
+      <ul>
+        <li>Each card links to a finished example. Right-click → "View source" to lift the SVG.</li>
+        <li>Drop into the markdown file as <code>&lt;figure&gt;&lt;svg&gt;…&lt;/svg&gt;&lt;figcaption&gt;…&lt;/figcaption&gt;&lt;/figure&gt;</code> using the caption from each example page.</li>
+        <li>Figures are referenced from the prose by ID (V1, V2, …) so cross-doc links survive renumbering.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>What's intentionally missing</h4>
+      <ul>
+        <li>No homepage hero / marketing visuals — this is internal SDLC.</li>
+        <li>No screenshots of UI mocks — atl-mcp's UI is the MCP protocol surface; tools API docs cover it.</li>
+        <li>No animated diagrams. Documentation lives in PRs and PDFs; movement doesn't survive the trip.</li>
+        <li>No infra-as-code topology — that lives in the deploy repo, not the spec.</li>
+      </ul>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

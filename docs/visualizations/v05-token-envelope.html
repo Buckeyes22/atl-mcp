@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V5 — Token envelope encryption · atl-mcp visualizations</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+<header class="viz-header">
+  <div>
+    <div class="viz-eyebrow">
+      <a href="index.html" class="viz-back">← all visualizations</a>
+      <span class="tier t1">tier 1</span><span class="viz-id">V5</span>
+    </div>
+    <h1 class="viz-title">Token envelope encryption</h1>
+  </div>
+  <div class="viz-meta">
+    <div><span class="key">lands in </span><span class="val">06-security/token-storage.md</span></div>
+    <div><span class="key">format    </span><span class="val">SVG · seal + open</span></div>
+    <div><span class="key">spec      </span><span class="val">ADR-0002 · v6 §29</span></div>
+  </div>
+</header>
+
+<div class="stage" style="padding:48px 32px;">
+  <svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, system-ui">
+    <defs>
+      <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#43434a"/>
+      </marker>
+    </defs>
+
+    <!-- column titles -->
+    <text x="48" y="28" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">SEAL · WRITE PATH</text>
+    <text x="660" y="28" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">OPEN · READ PATH</text>
+
+    <!-- divider -->
+    <line x1="600" y1="48" x2="600" y2="630" stroke="#e3e0d8" stroke-dasharray="3 3"/>
+
+    <!-- master key trust island (top center, shared) -->
+    <g transform="translate(440,52)">
+      <rect width="320" height="64" rx="3" fill="#fbe7e4" stroke="#b8281d" stroke-width="1.5"/>
+      <text x="160" y="22" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#7a1d14">TOKEN_MASTER_KEY · 32 bytes hex</text>
+      <text x="160" y="40" text-anchor="middle" font-family="IBM Plex Sans" font-size="11.5" font-weight="600" fill="#1a1a1c">env var only · NEVER persisted in DB</text>
+      <text x="160" y="56" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7a1d14">single-key v1 · per-row data keys: PCO-57</text>
+    </g>
+
+    <!-- ============ SEAL PATH (left) ============ -->
+    <!-- plaintext -->
+    <g transform="translate(48,140)">
+      <rect width="500" height="48" rx="3" fill="#fbeed8" stroke="#b96b16"/>
+      <text x="14" y="20" font-family="IBM Plex Mono" font-size="10" fill="#7a4408">plaintext token</text>
+      <text x="14" y="38" font-family="IBM Plex Mono" font-size="11.5" fill="#1a1a1c">{ "token": "ATATT3xFfGN0…", "metadata": { … } }</text>
+    </g>
+
+    <!-- nonce -->
+    <g transform="translate(48,210)">
+      <rect width="240" height="48" rx="3" fill="#fff" stroke="#c8c3b6"/>
+      <text x="14" y="20" font-family="IBM Plex Mono" font-size="10" fill="#9a9690">fresh nonce · 24 bytes random</text>
+      <text x="14" y="38" font-family="IBM Plex Mono" font-size="11.5" fill="#1a1a1c">7f a3 0c 19 …</text>
+    </g>
+
+    <!-- aead seal pill -->
+    <g transform="translate(48,288)">
+      <rect width="500" height="44" rx="22" fill="#1a1a1c"/>
+      <text x="250" y="28" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#fff">XChaCha20-Poly1305 · seal(masterKey, nonce, plaintext)</text>
+    </g>
+    <line x1="180" y1="258" x2="180" y2="288" stroke="#43434a" marker-end="url(#ar)"/>
+    <line x1="298" y1="188" x2="298" y2="288" stroke="#43434a" marker-end="url(#ar)"/>
+    <!-- master key in -->
+    <path d="M460,116 C460,180 220,210 130,288" fill="none" stroke="#b8281d" stroke-dasharray="3 3" marker-end="url(#ar)"/>
+    <text x="220" y="240" font-family="IBM Plex Mono" font-size="10" fill="#b8281d">masterKey</text>
+
+    <!-- envelope (output) -->
+    <g transform="translate(48,360)">
+      <rect width="500" height="84" rx="3" fill="#dde9f2" stroke="#1f5f8a" stroke-width="1.5"/>
+      <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" fill="#1f5f8a">envelope · stored as auditable bundle</text>
+      <!-- nonce segment -->
+      <rect x="14" y="34" width="120" height="36" fill="#fff" stroke="#1f5f8a"/>
+      <text x="74" y="48" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#1f5f8a">nonce</text>
+      <text x="74" y="62" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#43434a">24 B</text>
+      <!-- ciphertext segment -->
+      <rect x="134" y="34" width="280" height="36" fill="#dde9f2" stroke="#1f5f8a"/>
+      <text x="274" y="48" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#1f5f8a">ciphertext</text>
+      <text x="274" y="62" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#43434a">N B</text>
+      <!-- auth tag -->
+      <rect x="414" y="34" width="72" height="36" fill="#ece1f3" stroke="#6e1a82"/>
+      <text x="450" y="48" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#6e1a82">tag</text>
+      <text x="450" y="62" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#43434a">16 B</text>
+    </g>
+    <line x1="298" y1="332" x2="298" y2="360" stroke="#43434a" marker-end="url(#ar)"/>
+
+    <!-- DB row -->
+    <g transform="translate(48,476)">
+      <ellipse cx="32" cy="14" rx="32" ry="9" fill="#faf9f6" stroke="#c8c3b6"/>
+      <rect x="0" y="14" width="64" height="60" fill="#faf9f6" stroke="#c8c3b6"/>
+      <ellipse cx="32" cy="74" rx="32" ry="9" fill="#faf9f6" stroke="#c8c3b6"/>
+      <text x="80" y="20" font-family="IBM Plex Mono" font-size="10" fill="#9a9690">encryptedTokens</text>
+      <g font-family="IBM Plex Mono" font-size="11" fill="#43434a">
+        <text x="80" y="38">(id, kind, subject, nonce, ciphertext, key_version, createdAt)</text>
+        <text x="80" y="56" fill="#1a1a1c">→ row insert</text>
+      </g>
+    </g>
+    <line x1="298" y1="444" x2="298" y2="476" stroke="#43434a" marker-end="url(#ar)"/>
+
+    <!-- caller note -->
+    <g transform="translate(48,576)">
+      <text font-family="IBM Plex Mono" font-size="10.5" fill="#6f6e6a">caller zeroes plaintext after seal · best-effort (JS memory hygiene caveat documented)</text>
+    </g>
+
+    <!-- ============ OPEN PATH (right) ============ -->
+    <!-- DB row source -->
+    <g transform="translate(660,140)">
+      <ellipse cx="32" cy="14" rx="32" ry="9" fill="#faf9f6" stroke="#c8c3b6"/>
+      <rect x="0" y="14" width="500" height="48" fill="#faf9f6" stroke="#c8c3b6"/>
+      <ellipse cx="32" cy="62" rx="32" ry="9" fill="#faf9f6" stroke="#c8c3b6"/>
+      <text x="80" y="32" font-family="IBM Plex Mono" font-size="10" fill="#9a9690">encryptedTokens · SELECT</text>
+      <text x="80" y="52" font-family="IBM Plex Mono" font-size="11" fill="#43434a">→ row { nonce, ciphertext+tag }</text>
+    </g>
+
+    <!-- aead open -->
+    <g transform="translate(660,232)">
+      <rect width="500" height="44" rx="22" fill="#1a1a1c"/>
+      <text x="250" y="28" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#fff">XChaCha20-Poly1305 · open(masterKey, nonce, ct)</text>
+    </g>
+    <line x1="910" y1="216" x2="910" y2="232" stroke="#43434a" marker-end="url(#ar)"/>
+    <path d="M758,116 C 760,180 800,200 760,232" fill="none" stroke="#b8281d" stroke-dasharray="3 3" marker-end="url(#ar)"/>
+    <text x="660" y="200" font-family="IBM Plex Mono" font-size="10" fill="#b8281d">masterKey</text>
+
+    <!-- branch: success vs auth-fail -->
+    <g transform="translate(660,304)">
+      <line x1="250" y1="0" x2="100" y2="32" stroke="#1f6e54" marker-end="url(#ar)"/>
+      <line x1="250" y1="0" x2="400" y2="32" stroke="#b8281d" marker-end="url(#ar)"/>
+    </g>
+
+    <!-- success -->
+    <g transform="translate(660,344)">
+      <rect width="220" height="76" rx="3" fill="#dceee5" stroke="#1f6e54"/>
+      <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" fill="#0e3d2f">tag verified · open OK</text>
+      <text x="14" y="42" font-family="IBM Plex Sans" font-size="12" font-weight="600" fill="#0e3d2f">plaintext → in memory</text>
+      <text x="14" y="62" font-family="IBM Plex Mono" font-size="10.5" fill="#0e3d2f">held only for outbound HTTP;</text>
+      <text x="14" y="76" font-family="IBM Plex Mono" font-size="10.5" fill="#0e3d2f">zeroed after request.</text>
+    </g>
+
+    <!-- auth fail -->
+    <g transform="translate(940,344)">
+      <rect width="220" height="76" rx="3" fill="#fbe7e4" stroke="#b8281d"/>
+      <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" fill="#7a1d14">tag mismatch · TAMPER</text>
+      <text x="14" y="42" font-family="IBM Plex Sans" font-size="12" font-weight="600" fill="#7a1d14">authentication failure</text>
+      <text x="14" y="62" font-family="IBM Plex Mono" font-size="10.5" fill="#7a1d14">no partial decrypt — AEAD</text>
+      <text x="14" y="76" font-family="IBM Plex Mono" font-size="10.5" fill="#7a1d14">structurally prevents it.</text>
+    </g>
+
+    <!-- consumer -->
+    <g transform="translate(660,452)">
+      <rect width="500" height="48" rx="3" fill="#fff" stroke="#c8c3b6"/>
+      <text x="14" y="20" font-family="IBM Plex Mono" font-size="10" fill="#9a9690">provider request signing</text>
+      <text x="14" y="38" font-family="IBM Plex Mono" font-size="11" fill="#43434a">REST → Atlassian / Bitbucket · `Authorization` header set, then plaintext zeroed</text>
+    </g>
+    <line x1="770" y1="420" x2="770" y2="452" stroke="#43434a" marker-end="url(#ar)"/>
+
+    <!-- bottom rotation note -->
+    <g transform="translate(660,548)">
+      <text font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">MASTER-KEY ROTATION (incident-grade · manual)</text>
+      <text y="22" font-family="IBM Plex Mono" font-size="10.5" fill="#43434a">no auto-rewrap; runbook Incident C drill · long-term fix in PCO-57</text>
+    </g>
+  </svg>
+</div>
+
+<div class="caption-block">
+  <div class="caption-card">
+    <h4>Caption (for the doc)</h4>
+    <p>Token envelope encryption per ADR-0002. Each seal generates a fresh 24-byte nonce; the AEAD construction (XChaCha20-Poly1305) produces an authenticated <code>nonce ‖ ciphertext ‖ tag</code> bundle. The 32-byte master key lives in <code>TOKEN_MASTER_KEY</code> only — never persisted in DB. Open returns either plaintext (tag verified) or a tamper-detection error; partial-decrypt-on-bad-tag is impossible by AEAD construction. Master-key rotation requires a re-encrypt drill (Incident C in runbook); PCO-57 tracks the long-term envelope-with-per-row-data-keys refactor.</p>
+  </div>
+  <div class="caption-card insertion">
+    <h4>Insertion instruction</h4>
+    <p>Insert after the <code>## Cryptographic primitives</code> section in <code>docs/sdlc/06-security/token-storage.md</code>, before the <code>## Envelope shape</code> heading.</p>
+  </div>
+</div>
+
+<div class="notes">
+  <h4>Design notes</h4>
+  <p>The most important asymmetry — <strong>master key always-in-env</strong> vs <strong>data always-in-row</strong> — is shown by the red trust island floating above both columns and feeding both flows with dashed red arrows. The envelope structure is laid out as three concrete byte-segments (nonce / ciphertext / tag) so "envelope" is literal, not metaphorical.</p>
+</div>
+
+</div>
+</body>
+</html>

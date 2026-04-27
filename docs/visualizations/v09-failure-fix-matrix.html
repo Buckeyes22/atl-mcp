@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V9 — Failure → fix matrix · atl-mcp visualizations</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+<header class="viz-header">
+  <div>
+    <div class="viz-eyebrow">
+      <a href="index.html" class="viz-back">← all visualizations</a>
+      <span class="tier t2">tier 2</span><span class="viz-id">V9</span>
+    </div>
+    <h1 class="viz-title">Failure → control → test matrix</h1>
+  </div>
+  <div class="viz-meta">
+    <div><span class="key">lands in </span><span class="val">04-design/failure-modes.md</span></div>
+    <div><span class="key">format    </span><span class="val">HTML matrix</span></div>
+  </div>
+</header>
+
+<div class="stage" style="padding:32px;">
+<style>
+.fmatrix { width:100%; border-collapse:collapse; font-family:'IBM Plex Sans', sans-serif; font-size:12px; }
+.fmatrix th, .fmatrix td { border-bottom:1px solid var(--rule); padding:14px 12px; vertical-align:top; text-align:left; }
+.fmatrix th { font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:1.4px; color:var(--ink-3); font-weight:500; background:#faf9f6; padding-top:10px; padding-bottom:10px; border-bottom:1px solid var(--rule-strong); }
+.fmatrix td.fail { font-weight:600; color:var(--ink); width:18%; }
+.fmatrix td.det  { font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-2); width:18%; }
+.fmatrix td.ctrl { width:24%; color:var(--ink-2); }
+.fmatrix td.test { font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--ink-2); width:22%; word-break:break-all; }
+.fmatrix td.spec { font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--ink-3); width:18%; }
+.tag { display:inline-block; font-family:'IBM Plex Mono'; font-size:9.5px; padding:2px 6px; border-radius:2px; margin-right:6px; letter-spacing:0.4px; vertical-align:1px; }
+.t-crit { background:#fbe7e4; color:#7a1d14; }
+.t-high { background:#fbeed8; color:#7a4408; }
+.t-med  { background:#dde9f2; color:#11364f; }
+.t-low  { background:#dceee5; color:#0e3d2f; }
+.fmatrix tr.group td { background:#f0ede5; font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:1.4px; color:var(--ink-3); padding:8px 12px; }
+.fclosed { display:inline-block; font-family:'IBM Plex Mono'; font-size:9.5px; padding:1px 5px; background:#fbe7e4; color:#7a1d14; border-radius:2px; margin-left:6px; }
+</style>
+
+<table class="fmatrix">
+  <thead>
+    <tr>
+      <th>failure mode</th>
+      <th>detection signal</th>
+      <th>control · how it's prevented or contained</th>
+      <th>validating test</th>
+      <th>spec ref</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr class="group"><td colspan="5">SECURITY · INTEGRITY</td></tr>
+
+    <tr>
+      <td class="fail"><span class="tag t-crit">crit</span>audit chain forged / broken</td>
+      <td class="det">verifier rejects chain · prev_hash mismatch</td>
+      <td class="ctrl">hash chain + ed25519 sig + git-ref versioned key registry · fail-closed on write fail<span class="fclosed">fail-closed</span></td>
+      <td class="test">tests/integration/audit/<br>chainConstruction.test.ts<br>tamperDetection.test.ts</td>
+      <td class="spec">ADR-0005 · v6 §30.1</td>
+    </tr>
+    <tr>
+      <td class="fail"><span class="tag t-crit">crit</span>token exfiltrated</td>
+      <td class="det">unexpected outbound to non-whitelisted host · token in log</td>
+      <td class="ctrl">XChaCha20-Poly1305 envelope · master key in env only · pino redact on secret paths · loopback default for mgmt API</td>
+      <td class="test">tests/unit/security/<br>tokenEncryption.test.ts</td>
+      <td class="spec">ADR-0002 · v6 §29</td>
+    </tr>
+    <tr>
+      <td class="fail"><span class="tag t-crit">crit</span>lethal trifecta op</td>
+      <td class="det">policy decision flags PRIVATE × UNTRUSTED × EXTERNAL</td>
+      <td class="ctrl">policy decision layer · classification at ingestion · provenance tracking · deny ≥ 0.95 conf, else require_approval</td>
+      <td class="test">tests/integration/policy/<br>trifectaDetection.test.ts</td>
+      <td class="spec">v6 §38.1</td>
+    </tr>
+    <tr>
+      <td class="fail"><span class="tag t-high">high</span>forged webhook delivery</td>
+      <td class="det">HMAC mismatch on /webhooks · 401 returned</td>
+      <td class="ctrl">HMAC-SHA256 + constant-time compare · per-source shared secret · delivery dedup by (source, deliveryId)</td>
+      <td class="test">tests/unit/security/<br>webhookSignatures.test.ts</td>
+      <td class="spec">v6 §26.1</td>
+    </tr>
+
+    <tr class="group"><td colspan="5">CORRECTNESS · IDEMPOTENCY</td></tr>
+
+    <tr>
+      <td class="fail"><span class="tag t-high">high</span>duplicate provisioning</td>
+      <td class="det">re-run produces second epic / page / branch</td>
+      <td class="ctrl">idempotency keys on every provision op · unique constraints in storage · planner emits diff, not full replay</td>
+      <td class="test">tests/integration/storage/<br>repositories.test.ts (concurrent insert)</td>
+      <td class="spec">v6 §1 mission · M5 planner</td>
+    </tr>
+    <tr>
+      <td class="fail"><span class="tag t-high">high</span>mid-execute crash</td>
+      <td class="det">job stuck in_progress past timeout</td>
+      <td class="ctrl">state stays PROVISIONING_EXECUTED · partial successes recorded · re-pickup is idempotent · BullMQ retry semantics</td>
+      <td class="test">tests/integration/queue/<br>recovery.test.ts</td>
+      <td class="spec">module-queue.md · v6 §24</td>
+    </tr>
+    <tr>
+      <td class="fail"><span class="tag t-high">high</span>migration drift</td>
+      <td class="det">post-condition assertion fails · /readyz red</td>
+      <td class="ctrl">migration rehearsal (PCO-13) before apply · stops runner on rehearsal failure</td>
+      <td class="test">tests/integration/storage/<br>migrationRehearsal.test.ts</td>
+      <td class="spec">module-storage.md (Incident B response)</td>
+    </tr>
+    <tr>
+      <td class="fail"><span class="tag t-med">med</span>stdout corruption</td>
+      <td class="det">MCP client disconnects · session_init failure</td>
+      <td class="ctrl">pino file-only · lint:no-stdout enforces protocol invariant on every PR<span class="fclosed">CI gate</span></td>
+      <td class="test">tests/lint/no-stdout.test.ts</td>
+      <td class="spec">CLAUDE.md · Incident A</td>
+    </tr>
+
+    <tr class="group"><td colspan="5">DEGRADED OPERATION</td></tr>
+
+    <tr>
+      <td class="fail"><span class="tag t-med">med</span>sampling unavailable</td>
+      <td class="det">provider 5xx · timeout</td>
+      <td class="ctrl">degraded plan path · operator warning surfaced · adversarial triplet skipped with explicit flag (not silent)</td>
+      <td class="test">tests/integration/workflows/<br>blueprint.degraded.test.ts</td>
+      <td class="spec">module-workflows.md</td>
+    </tr>
+    <tr>
+      <td class="fail"><span class="tag t-med">med</span>vendor 429 storm</td>
+      <td class="det">atlassian_429_total counter rises</td>
+      <td class="ctrl">exponential backoff · retry budget · per-tenant rate-limit state · queue back-pressure</td>
+      <td class="test">tests/unit/providers/<br>retryLogic.test.ts</td>
+      <td class="spec">module-providers-atlassian.md</td>
+    </tr>
+    <tr>
+      <td class="fail"><span class="tag t-med">med</span>capability cache stale</td>
+      <td class="det">field-schema validator rejects on apply</td>
+      <td class="ctrl">TTL on profile cache · re-discover on validator failure · explicit warning model for partial probes</td>
+      <td class="test">tests/integration/preflight/<br>cacheTTL.test.ts</td>
+      <td class="spec">module-preflight.md</td>
+    </tr>
+    <tr>
+      <td class="fail"><span class="tag t-low">low</span>connection pool exhaustion</td>
+      <td class="det">db_query_failure_rate alert</td>
+      <td class="ctrl">bounded pool · slow-query log · runbook §DB triage</td>
+      <td class="test">load test (manual; capacity drill)</td>
+      <td class="spec">module-storage.md</td>
+    </tr>
+
+    <tr class="group"><td colspan="5">CROSS-CUTTING</td></tr>
+
+    <tr>
+      <td class="fail"><span class="tag t-high">high</span>auth probe wrong scope</td>
+      <td class="det">401/403 on first write · explicit warning</td>
+      <td class="ctrl">capability discovery preflight (M2) · 80%+ misconfig catch target · auth failure audited</td>
+      <td class="test">tests/integration/preflight/<br>auth.test.ts</td>
+      <td class="spec">v6 §19 · charter success criterion #5</td>
+    </tr>
+    <tr>
+      <td class="fail"><span class="tag t-low">low</span>operator skips dry-run</td>
+      <td class="det">post-deploy diff differs from preview</td>
+      <td class="ctrl">runbook step is required (gate) · dry-run output linked in audit chain · two-stage review (spec + quality)</td>
+      <td class="test">runbook drill (quarterly)</td>
+      <td class="spec">runbook.md · superpowers F-107</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<div class="caption-block">
+  <div class="caption-card">
+    <h4>Caption (for the doc)</h4>
+    <p>Every named failure mode in atl-mcp has a detection signal, a control that prevents or contains it, and a test that validates the control. The matrix groups them by category — security/integrity, correctness/idempotency, degraded operation, cross-cutting — and tags severity with a colored chip. <code>fail-closed</code> badges call out controls that abort the calling operation rather than degrade silently. Detail per row lives in the linked module docs and the threat model.</p>
+  </div>
+  <div class="caption-card insertion">
+    <h4>Insertion instruction</h4>
+    <p>Insert as the canonical reference table in <code>docs/sdlc/04-design/failure-modes.md</code>, after the V8 Ishikawa figure. Each per-module <code>## Failure modes</code> section can link to its rows here.</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

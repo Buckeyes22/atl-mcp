@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V11 — Context-pack token budget · atl-mcp visualizations</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+<header class="viz-header">
+  <div>
+    <div class="viz-eyebrow">
+      <a href="index.html" class="viz-back">← all visualizations</a>
+      <span class="tier t2">tier 2</span><span class="viz-id">V11</span>
+    </div>
+    <h1 class="viz-title">Context-pack token budget</h1>
+  </div>
+  <div class="viz-meta">
+    <div><span class="key">lands in </span><span class="val">04-design/module-context.md</span></div>
+    <div><span class="key">format    </span><span class="val">SVG stacked bar</span></div>
+    <div><span class="key">spec      </span><span class="val">v6 §16</span></div>
+  </div>
+</header>
+
+<div class="stage" style="padding:48px 32px;">
+<svg viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, system-ui">
+  <text x="40" y="28" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">BOUNDED, REDACTED, MODEL-TARGETED · SAME PROFILE PRODUCES DIFFERENT PACKS PER MODEL</text>
+
+  <!-- y axis labels (model targets) -->
+  <g font-family="IBM Plex Sans" font-size="13" fill="#1a1a1c">
+    <text x="40" y="120">Claude Sonnet 4.x</text>
+    <text x="40" y="138" font-family="IBM Plex Mono" font-size="10.5" fill="#6f6e6a">200k window · 90% target = 180k</text>
+
+    <text x="40" y="240">Cursor (default)</text>
+    <text x="40" y="258" font-family="IBM Plex Mono" font-size="10.5" fill="#6f6e6a">128k window · target = 115k</text>
+
+    <text x="40" y="360">Codex / GPT-5</text>
+    <text x="40" y="378" font-family="IBM Plex Mono" font-size="10.5" fill="#6f6e6a">128k window · target = 115k</text>
+
+    <text x="40" y="480">small-context fallback</text>
+    <text x="40" y="498" font-family="IBM Plex Mono" font-size="10.5" fill="#6f6e6a">32k window · target = 28k</text>
+  </g>
+
+  <!-- bars -->
+  <!-- helper grid; 1 token = 4.4px (180k -> ~792px) -->
+  <!-- We'll cap bar at 880px from x=270 -->
+  <g transform="translate(270,100)">
+    <!-- 200k reference ticks -->
+    <g font-family="IBM Plex Mono" font-size="10" fill="#9a9690">
+      <line x1="0" y1="-12" x2="0" y2="440" stroke="#e3e0d8"/><text x="0" y="-16" text-anchor="middle">0</text>
+      <line x1="220" y1="-12" x2="220" y2="440" stroke="#e3e0d8"/><text x="220" y="-16" text-anchor="middle">50k</text>
+      <line x1="440" y1="-12" x2="440" y2="440" stroke="#e3e0d8"/><text x="440" y="-16" text-anchor="middle">100k</text>
+      <line x1="660" y1="-12" x2="660" y2="440" stroke="#e3e0d8"/><text x="660" y="-16" text-anchor="middle">150k</text>
+      <line x1="880" y1="-12" x2="880" y2="440" stroke="#e3e0d8"/><text x="880" y="-16" text-anchor="middle">200k tokens</text>
+    </g>
+
+    <!-- =============== Bar 1: Claude Sonnet — target 180k =============== -->
+    <!-- system + intent: 8k -->
+    <rect x="0" y="0" width="35" height="40" fill="#1a1a1c"/>
+    <!-- charter + ADR snippets: 22k -->
+    <rect x="35" y="0" width="97" height="40" fill="#3e0d4d"/>
+    <!-- module/runtime spec: 28k -->
+    <rect x="132" y="0" width="124" height="40" fill="#6e1a82"/>
+    <!-- code excerpts (selected): 64k -->
+    <rect x="256" y="0" width="282" height="40" fill="#1f5f8a"/>
+    <!-- tests + fixtures: 30k -->
+    <rect x="538" y="0" width="132" height="40" fill="#1f6e54"/>
+    <!-- runbook + ops: 14k -->
+    <rect x="670" y="0" width="62" height="40" fill="#b96b16"/>
+    <!-- safety margin: 14k -->
+    <rect x="732" y="0" width="62" height="40" fill="#fbe7e4" stroke="#b8281d" stroke-dasharray="3 2"/>
+    <!-- outline -->
+    <rect x="0" y="0" width="794" height="40" fill="none" stroke="#1a1a1c" stroke-width="1"/>
+    <text x="800" y="26" font-family="IBM Plex Mono" font-size="11" fill="#43434a">180k / 200k</text>
+
+    <!-- =============== Bar 2: Cursor — target 115k =============== -->
+    <!-- system: 8k -->
+    <rect x="0" y="120" width="35" height="40" fill="#1a1a1c"/>
+    <!-- charter + ADR: 14k -->
+    <rect x="35" y="120" width="62" height="40" fill="#3e0d4d"/>
+    <!-- module spec: 18k -->
+    <rect x="97" y="120" width="79" height="40" fill="#6e1a82"/>
+    <!-- code: 38k -->
+    <rect x="176" y="120" width="167" height="40" fill="#1f5f8a"/>
+    <!-- tests: 18k -->
+    <rect x="343" y="120" width="79" height="40" fill="#1f6e54"/>
+    <!-- runbook: 9k -->
+    <rect x="422" y="120" width="40" height="40" fill="#b96b16"/>
+    <!-- safety: 10k -->
+    <rect x="462" y="120" width="44" height="40" fill="#fbe7e4" stroke="#b8281d" stroke-dasharray="3 2"/>
+    <rect x="0" y="120" width="506" height="40" fill="none" stroke="#1a1a1c" stroke-width="1"/>
+    <text x="512" y="146" font-family="IBM Plex Mono" font-size="11" fill="#43434a">115k / 128k</text>
+
+    <!-- =============== Bar 3: Codex — target 115k (same window, different selection ratio) =============== -->
+    <rect x="0" y="240" width="35" height="40" fill="#1a1a1c"/>
+    <rect x="35" y="240" width="62" height="40" fill="#3e0d4d"/>
+    <rect x="97" y="240" width="62" height="40" fill="#6e1a82"/>
+    <rect x="159" y="240" width="186" height="40" fill="#1f5f8a"/>
+    <rect x="345" y="240" width="92" height="40" fill="#1f6e54"/>
+    <rect x="437" y="240" width="29" height="40" fill="#b96b16"/>
+    <rect x="466" y="240" width="40" height="40" fill="#fbe7e4" stroke="#b8281d" stroke-dasharray="3 2"/>
+    <rect x="0" y="240" width="506" height="40" fill="none" stroke="#1a1a1c" stroke-width="1"/>
+    <text x="512" y="266" font-family="IBM Plex Mono" font-size="11" fill="#43434a">115k / 128k</text>
+
+    <!-- =============== Bar 4: small-context — target 28k =============== -->
+    <rect x="0" y="360" width="22" height="40" fill="#1a1a1c"/>
+    <rect x="22" y="360" width="22" height="40" fill="#3e0d4d"/>
+    <rect x="44" y="360" width="22" height="40" fill="#6e1a82"/>
+    <rect x="66" y="360" width="33" height="40" fill="#1f5f8a"/>
+    <rect x="99" y="360" width="11" height="40" fill="#1f6e54"/>
+    <rect x="110" y="360" width="9" height="40" fill="#b96b16"/>
+    <rect x="119" y="360" width="4" height="40" fill="#fbe7e4" stroke="#b8281d" stroke-dasharray="3 2"/>
+    <rect x="0" y="360" width="123" height="40" fill="none" stroke="#1a1a1c" stroke-width="1"/>
+    <text x="130" y="386" font-family="IBM Plex Mono" font-size="11" fill="#43434a">28k / 32k · TRUNCATION LOSSY</text>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(40,540)" font-family="IBM Plex Sans" font-size="11.5" fill="#43434a">
+    <text font-family="IBM Plex Mono" font-size="10" letter-spacing="1.4" fill="#9a9690" y="0">SECTIONS</text>
+    <g transform="translate(0,14)">
+      <rect width="14" height="14" fill="#1a1a1c"/><text x="22" y="11">system + intent</text>
+      <rect x="148" width="14" height="14" fill="#3e0d4d"/><text x="170" y="11">charter + ADR snippets</text>
+      <rect x="338" width="14" height="14" fill="#6e1a82"/><text x="360" y="11">module / runtime spec</text>
+      <rect x="528" width="14" height="14" fill="#1f5f8a"/><text x="550" y="11">code excerpts</text>
+      <rect x="668" width="14" height="14" fill="#1f6e54"/><text x="690" y="11">tests + fixtures</text>
+      <rect x="828" width="14" height="14" fill="#b96b16"/><text x="850" y="11">runbook + ops</text>
+      <rect x="978" width="14" height="14" fill="#fbe7e4" stroke="#b8281d" stroke-dasharray="3 2"/><text x="1000" y="11">safety margin (head-room)</text>
+    </g>
+    <text y="50" font-family="IBM Plex Mono" font-size="10.5" fill="#6f6e6a">classification + provenance metadata is embedded per chunk · redaction happens upstream of pack assembly · over-budget triggers truncation lossiness warning.</text>
+  </g>
+</svg>
+</div>
+
+<div class="caption-block">
+  <div class="caption-card">
+    <h4>Caption (for the doc)</h4>
+    <p>Context-pack composition, sized per model target. The same project profile yields different packs because the budget — and therefore the selection ratio across system/spec/code/tests/runbook — changes per consumer. The dashed safety-margin band is mandatory head-room: it leaves room for the agent's own reasoning. The 32k small-context fallback truncates aggressively and surfaces a "lossy" warning to the consumer.</p>
+  </div>
+  <div class="caption-card insertion">
+    <h4>Insertion instruction</h4>
+    <p>Insert in <code>docs/sdlc/04-design/module-context.md</code> in the <code>## Pack composition</code> section, between the introductory paragraph and the per-section budget rules.</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

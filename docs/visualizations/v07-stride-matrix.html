@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V7 — STRIDE matrix · atl-mcp visualizations</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+<header class="viz-header">
+  <div>
+    <div class="viz-eyebrow">
+      <a href="index.html" class="viz-back">← all visualizations</a>
+      <span class="tier t2">tier 2</span><span class="viz-id">V7</span>
+    </div>
+    <h1 class="viz-title">STRIDE × trust-boundary heatmap</h1>
+  </div>
+  <div class="viz-meta">
+    <div><span class="key">lands in </span><span class="val">06-security/threat-model.md</span></div>
+    <div><span class="key">format    </span><span class="val">HTML grid</span></div>
+  </div>
+</header>
+
+<div class="stage" style="padding:48px 32px;">
+<style>
+.stride { width:100%; border-collapse:separate; border-spacing:0; font-family:'IBM Plex Sans', sans-serif; font-size:12px; }
+.stride th, .stride td { border:1px solid var(--rule); padding:0; vertical-align:top; }
+.stride th { background:#faf9f6; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; color:var(--ink-3); padding:10px 12px; text-align:left; font-weight:500; }
+.stride th.row { width:148px; }
+.stride td { padding:10px 12px; min-height:78px; position:relative; }
+.tid { font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--ink-3); display:block; }
+.tname { font-weight:600; color:var(--ink); display:block; margin-top:2px; line-height:1.3; }
+.cell-empty { background:repeating-linear-gradient(45deg, #faf9f6 0 4px, #f0ede5 4px 8px); color:var(--ink-3); font-family:'IBM Plex Mono'; font-size:10px; text-align:center; padding-top:36px; }
+/* impact backgrounds */
+.imp-low    { background: #f3f0e8; }
+.imp-med    { background: #fbeed8; }
+.imp-high   { background: #fbe7e4; }
+.imp-crit   { background: #f5c5be; }
+/* impact pip */
+.pip { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+.pip-low { background:#9a9690; }
+.pip-med { background:#b96b16; }
+.pip-high { background:#b8281d; }
+.pip-crit { background:#7a1d14; }
+.legend { display:flex; gap:20px; flex-wrap:wrap; font-family:'IBM Plex Mono'; font-size:11px; color:var(--ink-2); margin-bottom:20px; }
+.legend-row { display:flex; gap:8px; align-items:center; }
+.btitle { font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--ink-3); display:block; margin-top:4px; }
+</style>
+
+<div class="legend">
+  <div class="legend-row"><span class="pip pip-low"></span>low impact</div>
+  <div class="legend-row"><span class="pip pip-med"></span>medium</div>
+  <div class="legend-row"><span class="pip pip-high"></span>high</div>
+  <div class="legend-row"><span class="pip pip-crit"></span>critical</div>
+  <div class="legend-row" style="margin-left:auto;color:var(--ink-3)">cell color = max impact in cell · pip = per-threat impact</div>
+</div>
+
+<table class="stride">
+  <thead>
+    <tr>
+      <th class="row">trust boundary</th>
+      <th>S — spoofing</th>
+      <th>T — tampering</th>
+      <th>R — repudiation</th>
+      <th>I — info disclosure</th>
+      <th>D — denial of service</th>
+      <th>E — elevation of privilege</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="row">B1 · external → server<br><span class="btitle">MCP, mgmt REST, webhooks</span></th>
+      <td class="imp-med">
+        <span class="tid">T-1101</span><span class="tname"><span class="pip pip-med"></span>spoof MCP session as different agent</span>
+      </td>
+      <td class="imp-high">
+        <span class="tid">T-1102 · T-1103 · T-1104</span><span class="tname"><span class="pip pip-med"></span>replay MCP req · <span class="pip pip-high"></span>forge webhook · <span class="pip pip-med"></span>replay webhook</span>
+      </td>
+      <td class="imp-med">
+        <span class="tid">T-1106</span><span class="tname"><span class="pip pip-med"></span>operator denies action; audit attribution challenged</span>
+      </td>
+      <td class="imp-med">
+        <span class="tid">T-1107</span><span class="tname"><span class="pip pip-med"></span>error responses leak internals (paths, IDs)</span>
+      </td>
+      <td class="imp-med">
+        <span class="tid">T-1105</span><span class="tname"><span class="pip pip-med"></span>flood MCP transport / mgmt port</span>
+      </td>
+      <td class="imp-high">
+        <span class="tid">T-1108</span><span class="tname"><span class="pip pip-high"></span>capability over-grant via session re-negotiation</span>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="row">B2 · server → Atlassian / VCS<br><span class="btitle">REST + sampling outbound</span></th>
+      <td class="imp-med">
+        <span class="tid">T-2101</span><span class="tname"><span class="pip pip-med"></span>connect to attacker-controlled Atlassian-shaped host</span>
+      </td>
+      <td class="imp-high">
+        <span class="tid">T-2102</span><span class="tname"><span class="pip pip-high"></span>request body tampering on outbound (TLS-MITM)</span>
+      </td>
+      <td class="imp-low">
+        <span class="tid">—</span><span class="tname" style="color:var(--ink-3)">vendor systems own attribution</span>
+      </td>
+      <td class="imp-crit">
+        <span class="tid">T-2201 · T-2202</span><span class="tname"><span class="pip pip-crit"></span>exfiltrate API tokens · <span class="pip pip-high"></span>leak secrets in logs</span>
+      </td>
+      <td class="imp-low">
+        <span class="tid">T-2103</span><span class="tname"><span class="pip pip-low"></span>vendor 429 storm — not adversarial; bounded by retry budget</span>
+      </td>
+      <td class="imp-high">
+        <span class="tid">T-2203</span><span class="tname"><span class="pip pip-high"></span>token scope larger than declared — privilege drift</span>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="row">B3 · cross-cutting<br><span class="btitle">audit chain · LLM trifecta</span></th>
+      <td class="imp-low cell-empty">— spoofing covered at B1 / B2</td>
+      <td class="imp-crit">
+        <span class="tid">T-1101 · T-3101</span><span class="tname"><span class="pip pip-crit"></span>forge audit entries · <span class="pip pip-crit"></span>break the hash chain</span>
+      </td>
+      <td class="imp-crit">
+        <span class="tid">T-3102</span><span class="tname"><span class="pip pip-crit"></span>repudiate a state-changing op without audit</span>
+      </td>
+      <td class="imp-crit">
+        <span class="tid">T-3301</span><span class="tname"><span class="pip pip-crit"></span>lethal trifecta — exfiltrate via prompt-injection in profile</span>
+      </td>
+      <td class="imp-med">
+        <span class="tid">T-3401</span><span class="tname"><span class="pip pip-med"></span>poisoned untrusted content → cost / latency exhaustion</span>
+      </td>
+      <td class="imp-high">
+        <span class="tid">T-3501</span><span class="tname"><span class="pip pip-high"></span>policy decision bypass via classification mislabel</span>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="row">out of scope (v1)<br><span class="btitle">single-tenant; v6 §7.3</span></th>
+      <td colspan="6" class="cell-empty" style="padding:14px;">
+        multi-tenant cross-customer attack surface · compromised host (root/admin) · agent host security (Claude Code / Cursor / Codex run on user machine) · vendor-side threat models
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="caption-block">
+  <div class="caption-card">
+    <h4>Caption (for the doc)</h4>
+    <p>STRIDE × trust-boundary matrix for atl-mcp v1. Cell color reflects the maximum impact for any threat in that intersection; per-threat pips show individual ratings. The three critical-impact cells — audit forging (T-1101 / T-3101), token exfiltration (T-2201), and lethal trifecta (T-3301) — drive the controls priority. Multi-tenant and host-rooted scenarios are intentionally out of scope for v1; runway is in v6 §7.3.</p>
+  </div>
+  <div class="caption-card insertion">
+    <h4>Insertion instruction</h4>
+    <p>Insert as a high-level overview at the top of <code>docs/sdlc/06-security/threat-model.md</code>, immediately after the TL;DR blockquote and before the <code>## Scope</code> heading. The per-threat detail tables remain below as the canonical reference.</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V15 — C4-L3 component diagrams · atl-mcp visualizations</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+<header class="viz-header">
+  <div>
+    <div class="viz-eyebrow">
+      <a href="index.html" class="viz-back">← all visualizations</a>
+      <span class="tier t3">tier 3</span><span class="viz-id">V15a + V15b</span>
+    </div>
+    <h1 class="viz-title">C4 level 3 — Storage &amp; Security components</h1>
+  </div>
+  <div class="viz-meta">
+    <div><span class="key">lands in </span><span class="val">04-design/architecture-overview.md</span></div>
+    <div><span class="key">format    </span><span class="val">2× SVG component diagrams</span></div>
+  </div>
+</header>
+
+<!-- ========== V15a — STORAGE ========== -->
+<div class="stage" style="padding:40px 24px 24px;">
+<svg viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, system-ui">
+  <text x="40" y="28" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">V15a · STORAGE CONTAINER · C4 LEVEL 3</text>
+
+  <defs>
+    <marker id="ar15a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#43434a"/>
+    </marker>
+  </defs>
+
+  <!-- container boundary -->
+  <rect x="40" y="56" width="1120" height="400" fill="none" stroke="#1a1a1c" stroke-dasharray="4 3" stroke-width="1.5"/>
+  <text x="58" y="76" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.2" fill="#1a1a1c">«container» Storage</text>
+
+  <!-- repositories -->
+  <g transform="translate(80,110)">
+    <rect width="220" height="100" fill="#dde9f2" stroke="#1f5f8a" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#11364f">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#11364f">Repositories</text>
+    <line x1="14" y1="54" x2="206" y2="54" stroke="#a3c4d8"/>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#11364f">domain queries by aggregate</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10.5" fill="#1f5f8a">Audit · Token · Job · Schedule</text>
+  </g>
+
+  <!-- query builder -->
+  <g transform="translate(330,110)">
+    <rect width="200" height="100" fill="#faf9f6" stroke="#43434a" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#43434a">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#1a1a1c">Kysely query builder</text>
+    <line x1="14" y1="54" x2="186" y2="54" stroke="#c8c3b6"/>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#43434a">type-safe SQL · no ORM</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10.5" fill="#43434a">v6 §11</text>
+  </g>
+
+  <!-- driver -->
+  <g transform="translate(560,110)">
+    <rect width="200" height="100" fill="#faf9f6" stroke="#43434a" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#43434a">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#1a1a1c">Driver — pg / pglite</text>
+    <line x1="14" y1="54" x2="186" y2="54" stroke="#c8c3b6"/>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#43434a">runtime choice via PGLITE_PATH</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10.5" fill="#43434a">v6 §11.1</text>
+  </g>
+
+  <!-- migrations -->
+  <g transform="translate(790,110)">
+    <rect width="200" height="100" fill="#fbeed8" stroke="#b96b16" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#7a4408">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a4408">Migrator</text>
+    <line x1="14" y1="54" x2="186" y2="54" stroke="#e3c486"/>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#7a4408">forward-only · schema_migrations</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10.5" fill="#7a4408">runs on boot</text>
+  </g>
+
+  <!-- audit writer -->
+  <g transform="translate(80,250)">
+    <rect width="220" height="120" fill="#fbe7e4" stroke="#b8281d" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#7a1d14">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a1d14">AuditWriter</text>
+    <line x1="14" y1="54" x2="206" y2="54" stroke="#e3a39a"/>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">single writer · serial commits</text>
+    <text x="14" y="90" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">canonical JSON · Ed25519 sign</text>
+    <text x="14" y="108" font-family="IBM Plex Mono" font-size="10.5" fill="#b8281d">v6 §10 · V1 detail</text>
+  </g>
+
+  <!-- audit verifier -->
+  <g transform="translate(330,250)">
+    <rect width="200" height="120" fill="#fbe7e4" stroke="#b8281d" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#7a1d14">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a1d14">AuditVerifier</text>
+    <line x1="14" y1="54" x2="186" y2="54" stroke="#e3a39a"/>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">re-derive hash · check sig</text>
+    <text x="14" y="90" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">offline-runnable utility</text>
+    <text x="14" y="108" font-family="IBM Plex Mono" font-size="10.5" fill="#b8281d">scripts/verify-audit.ts</text>
+  </g>
+
+  <!-- token store -->
+  <g transform="translate(560,250)">
+    <rect width="200" height="120" fill="#ece1f3" stroke="#6e1a82" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#3e0d4d">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#3e0d4d">TokenStore</text>
+    <line x1="14" y1="54" x2="186" y2="54" stroke="#c39bd1"/>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#3e0d4d">at-rest envelope encryption</text>
+    <text x="14" y="90" font-family="IBM Plex Sans" font-size="11.5" fill="#3e0d4d">decrypts only into memory</text>
+    <text x="14" y="108" font-family="IBM Plex Mono" font-size="10.5" fill="#6e1a82">v6 §9 · V5 detail</text>
+  </g>
+
+  <!-- pg singleton -->
+  <g transform="translate(790,250)">
+    <rect width="200" height="120" fill="#1a1a1c" stroke="#1a1a1c"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#9a9690">«database»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#fff">Postgres 17</text>
+    <line x1="14" y1="54" x2="186" y2="54" stroke="#43434a"/>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#c8c3b6">single-tenant instance</text>
+    <text x="14" y="90" font-family="IBM Plex Sans" font-size="11.5" fill="#c8c3b6">audit_log · tokens · jobs · ...</text>
+    <text x="14" y="108" font-family="IBM Plex Mono" font-size="10.5" fill="#9a9690">PITR · daily logical backup</text>
+  </g>
+
+  <!-- arrows: repos -> kysely -> driver -> pg -->
+  <line x1="300" y1="160" x2="330" y2="160" stroke="#43434a" marker-end="url(#ar15a)"/>
+  <line x1="530" y1="160" x2="560" y2="160" stroke="#43434a" marker-end="url(#ar15a)"/>
+  <line x1="660" y1="210" x2="890" y2="250" stroke="#43434a" marker-end="url(#ar15a)"/>
+  <text x="700" y="232" font-family="IBM Plex Mono" font-size="10" fill="#6f6e6a">SQL</text>
+
+  <!-- migrator -> pg -->
+  <line x1="890" y1="210" x2="890" y2="250" stroke="#43434a" marker-end="url(#ar15a)"/>
+
+  <!-- audit writer -> repo -->
+  <line x1="190" y1="250" x2="190" y2="210" stroke="#43434a" marker-end="url(#ar15a)"/>
+  <text x="200" y="232" font-family="IBM Plex Mono" font-size="10" fill="#6f6e6a">via AuditRepo</text>
+
+  <!-- token store -> repo -->
+  <line x1="660" y1="250" x2="220" y2="210" stroke="#43434a" marker-end="url(#ar15a)"/>
+
+  <!-- verifier reads pg directly -->
+  <path d="M530,310 Q700,400 890,370" stroke="#43434a" fill="none" stroke-dasharray="3 3" marker-end="url(#ar15a)"/>
+  <text x="650" y="395" font-family="IBM Plex Mono" font-size="10" fill="#6f6e6a">read-only</text>
+
+  <!-- KMS callout -->
+  <g transform="translate(1010,250)">
+    <rect width="130" height="120" fill="#faf9f6" stroke="#1a1a1c" stroke-dasharray="3 3"/>
+    <text x="10" y="22" font-family="IBM Plex Mono" font-size="9.5" letter-spacing="1.2" fill="#43434a">«external»</text>
+    <text x="10" y="42" font-family="IBM Plex Sans" font-size="12" font-weight="600" fill="#1a1a1c">KMS / KEK</text>
+    <text x="10" y="62" font-family="IBM Plex Sans" font-size="11" fill="#43434a">unwraps DEK on</text>
+    <text x="10" y="76" font-family="IBM Plex Sans" font-size="11" fill="#43434a">demand</text>
+    <text x="10" y="100" font-family="IBM Plex Mono" font-size="10" fill="#43434a">audit-logged</text>
+  </g>
+  <line x1="760" y1="290" x2="1010" y2="290" stroke="#43434a" marker-end="url(#ar15a)"/>
+</svg>
+</div>
+
+<!-- ========== V15b — SECURITY ========== -->
+<div class="stage" style="padding:40px 24px 24px;">
+<svg viewBox="0 0 1200 460" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, system-ui">
+  <text x="40" y="28" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">V15b · SECURITY CONTAINER · C4 LEVEL 3</text>
+
+  <defs>
+    <marker id="ar15b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#43434a"/>
+    </marker>
+  </defs>
+
+  <rect x="40" y="56" width="1120" height="380" fill="none" stroke="#1a1a1c" stroke-dasharray="4 3" stroke-width="1.5"/>
+  <text x="58" y="76" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.2" fill="#1a1a1c">«container» Security</text>
+
+  <!-- ingress -->
+  <g transform="translate(80,110)">
+    <rect width="200" height="100" fill="#faf9f6" stroke="#43434a" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#43434a">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#1a1a1c">RequestContext</text>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#43434a">extracts caller id from</text>
+    <text x="14" y="90" font-family="IBM Plex Sans" font-size="11.5" fill="#43434a">stdio / HTTP transport</text>
+  </g>
+
+  <!-- authn -->
+  <g transform="translate(310,110)">
+    <rect width="200" height="100" fill="#dceee5" stroke="#1f6e54" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#0e3d2f">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">Authenticator</text>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#0e3d2f">verifies OAuth2 PKCE token</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">v6 §8.1</text>
+  </g>
+
+  <!-- authz -->
+  <g transform="translate(540,110)">
+    <rect width="200" height="100" fill="#dceee5" stroke="#1f6e54" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#0e3d2f">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#0e3d2f">PolicyEngine</text>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#0e3d2f">RBAC + scope match</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">v6 §8.2</text>
+  </g>
+
+  <!-- gate -->
+  <g transform="translate(770,110)">
+    <rect width="200" height="100" fill="#fbeed8" stroke="#b96b16" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#7a4408">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a4408">ConfirmationGate</text>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#7a4408">human-in-loop for</text>
+    <text x="14" y="90" font-family="IBM Plex Sans" font-size="11.5" fill="#7a4408">destructive ops · v6 §8.3</text>
+  </g>
+
+  <!-- redaction -->
+  <g transform="translate(80,250)">
+    <rect width="200" height="100" fill="#ece1f3" stroke="#6e1a82" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#3e0d4d">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#3e0d4d">Redactor</text>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#3e0d4d">PII/secret scrub before</text>
+    <text x="14" y="90" font-family="IBM Plex Sans" font-size="11.5" fill="#3e0d4d">logs / audit / responses</text>
+  </g>
+
+  <!-- rate limiter -->
+  <g transform="translate(310,250)">
+    <rect width="200" height="100" fill="#ece1f3" stroke="#6e1a82" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#3e0d4d">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#3e0d4d">RateLimiter</text>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#3e0d4d">per-caller token bucket</text>
+    <text x="14" y="90" font-family="IBM Plex Mono" font-size="10.5" fill="#6e1a82">v6 §8.4</text>
+  </g>
+
+  <!-- prompt-injection guard -->
+  <g transform="translate(540,250)">
+    <rect width="200" height="100" fill="#fbe7e4" stroke="#b8281d" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#7a1d14">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a1d14">TrifectaGuard</text>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">untrusted-input + private +</text>
+    <text x="14" y="90" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">exfil → block · V2 detail</text>
+  </g>
+
+  <!-- audit hook -->
+  <g transform="translate(770,250)">
+    <rect width="200" height="100" fill="#fbe7e4" stroke="#b8281d" stroke-width="1.5"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#7a1d14">«component»</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a1d14">AuditHook</text>
+    <text x="14" y="74" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">emits decision events</text>
+    <text x="14" y="90" font-family="IBM Plex Sans" font-size="11.5" fill="#7a1d14">to AuditWriter (V15a)</text>
+  </g>
+
+  <!-- pipeline arrows top row -->
+  <line x1="280" y1="160" x2="310" y2="160" stroke="#43434a" marker-end="url(#ar15b)"/>
+  <line x1="510" y1="160" x2="540" y2="160" stroke="#43434a" marker-end="url(#ar15b)"/>
+  <line x1="740" y1="160" x2="770" y2="160" stroke="#43434a" marker-end="url(#ar15b)"/>
+
+  <!-- top row -> bottom row connectors -->
+  <line x1="180" y1="210" x2="180" y2="250" stroke="#43434a" stroke-dasharray="3 3" marker-end="url(#ar15b)"/>
+  <line x1="410" y1="210" x2="410" y2="250" stroke="#43434a" stroke-dasharray="3 3" marker-end="url(#ar15b)"/>
+  <line x1="640" y1="210" x2="640" y2="250" stroke="#43434a" stroke-dasharray="3 3" marker-end="url(#ar15b)"/>
+  <line x1="870" y1="210" x2="870" y2="250" stroke="#43434a" stroke-dasharray="3 3" marker-end="url(#ar15b)"/>
+
+  <!-- dock for app -->
+  <g transform="translate(1010,170)">
+    <rect width="130" height="180" fill="#faf9f6" stroke="#1a1a1c" stroke-dasharray="3 3"/>
+    <text x="10" y="22" font-family="IBM Plex Mono" font-size="9.5" letter-spacing="1.2" fill="#43434a">CONSUMED BY</text>
+    <text x="10" y="46" font-family="IBM Plex Sans" font-size="12" font-weight="600" fill="#1a1a1c">McpServer</text>
+    <text x="10" y="64" font-family="IBM Plex Sans" font-size="12" font-weight="600" fill="#1a1a1c">JobRunner</text>
+    <text x="10" y="82" font-family="IBM Plex Sans" font-size="12" font-weight="600" fill="#1a1a1c">Scheduler</text>
+    <text x="10" y="100" font-family="IBM Plex Sans" font-size="12" font-weight="600" fill="#1a1a1c">RestAdmin</text>
+    <text x="10" y="140" font-family="IBM Plex Mono" font-size="10" fill="#6f6e6a">single pipeline,</text>
+    <text x="10" y="156" font-family="IBM Plex Mono" font-size="10" fill="#6f6e6a">no bypass</text>
+  </g>
+  <line x1="970" y1="160" x2="1010" y2="200" stroke="#43434a" marker-end="url(#ar15b)"/>
+</svg>
+</div>
+
+<div class="caption-block">
+  <div class="caption-card">
+    <h4>Caption (for the doc)</h4>
+    <p>The two C4-L3 component diagrams that anchor the architecture chapter. <strong>Storage (V15a)</strong> shows the read/write paths: AuditWriter is single-writer; tokens go through envelope encryption; Postgres is single-tenant. <strong>Security (V15b)</strong> shows the request pipeline every entry point shares: authn → authz → confirmation → redaction → rate limit → prompt-injection guard, with every decision audit-hooked. There is no bypass path — that's the point.</p>
+  </div>
+  <div class="caption-card insertion">
+    <h4>Insertion instruction</h4>
+    <p>Insert as figures 3.2 and 3.3 in <code>docs/sdlc/04-design/architecture-overview.md</code> after the L2 container diagram. Each figure replaces a "components include…" bullet list.</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

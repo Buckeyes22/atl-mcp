@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V3 — Test pyramid · atl-mcp visualizations</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+<header class="viz-header">
+  <div>
+    <div class="viz-eyebrow">
+      <a href="index.html" class="viz-back">← all visualizations</a>
+      <span class="tier t1">tier 1</span><span class="viz-id">V3</span>
+    </div>
+    <h1 class="viz-title">Test pyramid</h1>
+  </div>
+  <div class="viz-meta">
+    <div><span class="key">lands in </span><span class="val">07-testing/strategy.md</span></div>
+    <div><span class="key">format    </span><span class="val">SVG figure</span></div>
+  </div>
+</header>
+
+<div class="stage">
+  <svg viewBox="0 0 1100 620" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, system-ui">
+    <!-- Pyramid layers -->
+    <!-- E2E (planned) - tip -->
+    <polygon points="500,60 600,60 615,108 485,108" fill="#ecebe6" stroke="#9a9690" stroke-dasharray="4 3"/>
+    <text x="550" y="80" text-anchor="middle" font-size="11.5" font-weight="600" fill="#43434a">E2E</text>
+    <text x="550" y="98" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#6f6e6a">M11 · planned</text>
+
+    <!-- Live (gated) -->
+    <polygon points="485,108 615,108 635,156 465,156" fill="#dde9f2" stroke="#1f5f8a"/>
+    <text x="550" y="130" text-anchor="middle" font-size="11.5" font-weight="600" fill="#11364f">live (3, gated)</text>
+    <text x="550" y="148" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#11364f">RUN_LIVE_TESTS=1</text>
+
+    <!-- Contract -->
+    <polygon points="465,156 635,156 660,216 440,216" fill="#ece1f3" stroke="#6e1a82"/>
+    <text x="550" y="182" text-anchor="middle" font-size="12" font-weight="600" fill="#3e0d4d">contract (1+)</text>
+    <text x="550" y="200" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#3e0d4d">provider abstract → impls</text>
+
+    <!-- Integration -->
+    <polygon points="440,216 660,216 720,372 380,372" fill="#fbeed8" stroke="#b96b16"/>
+    <text x="550" y="262" text-anchor="middle" font-size="15" font-weight="600" fill="#7a4408">integration · 17+</text>
+    <text x="550" y="284" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#7a4408">repos · audit · token store</text>
+    <text x="550" y="302" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#7a4408">migration rehearsal · mgmt API</text>
+    <text x="550" y="320" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#7a4408">provider HTTP (mocked)</text>
+    <text x="550" y="346" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7a4408">runtime: ~50 ms – seconds · pglite + mocked HTTP</text>
+
+    <!-- Unit -->
+    <polygon points="380,372 720,372 820,564 280,564" fill="#dceee5" stroke="#1f6e54"/>
+    <text x="550" y="426" text-anchor="middle" font-size="20" font-weight="600" fill="#0e3d2f">unit · 29+</text>
+    <text x="550" y="452" text-anchor="middle" font-family="IBM Plex Mono" font-size="11.5" fill="#0e3d2f">domain serialization · state-machine transitions</text>
+    <text x="550" y="470" text-anchor="middle" font-family="IBM Plex Mono" font-size="11.5" fill="#0e3d2f">tenant scope · token enc seal/open · webhook HMAC</text>
+    <text x="550" y="488" text-anchor="middle" font-family="IBM Plex Mono" font-size="11.5" fill="#0e3d2f">ADF · provider retry · OAuth flows · sampling adapter</text>
+    <text x="550" y="514" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#0e3d2f">runtime: &lt; 50 ms each · no I/O</text>
+    <text x="550" y="540" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">broad base — fastest feedback, highest coverage</text>
+
+    <!-- ========== Side annotations ========== -->
+    <!-- LEFT: Lint (parallel rail) -->
+    <g transform="translate(48,200)">
+      <text font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690" y="0">PARALLEL · STATIC CHECKS AS TESTS</text>
+      <rect x="0" y="14" width="220" height="116" fill="#faf9f6" stroke="#c8c3b6"/>
+      <text x="14" y="40" font-size="13" font-weight="600" fill="#1a1a1c">lint (2)</text>
+      <text x="14" y="62" font-family="IBM Plex Mono" font-size="11" fill="#43434a">no-stdout protocol</text>
+      <text x="14" y="78" font-family="IBM Plex Mono" font-size="11" fill="#43434a">guard (CLAUDE.md)</text>
+      <text x="14" y="100" font-family="IBM Plex Mono" font-size="11" fill="#43434a">anti-stub scanner</text>
+      <text x="14" y="116" font-family="IBM Plex Mono" font-size="11" fill="#9a9690">(M11, planned)</text>
+      <!-- connector -->
+      <line x1="220" y1="72" x2="320" y2="72" stroke="#c8c3b6" stroke-dasharray="3 3"/>
+    </g>
+
+    <!-- RIGHT: CI gate -->
+    <g transform="translate(832,200)">
+      <text font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690" y="0">CI GATE (every PR)</text>
+      <rect x="0" y="14" width="220" height="220" fill="#faf9f6" stroke="#c8c3b6"/>
+      <g font-family="IBM Plex Mono" font-size="11.5" fill="#43434a">
+        <text x="14" y="38">npm run typecheck</text>
+        <text x="14" y="58">npm test</text>
+        <text x="14" y="80" fill="#9a9690">  └─ unit + integration</text>
+        <text x="14" y="96" fill="#9a9690">     + contract + lint</text>
+        <text x="14" y="120">npm run lint:no-stdout</text>
+        <text x="14" y="140">npm run lint</text>
+      </g>
+      <text x="14" y="172" font-size="11" fill="#1a1a1c" font-weight="500">all four must pass</text>
+      <text x="14" y="190" font-size="11" fill="#43434a">live tests opt-in only</text>
+      <text x="14" y="206" font-size="11" fill="#43434a">(`RUN_LIVE_TESTS=1`)</text>
+    </g>
+
+    <!-- bottom legend -->
+    <g transform="translate(48,580)" font-family="IBM Plex Mono" font-size="10.5" fill="#6f6e6a">
+      <text>iron law (13-quality/iron-laws.md): never write production code without a failing test first when adding behavior.</text>
+    </g>
+
+    <!-- top legend -->
+    <text x="48" y="36" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">v6 §31 · 5 CATEGORIES · CUMULATIVE PER MILESTONE</text>
+  </svg>
+</div>
+
+<div class="caption-block">
+  <div class="caption-card">
+    <h4>Caption (for the doc)</h4>
+    <p>atl-mcp's test pyramid: 29+ unit tests at the broad base (millisecond-scale; cover domain serialization, security primitives, validators), 17+ integration tests in the middle band (seconds-scale; cover storage repositories, provider HTTP, mgmt API), and a narrow tip of contract + live + (planned) E2E tests. The lint category sits alongside as static-checks-as-tests; live tests gate behind <code>RUN_LIVE_TESTS=1</code> to keep default CI fast.</p>
+  </div>
+  <div class="caption-card insertion">
+    <h4>Insertion instruction</h4>
+    <p>Insert after the <code>### Live (3, gated)</code> subsection and before the <code>## Iron law: test-first</code> heading in <code>docs/sdlc/07-testing/strategy.md</code>.</p>
+  </div>
+</div>
+
+<div class="notes">
+  <h4>Design notes</h4>
+  <p>Layer ratios reflect the actual ~29/~17/~3 distribution. The non-pyramid categories (lint, CI gate) sit as side rails so the pyramid metaphor stays clean. Greens for the broad fast-feedback base; amber for the slower middle band; muted neutral with a dashed border for the planned tip.</p>
+</div>
+
+</div>
+</body>
+</html>

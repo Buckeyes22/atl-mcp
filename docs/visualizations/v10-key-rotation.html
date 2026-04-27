@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V10 — Audit key rotation timeline · atl-mcp visualizations</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+<header class="viz-header">
+  <div>
+    <div class="viz-eyebrow">
+      <a href="index.html" class="viz-back">← all visualizations</a>
+      <span class="tier t2">tier 2</span><span class="viz-id">V10</span>
+    </div>
+    <h1 class="viz-title">Audit key rotation timeline</h1>
+  </div>
+  <div class="viz-meta">
+    <div><span class="key">lands in </span><span class="val">06-security/key-management.md</span></div>
+    <div><span class="key">format    </span><span class="val">SVG · git-ref versioned registry</span></div>
+    <div><span class="key">spec      </span><span class="val">ADR-0005 · v6 §30</span></div>
+  </div>
+</header>
+
+<div class="stage" style="padding:48px 24px;">
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, system-ui">
+  <text x="40" y="28" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">CHAIN STAYS UNBROKEN ACROSS KEY ROTATIONS · OLD PUBLIC KEYS REMAIN IN REGISTRY FOREVER FOR VERIFICATION</text>
+
+  <!-- timeline spine -->
+  <line x1="80" y1="320" x2="1140" y2="320" stroke="#43434a" stroke-width="2"/>
+  <text x="80" y="552" font-family="IBM Plex Mono" font-size="10" fill="#9a9690">T0 · genesis</text>
+  <text x="1140" y="552" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#9a9690">→ time</text>
+
+  <!-- key segments (active periods, color-coded) -->
+  <!-- k1 -->
+  <line x1="80" y1="320" x2="380" y2="320" stroke="#1f6e54" stroke-width="6"/>
+  <!-- k2 -->
+  <line x1="380" y1="320" x2="720" y2="320" stroke="#b96b16" stroke-width="6"/>
+  <!-- k3 (active) -->
+  <line x1="720" y1="320" x2="1140" y2="320" stroke="#6e1a82" stroke-width="6"/>
+
+  <!-- rotation events -->
+  <g>
+    <!-- T0 genesis -->
+    <circle cx="80" cy="320" r="9" fill="#1f6e54"/>
+    <line x1="80" y1="320" x2="80" y2="120" stroke="#1f6e54" stroke-dasharray="3 3"/>
+    <text x="80" y="108" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#1f6e54">v1 — genesis</text>
+    <text x="80" y="92" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#9a9690">T+0</text>
+
+    <!-- rotation 1 -->
+    <circle cx="380" cy="320" r="9" fill="#b96b16"/>
+    <line x1="380" y1="320" x2="380" y2="120" stroke="#b96b16" stroke-dasharray="3 3"/>
+    <text x="380" y="108" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#b96b16">rotation 1 · routine</text>
+    <text x="380" y="92" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#9a9690">T+90d</text>
+
+    <!-- rotation 2 (incident) -->
+    <circle cx="720" cy="320" r="11" fill="#b8281d" stroke="#fff" stroke-width="2"/>
+    <line x1="720" y1="320" x2="720" y2="120" stroke="#b8281d" stroke-dasharray="3 3"/>
+    <text x="720" y="108" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#b8281d">rotation 2 · INCIDENT (key suspected)</text>
+    <text x="720" y="92" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#9a9690">T+180d</text>
+  </g>
+
+  <!-- key labels under spine -->
+  <g font-family="IBM Plex Mono" font-size="11">
+    <text x="230" y="350" text-anchor="middle" fill="#0e3d2f">k1 active · sigs[]</text>
+    <text x="230" y="368" text-anchor="middle" fill="#1f6e54" font-size="10">key_id sha256(pubkey1)</text>
+
+    <text x="550" y="350" text-anchor="middle" fill="#7a4408">k2 active · sigs[]</text>
+    <text x="550" y="368" text-anchor="middle" fill="#b96b16" font-size="10">key_id sha256(pubkey2)</text>
+
+    <text x="930" y="350" text-anchor="middle" fill="#3e0d4d">k3 active · sigs[]</text>
+    <text x="930" y="368" text-anchor="middle" fill="#6e1a82" font-size="10">key_id sha256(pubkey3)</text>
+  </g>
+
+  <!-- WRITE PATH (above timeline) -->
+  <g transform="translate(0,160)">
+    <text x="40" y="0" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">WRITE PATH · per rotation event</text>
+    <g font-family="IBM Plex Sans" font-size="11.5" fill="#43434a">
+      <!-- step boxes per event -->
+      <g transform="translate(80,12)">
+        <rect width="248" height="80" fill="#dceee5" stroke="#1f6e54"/>
+        <text x="12" y="20" font-family="IBM Plex Mono" font-size="10" fill="#0e3d2f">1 · GENERATE</text>
+        <text x="12" y="38">ed25519 keypair (offline)</text>
+        <text x="12" y="54">commit pub → key registry repo</text>
+        <text x="12" y="70" font-family="IBM Plex Mono" font-size="10" fill="#0e3d2f">git ref → sha256 of file</text>
+      </g>
+      <g transform="translate(380,12)">
+        <rect width="280" height="80" fill="#fbeed8" stroke="#b96b16"/>
+        <text x="12" y="20" font-family="IBM Plex Mono" font-size="10" fill="#7a4408">2 · ROTATE (routine)</text>
+        <text x="12" y="38">push new pub → registry</text>
+        <text x="12" y="54">restart with new priv path</text>
+        <text x="12" y="70" font-family="IBM Plex Mono" font-size="10" fill="#7a4408">old priv: archived offline</text>
+      </g>
+      <g transform="translate(720,12)">
+        <rect width="320" height="80" fill="#fbe7e4" stroke="#b8281d"/>
+        <text x="12" y="20" font-family="IBM Plex Mono" font-size="10" fill="#7a1d14">3 · ROTATE (INCIDENT — runbook §C)</text>
+        <text x="12" y="38">revoke flag in registry on k2</text>
+        <text x="12" y="54">push k3 · restart at k3 path</text>
+        <text x="12" y="70" font-family="IBM Plex Mono" font-size="10" fill="#7a1d14">post-window entries from k2 → review</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- VERIFY PATH (below timeline) -->
+  <g transform="translate(0,400)">
+    <text x="40" y="0" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">VERIFY PATH · auditor walks the chain</text>
+
+    <g transform="translate(80,12)">
+      <rect width="1060" height="100" fill="#faf9f6" stroke="#c8c3b6"/>
+      <text x="20" y="22" font-family="IBM Plex Sans" font-size="12" fill="#1a1a1c">For each entry e: <tspan font-family="IBM Plex Mono" fill="#43434a">key_id = e.key_id</tspan> → resolve in registry at <tspan font-family="IBM Plex Mono" fill="#43434a">git_ref</tspan> stamped on entry → fetch public key → <tspan font-family="IBM Plex Mono" fill="#43434a">ed25519.verify(pub, e.payload, e.sig)</tspan> · check <tspan font-family="IBM Plex Mono" fill="#43434a">prev_hash</tspan> matches.</text>
+
+      <!-- mini chain visualization -->
+      <g transform="translate(20,42)">
+        <!-- e_n-1 (k1) -->
+        <rect width="100" height="44" fill="#dceee5" stroke="#1f6e54"/>
+        <text x="50" y="18" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#0e3d2f">e@k1</text>
+        <text x="50" y="34" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#0e3d2f">git_ref: r1</text>
+        <line x1="100" y1="22" x2="140" y2="22" stroke="#43434a"/>
+
+        <!-- e_n (k2) -->
+        <rect x="140" width="100" height="44" fill="#fbeed8" stroke="#b96b16"/>
+        <text x="190" y="18" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#7a4408">e@k2</text>
+        <text x="190" y="34" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#7a4408">git_ref: r2</text>
+        <line x1="240" y1="22" x2="280" y2="22" stroke="#43434a"/>
+
+        <!-- e_n+1 (k3) -->
+        <rect x="280" width="100" height="44" fill="#ece1f3" stroke="#6e1a82"/>
+        <text x="330" y="18" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#3e0d4d">e@k3</text>
+        <text x="330" y="34" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#3e0d4d">git_ref: r3</text>
+
+        <!-- arrow to verifier -->
+        <text x="460" y="20" font-family="IBM Plex Mono" font-size="10" fill="#43434a">→ chain verifies even though pubkey changed twice</text>
+        <text x="460" y="36" font-family="IBM Plex Mono" font-size="10" fill="#43434a">    because each entry pins its own (key_id, git_ref).</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(40,560)" font-family="IBM Plex Mono" font-size="10" fill="#6f6e6a">
+    <text>old public keys are NEVER deleted from the registry — historical entries must remain verifiable for the lifetime of the audit chain.</text>
+  </g>
+</svg>
+</div>
+
+<div class="caption-block">
+  <div class="caption-card">
+    <h4>Caption (for the doc)</h4>
+    <p>The audit-signing keypair rotates without breaking the chain because every entry pins both its <code>key_id</code> (sha256 of the public key) and the <code>git_ref</code> of the registry version it was signed under. A verifier resolves at-the-time-of-signing, not at-time-of-verification — so old entries remain verifiable forever, even after rotation. Two flavors of rotation: routine (scheduled, on a cadence) and incident-driven (runbook §C — revoke flag set, post-window entries reviewed).</p>
+  </div>
+  <div class="caption-card insertion">
+    <h4>Insertion instruction</h4>
+    <p>Insert in <code>docs/sdlc/06-security/key-management.md</code> after the section explaining the registry shape, before the <code>## Rotation procedure</code> heading.</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

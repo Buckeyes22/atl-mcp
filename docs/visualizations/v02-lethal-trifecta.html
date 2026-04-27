@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V2 — Lethal trifecta Venn · atl-mcp visualizations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+<header class="viz-header">
+  <div>
+    <div class="viz-eyebrow">
+      <a href="index.html" class="viz-back">← all visualizations</a>
+      <span class="tier t1">tier 1</span>
+      <span class="viz-id">V2</span>
+    </div>
+    <h1 class="viz-title">Lethal trifecta</h1>
+  </div>
+  <div class="viz-meta">
+    <div><span class="key">lands in </span><span class="val">06-security/lethal-trifecta.md</span></div>
+    <div><span class="key">format    </span><span class="val">SVG Venn</span></div>
+    <div><span class="key">spec      </span><span class="val">v6 §38.1</span></div>
+  </div>
+</header>
+
+<div class="stage" style="padding:48px 24px;">
+  <svg viewBox="0 0 1100 720" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, system-ui">
+    <defs>
+      <pattern id="amberStripe" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+        <rect width="8" height="8" fill="#fbeed8"/>
+        <line x1="0" y1="0" x2="0" y2="8" stroke="#f5d8a3" stroke-width="2"/>
+      </pattern>
+    </defs>
+
+    <!-- background notes ring -->
+    <text x="550" y="36" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" letter-spacing="1.4" fill="#9a9690">v6 §38.1 · CROSS-CUTTING SAFETY CONTROL</text>
+
+    <!-- single-property labels (outside) -->
+    <text x="220" y="86" text-anchor="middle" font-size="13.5" fill="#6f6e6a">single property → ordinary operation</text>
+
+    <!-- THREE CIRCLES -->
+    <!-- Circle 1: Reads PRIVATE -->
+    <circle cx="430" cy="370" r="220" fill="#fbe7e4" fill-opacity="0.55" stroke="#b8281d" stroke-width="1.5"/>
+    <!-- Circle 2: UNTRUSTED -->
+    <circle cx="670" cy="370" r="220" fill="#fbeed8" fill-opacity="0.55" stroke="#b96b16" stroke-width="1.5"/>
+    <!-- Circle 3: External sink -->
+    <circle cx="550" cy="540" r="220" fill="#dde9f2" fill-opacity="0.55" stroke="#1f5f8a" stroke-width="1.5"/>
+
+    <!-- Center danger zone marker (visual emphasis) -->
+    <path d="M 470 470 a 110 110 0 0 1 160 0 a 110 110 0 0 1 -80 110 a 110 110 0 0 1 -80 -110 z"
+          fill="#b8281d" fill-opacity="0.18" stroke="none"/>
+
+    <!-- Labels — circles -->
+    <g font-family="IBM Plex Sans" text-anchor="middle">
+      <!-- PRIVATE -->
+      <text x="288" y="290" font-size="13" font-weight="600" letter-spacing="1.2" fill="#b8281d">READS PRIVATE</text>
+      <text x="288" y="308" font-size="12" fill="#7a1d14">PRIVATE / SECRET inputs</text>
+      <text x="288" y="326" font-size="11" fill="#7a1d14" font-family="IBM Plex Mono">tokens · code · profiles</text>
+
+      <!-- UNTRUSTED -->
+      <text x="810" y="290" font-size="13" font-weight="600" letter-spacing="1.2" fill="#b96b16">PROCESSES UNTRUSTED</text>
+      <text x="810" y="308" font-size="12" fill="#7a4408">unvetted content</text>
+      <text x="810" y="326" font-size="11" fill="#7a4408" font-family="IBM Plex Mono">user prose · fetched md · 3p MCP</text>
+
+      <!-- EXTERNAL -->
+      <text x="550" y="700" font-size="13" font-weight="600" letter-spacing="1.2" fill="#1f5f8a">EMITS EXTERNALLY</text>
+      <text x="550" y="718" font-size="12" fill="#11364f">crosses trust boundary out</text>
+    </g>
+
+    <!-- pairwise overlap labels (warning zones) -->
+    <g font-family="IBM Plex Mono" text-anchor="middle">
+      <text x="550" y="290" font-size="10.5" fill="#7a4408" letter-spacing="0.6">PAIRWISE — context-dependent risk</text>
+      <text x="370" y="510" font-size="10" fill="#7a1d14">private + external</text>
+      <text x="730" y="510" font-size="10" fill="#7a4408">untrusted + external</text>
+    </g>
+
+    <!-- CENTER LABEL -->
+    <g text-anchor="middle">
+      <text x="550" y="430" font-family="IBM Plex Mono" font-size="11" letter-spacing="2" fill="#b8281d">LETHAL TRIFECTA</text>
+      <text x="550" y="458" font-family="IBM Plex Sans" font-size="15" font-weight="600" fill="#1a1a1c">deny · or require_approval</text>
+      <text x="550" y="480" font-family="IBM Plex Sans" font-size="12" fill="#43434a">policy decision layer flags;</text>
+      <text x="550" y="498" font-family="IBM Plex Sans" font-size="12" fill="#43434a">audit chain logs every detection</text>
+    </g>
+
+    <!-- side annotations -->
+    <g font-family="IBM Plex Mono" font-size="10.5" fill="#6f6e6a">
+      <line x1="84" y1="160" x2="84" y2="600" stroke="#e3e0d8"/>
+      <text x="100" y="172">single-property regions</text>
+      <text x="100" y="188" fill="#43434a">ordinary — no special handling.</text>
+      <text x="100" y="220">pairwise overlaps</text>
+      <text x="100" y="236" fill="#43434a">warning zones — dependent on</text>
+      <text x="100" y="252" fill="#43434a">classification + provenance.</text>
+      <text x="100" y="284" fill="#b8281d">triple intersection</text>
+      <text x="100" y="300" fill="#43434a">deny by default at confidence</text>
+      <text x="100" y="316" fill="#43434a">≥ 0.95; require_approval below.</text>
+    </g>
+
+    <!-- examples panel -->
+    <g transform="translate(880,140)">
+      <rect width="180" height="248" fill="#faf9f6" stroke="#e3e0d8" rx="3"/>
+      <text x="16" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#9a9690">DENY EXAMPLES</text>
+      <g font-family="IBM Plex Sans" font-size="11.5" fill="#43434a">
+        <text x="16" y="46" font-weight="500" fill="#1a1a1c">prompt-injection</text>
+        <text x="16" y="62">in profile prose →</text>
+        <text x="16" y="78">writes private token</text>
+        <text x="16" y="94">to public Confluence.</text>
+
+        <text x="16" y="124" font-weight="500" fill="#1a1a1c">untrusted markdown</text>
+        <text x="16" y="140">renders into Jira</text>
+        <text x="16" y="156">description and pulls</text>
+        <text x="16" y="172">a private field along.</text>
+
+        <text x="16" y="202" font-weight="500" fill="#1a1a1c">3rd-party MCP output</text>
+        <text x="16" y="218">processed alongside</text>
+        <text x="16" y="234">SECRET token, then</text>
+        <text x="16" y="250" font-size="11">PR'd to a public repo.</text>
+      </g>
+    </g>
+
+    <!-- defense-in-depth strip -->
+    <g transform="translate(40,640)">
+      <text font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.2" fill="#9a9690" y="0">DEFENSE-IN-DEPTH (each layer can fail; all must)</text>
+      <g font-family="IBM Plex Sans" font-size="11.5" fill="#43434a">
+        <text x="0" y="22">classification at ingestion</text>
+        <text x="170" y="22">→ provenance tracking</text>
+        <text x="340" y="22">→ trifecta detection</text>
+        <text x="500" y="22">→ context-pack redaction</text>
+        <text x="700" y="22">→ audit chain</text>
+      </g>
+    </g>
+
+  </svg>
+</div>
+
+<div class="caption-block">
+  <div class="caption-card">
+    <h4>Caption (for the doc)</h4>
+    <p>The lethal trifecta describes the dominant LLM-app risk class: an operation that reads PRIVATE data, processes UNTRUSTED content, and emits EXTERNALLY in one execution. Each property alone is ordinary; the triple intersection enables exfiltration. atl-mcp's policy decision layer detects the combination and either blocks the operation or routes it to <code>require_approval</code> (per v6 §38.1).</p>
+  </div>
+  <div class="caption-card insertion">
+    <h4>Insertion instruction</h4>
+    <p>Insert after the TL;DR blockquote in <code>docs/sdlc/06-security/lethal-trifecta.md</code>, before the <code>## What is the lethal trifecta</code> heading.</p>
+  </div>
+</div>
+
+<div class="notes">
+  <h4>Design notes</h4>
+  <p>Color follows the project's classification + severity semantics: red for PRIVATE, amber for UNTRUSTED, blue for the external boundary. The triple-overlap is darkened with the same red as PRIVATE/SECRET classification — visually consistent with the rest of the security docs. Examples were lifted directly from the source doc rather than invented.</p>
+</div>
+
+</div>
+</body>
+</html>

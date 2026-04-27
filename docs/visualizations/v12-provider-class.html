@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>V12 — Provider class diagram · atl-mcp visualizations</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+<header class="viz-header">
+  <div>
+    <div class="viz-eyebrow">
+      <a href="index.html" class="viz-back">← all visualizations</a>
+      <span class="tier t2">tier 2</span><span class="viz-id">V12</span>
+    </div>
+    <h1 class="viz-title">Provider abstraction — class diagram</h1>
+  </div>
+  <div class="viz-meta">
+    <div><span class="key">lands in </span><span class="val">04-design/module-providers-vcs.md</span></div>
+    <div><span class="key">format    </span><span class="val">SVG class diagram</span></div>
+  </div>
+</header>
+
+<div class="stage" style="padding:48px 32px;">
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, system-ui">
+  <text x="40" y="28" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="1.4" fill="#9a9690">CONTRACT TESTS VERIFY EVERY IMPL SATISFIES THE ABSTRACT</text>
+
+  <defs>
+    <marker id="tri12" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" orient="auto">
+      <path d="M0,0 L11,6 L0,12 z" fill="#fff" stroke="#1a1a1c" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- ABSTRACT (top center) -->
+  <g transform="translate(440,60)">
+    <rect width="320" height="220" fill="#faf9f6" stroke="#1a1a1c" stroke-width="1.5"/>
+    <rect width="320" height="32" fill="#1a1a1c"/>
+    <text x="14" y="14" font-family="IBM Plex Mono" font-size="9.5" letter-spacing="1.2" fill="#c8c3b6">«abstract» · src/providers/vcs/abstract.ts</text>
+    <text x="14" y="28" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#fff">VcsProvider</text>
+
+    <g font-family="IBM Plex Mono" font-size="11" fill="#1a1a1c">
+      <text x="14" y="56">+ kind: 'bitbucket' | 'github' | 'gitlab'</text>
+      <line x1="0" y1="68" x2="320" y2="68" stroke="#e3e0d8"/>
+      <text x="14" y="86">+ ensureRepo(req): Promise&lt;Repo&gt;</text>
+      <text x="14" y="104">+ ensureBranch(req): Promise&lt;Branch&gt;</text>
+      <text x="14" y="122">+ writeFile(req): Promise&lt;Commit&gt;</text>
+      <text x="14" y="140">+ openPullRequest(req): Promise&lt;PR&gt;</text>
+      <text x="14" y="158">+ verifyWebhook(headers, body): bool</text>
+      <text x="14" y="176">+ capabilities(): CapabilitySet</text>
+      <text x="14" y="200" fill="#7a1d14">// every method MUST be idempotent + audited</text>
+    </g>
+  </g>
+
+  <!-- realization arrows -->
+  <line x1="600" y1="280" x2="280" y2="380" stroke="#1a1a1c" stroke-dasharray="4 3" marker-end="url(#tri12)"/>
+  <line x1="600" y1="280" x2="600" y2="380" stroke="#1a1a1c" stroke-dasharray="4 3" marker-end="url(#tri12)"/>
+  <line x1="600" y1="280" x2="920" y2="380" stroke="#1a1a1c" stroke-dasharray="4 3" marker-end="url(#tri12)"/>
+
+  <!-- BITBUCKET (v1, shipping) -->
+  <g transform="translate(80,400)">
+    <rect width="320" height="160" fill="#dceee5" stroke="#1f6e54" stroke-width="1.5"/>
+    <rect width="320" height="32" fill="#1f6e54"/>
+    <text x="14" y="14" font-family="IBM Plex Mono" font-size="9.5" letter-spacing="1.2" fill="#c8e7d6">v1 · shipping (M3)</text>
+    <text x="14" y="28" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#fff">BitbucketProvider</text>
+    <g font-family="IBM Plex Mono" font-size="11" fill="#0e3d2f">
+      <text x="14" y="56">- client: BitbucketRestClient</text>
+      <text x="14" y="74">- auth: AppPassword | OAuth</text>
+      <line x1="0" y1="86" x2="320" y2="86" stroke="#a3c8b8"/>
+      <text x="14" y="104">+ ensureRepo: REST v2.0 + retry</text>
+      <text x="14" y="122">+ verifyWebhook: HMAC-SHA256</text>
+      <text x="14" y="140">+ capabilities: Cloud-only set</text>
+    </g>
+  </g>
+
+  <!-- GITHUB (post-v1, stub) -->
+  <g transform="translate(440,400)">
+    <rect width="320" height="160" fill="#fff" stroke="#c8c3b6" stroke-dasharray="4 3" stroke-width="1.5"/>
+    <rect width="320" height="32" fill="#c8c3b6"/>
+    <text x="14" y="14" font-family="IBM Plex Mono" font-size="9.5" letter-spacing="1.2" fill="#43434a">post-v1 · runway only</text>
+    <text x="14" y="28" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#1a1a1c">GitHubProvider</text>
+    <g font-family="IBM Plex Mono" font-size="11" fill="#43434a">
+      <text x="14" y="56">- client: OctokitClient</text>
+      <text x="14" y="74">- auth: GitHub App | PAT</text>
+      <line x1="0" y1="86" x2="320" y2="86" stroke="#e3e0d8"/>
+      <text x="14" y="104">+ ensureRepo: REST + GraphQL</text>
+      <text x="14" y="122">+ verifyWebhook: HMAC-SHA256</text>
+      <text x="14" y="140" fill="#9a9690">// not implemented in v1 (charter §3)</text>
+    </g>
+  </g>
+
+  <!-- GITLAB (post-v1, stub) -->
+  <g transform="translate(800,400)">
+    <rect width="320" height="160" fill="#fff" stroke="#c8c3b6" stroke-dasharray="4 3" stroke-width="1.5"/>
+    <rect width="320" height="32" fill="#c8c3b6"/>
+    <text x="14" y="14" font-family="IBM Plex Mono" font-size="9.5" letter-spacing="1.2" fill="#43434a">post-v1 · runway only</text>
+    <text x="14" y="28" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#1a1a1c">GitLabProvider</text>
+    <g font-family="IBM Plex Mono" font-size="11" fill="#43434a">
+      <text x="14" y="56">- client: GitLabRestClient</text>
+      <text x="14" y="74">- auth: PAT | OAuth</text>
+      <line x1="0" y1="86" x2="320" y2="86" stroke="#e3e0d8"/>
+      <text x="14" y="104">+ ensureRepo: REST v4</text>
+      <text x="14" y="122">+ verifyWebhook: token compare</text>
+      <text x="14" y="140" fill="#9a9690">// not implemented in v1 (charter §3)</text>
+    </g>
+  </g>
+
+  <!-- side: contract test rail -->
+  <g transform="translate(40,80)">
+    <rect width="220" height="180" fill="#ece1f3" stroke="#6e1a82"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#6e1a82">CONTRACT TESTS · v6 §31</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#3e0d4d">tests/integration/<br>providers/contracts/</text>
+    <g font-family="IBM Plex Mono" font-size="10.5" fill="#3e0d4d">
+      <text x="14" y="100">runs same suite against</text>
+      <text x="14" y="116">every realization →</text>
+      <text x="14" y="138">guarantees behavioral</text>
+      <text x="14" y="154">parity. New providers</text>
+      <text x="14" y="170">can't ship without it.</text>
+    </g>
+  </g>
+  <line x1="260" y1="170" x2="440" y2="170" stroke="#6e1a82" stroke-dasharray="3 3"/>
+
+  <!-- right: capability discovery rail -->
+  <g transform="translate(940,80)">
+    <rect width="220" height="180" fill="#fbeed8" stroke="#b96b16"/>
+    <text x="14" y="22" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.2" fill="#b96b16">PREFLIGHT · M2</text>
+    <text x="14" y="44" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#7a4408">.capabilities()</text>
+    <g font-family="IBM Plex Mono" font-size="10.5" fill="#7a4408">
+      <text x="14" y="76">probes the live target</text>
+      <text x="14" y="92">→ feeds CapabilitySet</text>
+      <text x="14" y="108">into ProjectProfile.</text>
+      <text x="14" y="138">planner uses caps to</text>
+      <text x="14" y="154">decide which writes</text>
+      <text x="14" y="170">are admissible.</text>
+    </g>
+  </g>
+  <line x1="940" y1="170" x2="760" y2="170" stroke="#b96b16" stroke-dasharray="3 3"/>
+</svg>
+</div>
+
+<div class="caption-block">
+  <div class="caption-card">
+    <h4>Caption (for the doc)</h4>
+    <p>The VcsProvider abstraction. v1 ships exactly one realization (Bitbucket Cloud); GitHub and GitLab classes are sketched as runway only — the abstraction is shaped to absorb them post-v1 without rework. Behavioral parity is enforced by the contract test suite (v6 §31), not just by inheritance — every realization runs the same tests. The same shape applies to <code>JiraProvider</code> and <code>ConfluenceProvider</code> (Atlassian side).</p>
+  </div>
+  <div class="caption-card insertion">
+    <h4>Insertion instruction</h4>
+    <p>Insert in <code>docs/sdlc/04-design/module-providers-vcs.md</code> at the top of the <code>## Class shape</code> section. Sibling Atlassian doc gets a parallel diagram.</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
