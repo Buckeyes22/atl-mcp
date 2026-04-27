@@ -82,6 +82,10 @@ export function createMgmtApiRunner(args: {
     deploymentTier: config.deployment.tier,
   });
 
+  app.get("/", (c) => {
+    return c.redirect("/ui/", 302);
+  });
+
   app.get("/healthz", (c) => {
     return c.json(livePayload());
   });

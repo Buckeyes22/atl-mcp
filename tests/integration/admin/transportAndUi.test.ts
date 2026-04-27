@@ -29,6 +29,12 @@ describe("admin MCP transport + UI host (ADR 0006)", () => {
     expect(res.headers.get("location")).toBe("/ui/");
   });
 
+  it("management root redirects to the operator control plane", async () => {
+    const res = await fx.app.fetch(new Request("http://localhost/"));
+    expect(res.status).toBe(302);
+    expect(res.headers.get("location")).toBe("/ui/");
+  });
+
   it("/ui/<asset> serves bundled JSX/CSS files with correct MIME", async () => {
     const css = await fx.app.fetch(new Request("http://localhost/ui/app.css"));
     expect(css.status).toBe(200);
