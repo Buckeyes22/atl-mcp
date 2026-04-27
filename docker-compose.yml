@@ -68,8 +68,8 @@ services:
       WEBHOOK_HTTP_HOST: "0.0.0.0"
       LOG_LEVEL: info
       LOG_FILE_PATH: /var/log/orchestrator/orchestrator.log
-      NODE_ENV: development
-      DEPLOYMENT_TIER: dev
+      NODE_ENV: production
+      DEPLOYMENT_TIER: production
       DATABASE_DEV_MODE: "false"
       DATABASE_URL: postgres://orchestrator:dev@postgres:5432/orchestrator
       REDIS_URL: redis://redis:6379
