@@ -11,6 +11,9 @@ import { createRepositories, type Repositories } from "../../../src/storage/repo
 import { createAuditSigner } from "../../../src/security/auditChain.js";
 import { createVelocityContentRegistry } from "../../../src/velocity/contentRegistry.js";
 import type { DbHandle } from "../../../src/storage/db.js";
+import type { JiraProvider } from "../../../src/providers/atlassian/jiraProvider.js";
+import type { ConfluenceProvider } from "../../../src/providers/atlassian/confluenceProvider.js";
+import type { VcsProvider } from "../../../src/providers/vcs/VcsProvider.js";
 
 export function silentLogger(): Logger {
   return pino({ level: "silent" });
@@ -26,7 +29,15 @@ export interface AdminTestFixture {
   db: DbHandle;
 }
 
-export async function buildAdminFixture(): Promise<AdminTestFixture> {
+export interface AdminTestFixtureOptions {
+  readonly providers?: {
+    readonly jira?: JiraProvider;
+    readonly confluence?: ConfluenceProvider;
+    readonly vcs?: VcsProvider;
+  };
+}
+
+export async function buildAdminFixture(options: AdminTestFixtureOptions = {}): Promise<AdminTestFixture> {
   // Random high port to avoid collisions across parallel test files.
   const port = 40000 + Math.floor(Math.random() * 5000);
   process.env["MGMT_API_PORT"] = String(port);
@@ -49,7 +60,11 @@ export async function buildAdminFixture(): Promise<AdminTestFixture> {
       db,
       repositories,
       auditSigner: createAuditSigner(),
-      providers: { jira: undefined, confluence: undefined, vcs: undefined },
+      providers: {
+        jira: options.providers?.jira,
+        confluence: options.providers?.confluence,
+        vcs: options.providers?.vcs,
+      },
       agentSessionRegistry: sessionRegistry,
       provisionQueue: undefined,
       velocityRegistry: createVelocityContentRegistry(),

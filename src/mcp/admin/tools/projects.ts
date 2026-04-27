@@ -449,6 +449,7 @@ function buildArtifactDetail(
   const confluencePages = confluencePagesFor(project, confluenceSpaceId, artifacts.confluenceIds);
   const issueCount = maxNonNegative([
     artifacts.jiraIssueKeys.length,
+    jiraCards.filter((card) => card.issueKey).length,
     ...numbersFromJobs(jobs, ["issuesCreated", "totalCreated"]),
   ]);
   const pageCount = maxNonNegative([
@@ -633,7 +634,8 @@ function traceRowsFor(
       }));
 
   featureRows.slice(0, 12).forEach((feature, index) => {
-    const requirementId = feature.requirementIds[0] ?? project.requirements[index]?.id ?? feature.id;
+    const requirementIds = Array.isArray(feature.requirementIds) ? feature.requirementIds : [];
+    const requirementId = requirementIds[0] ?? project.requirements[index]?.id ?? feature.id;
     const requirement = requirementsById.get(requirementId);
     const jiraCard = jiraCards[index] ?? jiraCards[0];
     const page = confluencePages[index % Math.max(1, confluencePages.length)];
@@ -647,7 +649,7 @@ function traceRowsFor(
       id: `${project.key}:${feature.id}:${requirementId}`,
       requirementId,
       featureId: feature.id,
-      featureTitle: feature.title,
+      featureTitle: titleForTraceFeature(feature, requirement),
       jiraIssueKey: jiraCard?.issueKey ?? null,
       jiraIssueUrl: jiraCard?.issueUrl ?? null,
       confluenceTitle: page?.title ?? null,
@@ -661,6 +663,15 @@ function traceRowsFor(
     });
   });
   return rows;
+}
+
+function titleForTraceFeature(
+  feature: Readonly<{ id: string; title?: unknown }>,
+  requirement: ProjectBlueprint["requirements"][number] | undefined,
+): string {
+  if (typeof feature.title === "string" && feature.title.length > 0) return feature.title;
+  if (requirement && typeof requirement.title === "string" && requirement.title.length > 0) return requirement.title;
+  return feature.id;
 }
 
 function buildLatestEvent(auditEntries: readonly AuditEntry[]): z.infer<typeof LATEST_EVENT> | undefined {
@@ -824,6 +835,26 @@ function collectArtifacts(auditEntries: readonly AuditEntry[]): ArtifactCollecti
 }
 
 function jiraCardsFor(project: ProjectBlueprint, issueKeys: readonly string[]): ArtifactDetail["jira"]["cards"] {
+  if (project.adoptedJiraCards && project.adoptedJiraCards.length > 0) {
+    const cards = project.adoptedJiraCards.flatMap((rawCard, index) => {
+      const raw = recordValue(rawCard);
+      if (!raw) return [];
+      const issueKey = stringValue(raw["issueKey"]) ?? stringValue(raw["key"]) ?? stringValue(raw["nodeId"]);
+      const nodeId = stringValue(raw["nodeId"]) ?? issueKey;
+      const title = stringValue(raw["title"]) ?? issueKey;
+      if (!issueKey || !nodeId || !title) return [];
+      const issueUrl = jiraIssueUrlFor(issueKey);
+      return [{
+        kind: jiraCardKind(raw["kind"], index),
+        nodeId,
+        title,
+        issueKey,
+        ...(issueUrl ? { issueUrl } : {}),
+      }];
+    });
+    if (cards.length > 0) return cards;
+  }
+
   const cards: ArtifactDetail["jira"]["cards"] = [];
   let index = 0;
   for (const epic of project.epics) {
@@ -849,6 +880,15 @@ function jiraCardsFor(project: ProjectBlueprint, issueKeys: readonly string[]): 
     }
   }
   return cards;
+}
+
+function jiraCardKind(value: unknown, index: number): "epic" | "story" | "task" {
+  if (value === "epic" || value === "story" || value === "task") return value;
+  return index === 0 ? "epic" : "story";
+}
+
+function stringValue(value: unknown): string | undefined {
+  return typeof value === "string" && value.length > 0 ? value : undefined;
 }
 
 function confluencePagesFor(
@@ -934,7 +974,7 @@ function maxNonNegative(values: readonly number[]): number {
 }
 
 function addUnique(target: string[], value: string): void {
-  if (value.length > 0 && !target.includes(value)) target.push(value);
+  if (value.length > 0 && value !== "undefined" && value !== "null" && !target.includes(value)) target.push(value);
 }
 
 function unique(values: readonly string[]): readonly string[] {

@@ -1,0 +1,6 @@
+diff --git a/docker-compose.yml b/docker-compose.yml
+--- a/docker-compose.yml
++++ b/docker-compose.yml
+@@
+-      - "127.0.0.1:3001:3001"  # Mgmt API — loopback only (open-edison F-130)
++      - "127.0.0.1:3101:3001"  # Mgmt API behind host password gate on 127.0.0.1:3001

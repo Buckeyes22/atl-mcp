@@ -1,0 +1,19 @@
+[Unit]
+Description=Password gate for atl-mcp control plane
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/atl-mcp-gate.env
+ExecStart=/usr/bin/python3 /opt/atl-mcp-gate/gate.py
+Restart=always
+RestartSec=2
+DynamicUser=yes
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

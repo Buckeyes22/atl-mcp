@@ -49,8 +49,21 @@ export interface ProjectBlueprint {
    * future provisioning logic can detect the project already exists upstream.
    */
   readonly atlassianProjectKey?: string;
+  /**
+   * Snapshot of Jira work imported during adoption. This is presentation and
+   * handoff evidence for an existing Jira project; Jira remains the source of
+   * truth for live status and history.
+   */
+  readonly adoptedJiraCards?: readonly AdoptedJiraCard[];
   readonly createdAt: string;
   readonly updatedAt: string;
+}
+
+export interface AdoptedJiraCard {
+  readonly kind: "epic" | "story" | "task";
+  readonly nodeId: string;
+  readonly title: string;
+  readonly issueKey: string;
 }
 
 /** Minimal seed used when intake creates a brand-new draft. */
