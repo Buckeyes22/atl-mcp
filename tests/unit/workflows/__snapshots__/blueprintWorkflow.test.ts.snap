@@ -1,0 +1,208 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`createBlueprintWorkflow > turns fixture markdown into a deterministic ProjectBlueprint 1`] = `
+{
+  "architecture": {
+    "components": [],
+    "decisions": [],
+    "summary": "Use the existing customer portal and billing ledger API.",
+  },
+  "blueprintVersion": 2,
+  "createdAt": "2026-04-25T00:00:00.000Z",
+  "epics": [
+    {
+      "confluenceRefs": [],
+      "dependencies": [],
+      "id": "EPIC-001",
+      "outcome": "Deliver the accepted requirements.",
+      "stories": [
+        {
+          "acceptanceCriteria": [
+            "CSV contains invoices for the selected date range.",
+          ],
+          "contextRefs": [
+            "proj-1:raw-intake",
+          ],
+          "dependencies": [],
+          "estimatedComplexity": "M",
+          "id": "STORY-001",
+          "implementationNotes": [],
+          "testNotes": [
+            "CSV contains invoices for the selected date range.",
+          ],
+          "title": "Account owner can export invoice history",
+          "userStory": "As a project stakeholder, I need account owner can export invoice history.",
+        },
+        {
+          "acceptanceCriteria": [
+            "Resend action records an audit event.",
+          ],
+          "contextRefs": [
+            "proj-1:raw-intake",
+          ],
+          "dependencies": [],
+          "estimatedComplexity": "M",
+          "id": "STORY-002",
+          "implementationNotes": [],
+          "testNotes": [
+            "Resend action records an audit event.",
+          ],
+          "title": "Admin can resend failed invoice emails",
+          "userStory": "As a project stakeholder, I need admin can resend failed invoice emails.",
+        },
+      ],
+      "title": "Project delivery",
+    },
+  ],
+  "features": [
+    {
+      "description": "Account owner can export invoice history.",
+      "id": "FEAT-001",
+      "priority": "must",
+      "requirementIds": [
+        "REQ-001",
+      ],
+      "title": "Account owner can export invoice history",
+    },
+    {
+      "description": "Admin can resend failed invoice emails.",
+      "id": "FEAT-002",
+      "priority": "should",
+      "requirementIds": [
+        "REQ-002",
+      ],
+      "title": "Admin can resend failed invoice emails",
+    },
+  ],
+  "goals": [
+    "Reduce support handoffs",
+    "Give account owners self-service billing records",
+  ],
+  "id": "proj-1",
+  "intake": {
+    "capturedAt": "2026-04-25T00:00:00.000Z",
+    "source": {
+      "kind": "raw_markdown",
+      "markdown": "# Billing Portal
+
+## Goals
+- Reduce support handoffs
+- Give account owners self-service billing records
+
+## Non-Goals
+- Payment processing
+
+## Stakeholders
+- Finance Ops - approver - invoice accuracy
+
+## Requirements
+- must: Account owner can export invoice history. Acceptance: CSV contains invoices for the selected date range.
+- should: Admin can resend failed invoice emails. Acceptance: Resend action records an audit event.
+
+## Architecture
+Use the existing customer portal and billing ledger API.
+
+## Risks
+- high: Ledger API rate limits could block bulk export. Mitigation: batch by month.
+
+## Testing
+- UT: parser and ledger range helpers
+- E2E: export happy path
+
+## Release
+Pilot with Finance Ops before general availability.
+",
+    },
+  },
+  "key": "BP",
+  "name": "Billing Portal",
+  "nonGoals": [
+    "Payment processing",
+  ],
+  "openQuestions": [],
+  "releasePlan": {
+    "milestones": [],
+    "rolloutStrategy": "Pilot with Finance Ops before general availability.",
+  },
+  "requirements": [
+    {
+      "acceptanceSignals": [
+        "CSV contains invoices for the selected date range.",
+      ],
+      "description": "Account owner can export invoice history.",
+      "id": "REQ-001",
+      "priority": "must",
+      "sourceRefs": [
+        {
+          "excerpt": "must: Account owner can export invoice history. Acceptance: CSV contains invoices for the selected date range.",
+          "id": "proj-1:raw-intake",
+          "kind": "blueprint_section",
+        },
+      ],
+      "title": "Account owner can export invoice history",
+      "type": "functional",
+    },
+    {
+      "acceptanceSignals": [
+        "Resend action records an audit event.",
+      ],
+      "description": "Admin can resend failed invoice emails.",
+      "id": "REQ-002",
+      "priority": "should",
+      "sourceRefs": [
+        {
+          "excerpt": "should: Admin can resend failed invoice emails. Acceptance: Resend action records an audit event.",
+          "id": "proj-1:raw-intake",
+          "kind": "blueprint_section",
+        },
+      ],
+      "title": "Admin can resend failed invoice emails",
+      "type": "functional",
+    },
+  ],
+  "risks": [
+    {
+      "description": "Ledger API rate limits could block bulk export.",
+      "id": "RISK-001",
+      "likelihood": "possible",
+      "mitigation": "batch by month.",
+      "severity": "high",
+    },
+  ],
+  "schemaVersion": 1,
+  "securityPrivacy": {
+    "classification": "PRIVATE",
+    "owaspLlmCoverage": [],
+    "piiHandling": "",
+    "threatModelRefs": [],
+  },
+  "sourcePins": [],
+  "stakeholders": [
+    {
+      "id": "STK-001",
+      "interests": [
+        "invoice accuracy",
+      ],
+      "name": "Finance Ops",
+      "role": "approver",
+    },
+  ],
+  "state": "BLUEPRINT_READY",
+  "tenantId": "default",
+  "testingStrategy": {
+    "categories": [
+      {
+        "applicable": true,
+        "category": "UT",
+        "toolingNotes": "parser and ledger range helpers",
+      },
+      {
+        "applicable": true,
+        "category": "E2E",
+        "toolingNotes": "export happy path",
+      },
+    ],
+  },
+  "updatedAt": "2026-04-25T00:00:00.000Z",
+}
+`;

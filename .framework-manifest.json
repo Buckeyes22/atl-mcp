@@ -1,0 +1,3927 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-04-26T19:58:18Z",
+  "file_count": 783,
+  "categories": {
+    "manual-merge": 763,
+    "auto-update": 1,
+    "seed-only": 19
+  },
+  "files": {
+    ".claude/hooks/compression-detector.sh": {
+      "sha256": "47f120c61f93efa73ee813407e9efcc495e7cad2559bc21d3f9a35b2a9d98d79",
+      "category": "manual-merge",
+      "size": 5040
+    },
+    ".claude/hooks/error-halt.sh": {
+      "sha256": "a63114a861dfc057ca61719fef3b23fcab12481cb4f8f0c386b09995dfdb213a",
+      "category": "manual-merge",
+      "size": 3917
+    },
+    ".claude/hooks/pre-bash-check.sh": {
+      "sha256": "94aec929c1fa11cf4281b13ed54410ef7862d9146118d16578c59f1d07a06b1f",
+      "category": "manual-merge",
+      "size": 2608
+    },
+    ".claude/hooks/pre-write-check.sh": {
+      "sha256": "a4dcbec6096fa0cf19c642f13a8e1c879540cdf38c3b6bbd25fb847ae0efa3a4",
+      "category": "manual-merge",
+      "size": 2897
+    },
+    ".claude/hooks/pre-write-plain-language.sh": {
+      "sha256": "cf537ad962492419bdd81912e68a2902b14e84514ba25e86cdb3312b20688c4e",
+      "category": "manual-merge",
+      "size": 2625
+    },
+    ".claude/hooks/pre-write-voice-check.sh": {
+      "sha256": "a80779ebb6800a61bd38f711a456af091c4b64a167a75b39a2a4b7d4e94e3008",
+      "category": "manual-merge",
+      "size": 2629
+    },
+    ".claude/hooks/prompt-submit-voice.sh": {
+      "sha256": "b97ec663336fb5a39f431e46b3d8e9320cba563504d2188c342368075f0ed9f8",
+      "category": "manual-merge",
+      "size": 1006
+    },
+    ".claude/hooks/read-tracker.sh": {
+      "sha256": "2829d00f3f3da3feb87d6335945f19d17001d69303f8d194005020cf0c7f23e5",
+      "category": "manual-merge",
+      "size": 671
+    },
+    ".claude/hooks/README.md": {
+      "sha256": "49873b7052f1cfe2ad46a98cb4a6fc204fc90cdaaf6f94ca399388ad7820f3f4",
+      "category": "manual-merge",
+      "size": 2736
+    },
+    ".claude/hooks/session-start.sh": {
+      "sha256": "8096bb4feb30e30b79ea98ca2b3729f74b8537bcf0f3db38aef92abf7faf3a3a",
+      "category": "manual-merge",
+      "size": 4879
+    },
+    ".claude/hooks/verify-before-done.sh": {
+      "sha256": "626a125d6be83adcf4bb2b12cbebdcca2ac64cb4eec954e814047834f741f697",
+      "category": "manual-merge",
+      "size": 3459
+    },
+    ".claude/settings.json": {
+      "sha256": "c3aa36c21516b1b0fce4b0c2b2bec7b08ec4e2cda57652ea24b2ebd4c16443e4",
+      "category": "seed-only",
+      "size": 1658
+    },
+    ".dockerignore": {
+      "sha256": "636963cb0489f83010780fdd7a7d31e5310be06194188e840c6c80ca2da26fcd",
+      "category": "seed-only",
+      "size": 244
+    },
+    ".editorconfig": {
+      "sha256": "da27e53de4f203d1aa653446b1a89c4b8b5c126075c683e75a31ad290fe05001",
+      "category": "seed-only",
+      "size": 219
+    },
+    ".env": {
+      "sha256": "17ae6c6eecd0d4a95d7be13433f4ed4ac48cc5e88812d4c7ad8cf17b12ee6371",
+      "category": "seed-only",
+      "size": 913
+    },
+    ".env.example": {
+      "sha256": "c21107e7bd4792eaf26455714b57f9df9d1eeb767f53c78d7bb31e1989843eec",
+      "category": "seed-only",
+      "size": 3841
+    },
+    ".framework-manifest.json": {
+      "sha256": "8e1d4c0bc9801b59ecd85cc17f35f4e6e120501a7978d7ca195a29cd7ba6b0b0",
+      "category": "auto-update",
+      "size": 144574
+    },
+    ".github/workflows/ci.yml": {
+      "sha256": "be2870fa4f31df2d716754ba8848989e7b1300a56e328d8abc0827fb74cb9c67",
+      "category": "seed-only",
+      "size": 1824
+    },
+    ".gitignore": {
+      "sha256": "8d61994cc6b1ce1630b577fc310577fb264be7d9cb3350abf0784d8c37e8342d",
+      "category": "seed-only",
+      "size": 416
+    },
+    ".husky/pre-commit": {
+      "sha256": "2cd78f06ab91ed21a05f1e7a64ddd6ed17a3ba9017d2a8b231aa6883e55d915f",
+      "category": "seed-only",
+      "size": 1990
+    },
+    ".husky/README.md": {
+      "sha256": "03cdc892a58b6e7d69a08e61e8f8c349b84fb100677d8542a03f02d21da705ec",
+      "category": "manual-merge",
+      "size": 1375
+    },
+    "agent-context-orchestrator-mcp-plan-v5.md": {
+      "sha256": "a9bea8486a187c477b49e3db33a346d9bb6013f19e0e842f1193f4ff8549d7ff",
+      "category": "manual-merge",
+      "size": 100773
+    },
+    "agent-context-orchestrator-mcp-plan-v6.md": {
+      "sha256": "b2812753b629b60d2bd916be9ecae274fd52da6b2a5da82e11c84d27c479f229",
+      "category": "manual-merge",
+      "size": 225910
+    },
+    "AGENTS.md": {
+      "sha256": "3d0c3f8989ea51c19a6e0a1e6be39aca2137e27e654d80a3717fa6cb79df364f",
+      "category": "manual-merge",
+      "size": 4660
+    },
+    "CLAUDE.md": {
+      "sha256": "efafff55568df8114b30046024d9717ac3835fb891c38a4d8883c90f1503f67a",
+      "category": "manual-merge",
+      "size": 4175
+    },
+    "docker-compose.yml": {
+      "sha256": "253307aae1c5cdea3f86171368befcceb7952e651d5a9a25824169f889a973a3",
+      "category": "seed-only",
+      "size": 2195
+    },
+    "Dockerfile": {
+      "sha256": "2bbdc09863a26d5d139cc552a536a96706cab61d350fed1bf5d11b645a5fedc5",
+      "category": "seed-only",
+      "size": 1617
+    },
+    "docs/adr/0000-adr-process.md": {
+      "sha256": "79337e5aad658accc788a5625d51134c109388edbb81efe01516a7ab63f72c7d",
+      "category": "manual-merge",
+      "size": 4451
+    },
+    "docs/adr/0001-pglite-for-dev.md": {
+      "sha256": "ffad071475639292e7f27a61e022c55c0fb6e6d98692e4ae2c446f489404d18c",
+      "category": "manual-merge",
+      "size": 4709
+    },
+    "docs/adr/0002-token-encryption-noble-ciphers.md": {
+      "sha256": "9c8cc487de5bcd58c4d53b966ff314502dca2cfbfd96d9d2957349ce1de2f56c",
+      "category": "manual-merge",
+      "size": 5616
+    },
+    "docs/adr/0003-confluence-storage-default-adf-flagged.md": {
+      "sha256": "893241a5ff0d0ad38c25224540bc7840fbba6f5851ed3e6407f621745eb1dea8",
+      "category": "manual-merge",
+      "size": 5226
+    },
+    "docs/adr/0004-bitbucket-app-password-vs-oauth.md": {
+      "sha256": "86e83e9886958c022942e29eb6a70f059691eff2a140dcd05000531611bb65a5",
+      "category": "manual-merge",
+      "size": 4587
+    },
+    "docs/adr/0005-audit-signing-pipeline.md": {
+      "sha256": "35b54625caa5c863af08356ec103fc3b7c3401859a36a6479b77cd2a566e740c",
+      "category": "manual-merge",
+      "size": 4773
+    },
+    "docs/adr/0006-operator-control-plane-admin-mcp-tools.md": {
+      "sha256": "1012e762a1122956136e34e27ca913b9c6f4867a303dd7f0b06016d138297659",
+      "category": "manual-merge",
+      "size": 6580
+    },
+    "docs/audit-backlog-2026-04-25.md": {
+      "sha256": "07a3b926799d8307e25c0c25714c139f663ab2720dc5c0b1e5931ba9bea914cf",
+      "category": "manual-merge",
+      "size": 5495
+    },
+    "docs/audit-findings-2026-04-25.md": {
+      "sha256": "98a94163b8d4b45d39d5a6d69084de9555476e0097baf830abc71039a22f4336",
+      "category": "manual-merge",
+      "size": 16699
+    },
+    "docs/audit-protocol.md": {
+      "sha256": "82ea929137ed59a74aa05fdbdadd6296b74d1f889943c6161763746fe44c1b64",
+      "category": "manual-merge",
+      "size": 26093
+    },
+    "docs/audit-remediation-plan-2026-04-25.md": {
+      "sha256": "cf712778354d0df10af224fa77159895d96cc41ad54990ed9887a9ff4893ac4f",
+      "category": "manual-merge",
+      "size": 24329
+    },
+    "docs/audit-verification-plan-2026-04-25.md": {
+      "sha256": "217d60337a165835d377ea86e36037874afa098ded173c48ccfd8db2a89622ac",
+      "category": "manual-merge",
+      "size": 14511
+    },
+    "docs/build-orchestration.md": {
+      "sha256": "3a05f3afa0dbfb6a1f72475284644007fd34f8db613f670c318ad159d8c70d8a",
+      "category": "manual-merge",
+      "size": 27964
+    },
+    "docs/conformance/baseline-2026-04-26.md": {
+      "sha256": "3a5201d7b48cf8a2a9e47f74700328a2d6dcb75b564d46b22c6e4581f605d7f7",
+      "category": "manual-merge",
+      "size": 6854
+    },
+    "docs/conformance/rubric-source.md": {
+      "sha256": "43fdbe6ef0c28750734c87509ffb06b2f6c8155243f668e8d1e51861b480bb94",
+      "category": "manual-merge",
+      "size": 965
+    },
+    "docs/conformance/rubric.md": {
+      "sha256": "53b18eed4f7ce81eaa7175c6e56c24e97287cccbf2c22f95559d41889a772683",
+      "category": "manual-merge",
+      "size": 4369
+    },
+    "docs/control-plane/app-tweaks.jsx": {
+      "sha256": "70f57a474951a4134f4b812dbc2881dbd8ad2c4b5b3154945d277f83807f6323",
+      "category": "manual-merge",
+      "size": 1847
+    },
+    "docs/control-plane/app.css": {
+      "sha256": "f8235f3576690a4265c0b531ea37ed77cfb0b56232283df29f83a86aefa322ca",
+      "category": "manual-merge",
+      "size": 28894
+    },
+    "docs/control-plane/base-styles.css": {
+      "sha256": "e6c409e8b273dbcfb5bc00e545a00fdccff0e026df2349a11d8f8e0d740e15cd",
+      "category": "manual-merge",
+      "size": 7235
+    },
+    "docs/control-plane/components.jsx": {
+      "sha256": "f0067d2db7896285935e05c8b48899701c8d6dafba1b2ec582fe9b319fe0d6c1",
+      "category": "manual-merge",
+      "size": 10084
+    },
+    "docs/control-plane/data-limited.jsx": {
+      "sha256": "94ffd22fa83f39ae1eda244c679ff8ee723ffafc52e07fb00940ab2f7bb694f9",
+      "category": "manual-merge",
+      "size": 1626
+    },
+    "docs/control-plane/index.html": {
+      "sha256": "5c49d9b126de9ff2fc01c736334f8666e9744c49166e84c86bc7558421d41baf",
+      "category": "manual-merge",
+      "size": 4029
+    },
+    "docs/control-plane/mcp-client.js": {
+      "sha256": "9f9d62050f8fee188baf86234b7d3479c99c37ea83d41b36b842afeb75115218",
+      "category": "manual-merge",
+      "size": 4272
+    },
+    "docs/control-plane/page-audit.jsx": {
+      "sha256": "34bac758e64267ed9fa423a830498b9938590ec47b8750e3cddaca3989fc04c2",
+      "category": "manual-merge",
+      "size": 5731
+    },
+    "docs/control-plane/page-dashboard.jsx": {
+      "sha256": "148217b86c16af0180c13fbfc4eafe8cb12d4ade7bae50920695d90ecd897ce8",
+      "category": "manual-merge",
+      "size": 11498
+    },
+    "docs/control-plane/page-index.jsx": {
+      "sha256": "599b514e7642c3492fcd332cd35b181c6620ab59e78df8f28734f7b8ffe40f19",
+      "category": "manual-merge",
+      "size": 12808
+    },
+    "docs/control-plane/page-jobs-policy.jsx": {
+      "sha256": "930b9a0613daa886af1de270d30972828df652196f304f6c79b662013f43e477",
+      "category": "manual-merge",
+      "size": 12700
+    },
+    "docs/control-plane/page-projects.jsx": {
+      "sha256": "53f7112d9235d209fbd2b048b6a2520759e318ab2547589758e26e7c8b3d6d86",
+      "category": "manual-merge",
+      "size": 26258
+    },
+    "docs/control-plane/page-tier23.jsx": {
+      "sha256": "6a02bf523053182ccad3a3468b8da572df563623b9508aeee9ee639741bb25fe",
+      "category": "manual-merge",
+      "size": 25802
+    },
+    "docs/control-plane/STYLE-NOTES.md": {
+      "sha256": "525802d0584106a49f7ef1d569f3d8c49a877bd119c2e05394ef779ec4b2e6ee",
+      "category": "manual-merge",
+      "size": 9729
+    },
+    "docs/control-plane/tweaks-panel.jsx": {
+      "sha256": "57fac7f3caf989845a3215a875d3b5e0140f7ee0b6b31165451bdea0b2532247",
+      "category": "manual-merge",
+      "size": 18417
+    },
+    "docs/control-plane/use-admin.jsx": {
+      "sha256": "90279fa820949e2fc7e7f8ab64fe70027ce79a6588d72f65599b57231a95c91d",
+      "category": "manual-merge",
+      "size": 3389
+    },
+    "docs/demo/ai-honesty.md": {
+      "sha256": "a8fe7a62d0c26afe04f5551de682ae048a25ba118ddc52366bca3ea87a17d96c",
+      "category": "manual-merge",
+      "size": 9981
+    },
+    "docs/demo/architecture.md": {
+      "sha256": "0b8c5a195ccb3622ca224502daff8b6a21f9d2743ddc4c981acd54c6192d08d2",
+      "category": "manual-merge",
+      "size": 11327
+    },
+    "docs/demo/audit-remediation-summary.md": {
+      "sha256": "fbd62001c7ece0ef4a676887a63466e7d8b7ce372e43895560e02052e640635b",
+      "category": "manual-merge",
+      "size": 8227
+    },
+    "docs/demo/confluence-space-index.md": {
+      "sha256": "13010d5db716a360b2c4e09a54bf10e7a11048ec79d9cd06110714de14dd5064",
+      "category": "manual-merge",
+      "size": 3989
+    },
+    "docs/demo/glossary.md": {
+      "sha256": "3d2e895c8f94e7211abde9be04da60cd5011072facb6665dc01900d41f460c9f",
+      "category": "manual-merge",
+      "size": 2820
+    },
+    "docs/demo/interviewer-walkthrough.md": {
+      "sha256": "ea905ba0e7ee1839d19a4f89282c8f6e018587bc01e064307eaf564c14237d7c",
+      "category": "manual-merge",
+      "size": 92315
+    },
+    "docs/demo/jira-work-items.md": {
+      "sha256": "7916800d00091815b4f2021f543309b81588e84fe458f8b3c7f0a41cda9190dd",
+      "category": "manual-merge",
+      "size": 8681
+    },
+    "docs/demo/known-limitations.md": {
+      "sha256": "0bdd048089f307f55f81ba5d87e8cb42569ebfd0b30c4390a416bfe63b431e67",
+      "category": "manual-merge",
+      "size": 3231
+    },
+    "docs/demo/qa-vault.md": {
+      "sha256": "447532ec1521fe6bfa2d8a6ec7fdf8c986534b6143ac1976fa58236df81c1e78",
+      "category": "manual-merge",
+      "size": 25229
+    },
+    "docs/demo/README.md": {
+      "sha256": "bee8a106476668293dd3cadcc36970bafb3369e28ea0c3f3acae82ad3e727b6d",
+      "category": "manual-merge",
+      "size": 5020
+    },
+    "docs/demo/roadmap.md": {
+      "sha256": "bdd2a62fb9a2aee44af3058e903372f5b1a3069983a28a02a0c233f1c4fea317",
+      "category": "manual-merge",
+      "size": 2844
+    },
+    "docs/demo/runbook.md": {
+      "sha256": "fef95dc75e2a3f25f435e286937fad549aa3db00a4a853f7b985356605b7c4d5",
+      "category": "manual-merge",
+      "size": 8434
+    },
+    "docs/demo/screenshots/README.md": {
+      "sha256": "186e6a608e1fe2567aa9410ba4f8ea973286dd908bba0f08e76517885054d2c7",
+      "category": "manual-merge",
+      "size": 5421
+    },
+    "docs/demo/security-posture.md": {
+      "sha256": "a6ef57d7ee8fd7161ac87ba689f3ae9df4dc577b86cd108e18bd522a67afdcaa",
+      "category": "manual-merge",
+      "size": 4316
+    },
+    "docs/demo/tour-15-minutes.md": {
+      "sha256": "bcbb38723166326546b4725dd0b0eb85bc22bd8d5ee2f79ac6829ecbadd7b83e",
+      "category": "manual-merge",
+      "size": 8128
+    },
+    "docs/demo/tour-5-minutes.md": {
+      "sha256": "0d2bf693b9e3ca40789cb5253c8488b51a9dfcaa4271d12ecca4faf2809c54e9",
+      "category": "manual-merge",
+      "size": 4351
+    },
+    "docs/demo/tour-60-seconds.md": {
+      "sha256": "d48050e50d1d3aa5a75e83bf3a5303fd708a6a4548b645319c88507323024c49",
+      "category": "manual-merge",
+      "size": 1939
+    },
+    "docs/documentation-catalog.md": {
+      "sha256": "0f2e2afc49e28c4dc0f38b00786620d76ed35104d4e42dba47206d31e171a4fe",
+      "category": "manual-merge",
+      "size": 33949
+    },
+    "docs/host-addenda/claude.md": {
+      "sha256": "1639e8976199c33cd7fafc44f2d750c3dc752ba254629abbe89299aaaf9c900e",
+      "category": "manual-merge",
+      "size": 3656
+    },
+    "docs/host-addenda/codex.md": {
+      "sha256": "316c59e864d3823c133b2c5f43ef5bbd32fa1586ee0d2f6903cb043f0691f2af",
+      "category": "manual-merge",
+      "size": 482
+    },
+    "docs/host-addenda/copilot.md": {
+      "sha256": "6630d8d56393a2ea2c5e4c10a75d6829d44af8d2bfc6b148f418cac4d37f9f96",
+      "category": "manual-merge",
+      "size": 480
+    },
+    "docs/host-addenda/cursor.md": {
+      "sha256": "1fa27b4606a8b975ddbab97680ea710c353a5af74b6e5932c46631041fb44dce",
+      "category": "manual-merge",
+      "size": 454
+    },
+    "docs/milestone-checklists/M0.md": {
+      "sha256": "44d875829423e91cf5c6c8d5349020235e9ddb429e220e7855c5cceda7892a7d",
+      "category": "manual-merge",
+      "size": 2532
+    },
+    "docs/milestone-checklists/M1.md": {
+      "sha256": "079422d35eb2319cb6aad2fe81adafedd49b82723037287e4070c50d3c0ea5ec",
+      "category": "manual-merge",
+      "size": 3110
+    },
+    "docs/milestone-checklists/M2.md": {
+      "sha256": "91746d8d1d8112e734b286384dc621791c809bbae1bd60908ccd61d77acb6df8",
+      "category": "manual-merge",
+      "size": 3557
+    },
+    "docs/milestone-checklists/M3.md": {
+      "sha256": "e55366310d782b33f0ace8a2ccfcfde633af6d31aa8dcf70e28cf9351943c845",
+      "category": "manual-merge",
+      "size": 1610
+    },
+    "docs/milestone-checklists/README.md": {
+      "sha256": "4f1b7a4c90fad394850b9b964acf40d49423c6cb5c86a2801c00a93fe40fd7ad",
+      "category": "manual-merge",
+      "size": 1405
+    },
+    "docs/partners/adr-github-io.md": {
+      "sha256": "43849edfd078e3ce5b885f4b0e94ab9a4ca9100f964e09dde249bed07b284af0",
+      "category": "manual-merge",
+      "size": 4923
+    },
+    "docs/partners/agent-maestro.md": {
+      "sha256": "d446526ff10e8a34abd25101cd2586b8e3bbdf76c26e3a635f3e52f2c9eeb127",
+      "category": "manual-merge",
+      "size": 7355
+    },
+    "docs/partners/agentdiff.md": {
+      "sha256": "dae41d3b5945f0d635a778238bd19bc5658ee1c49ea92fe5b7994e074898fc4a",
+      "category": "manual-merge",
+      "size": 14729
+    },
+    "docs/partners/agentic-coding-handbook.md": {
+      "sha256": "ff4d57daae714471ead2ebfee33f3448594f3ca13f6de3fa71fc8257df7895a5",
+      "category": "manual-merge",
+      "size": 5167
+    },
+    "docs/partners/agentic-rag-for-dummies.md": {
+      "sha256": "ddb5fe5e4ef56a56d18c2e0def8a9b743896d2008a0f94d00ef5876216f2dad7",
+      "category": "manual-merge",
+      "size": 5511
+    },
+    "docs/partners/agents-md.md": {
+      "sha256": "13dffeccac294d07a685c05c2fde67e9ea3f61cffdd3fc045447558baec42706",
+      "category": "manual-merge",
+      "size": 5786
+    },
+    "docs/partners/ai-coding-framework.md": {
+      "sha256": "3d04a397fcf7b44985d56fd0ebbc9fcaeb1789511a3bbb06bae1875def10bde2",
+      "category": "manual-merge",
+      "size": 8839
+    },
+    "docs/partners/atomic-agents.md": {
+      "sha256": "57b09fd9539db47d2ac4f730abfbfb531652cc44e0cc49bce98709564514981f",
+      "category": "manual-merge",
+      "size": 6732
+    },
+    "docs/partners/awesome-agentic-patterns.md": {
+      "sha256": "ef61213a3dd4af3d4e946f3712a62727d13c0db31acba6feb891d040083fc180",
+      "category": "manual-merge",
+      "size": 4920
+    },
+    "docs/partners/caliber.md": {
+      "sha256": "7fb7379263c8206ed00b9c289c2545e1248886d55b947e86812d175215c2b43c",
+      "category": "manual-merge",
+      "size": 7548
+    },
+    "docs/partners/citadel.md": {
+      "sha256": "ae883a81dccd77181d84fe4ea94365c6300e65770fa0464d666e7fd48077879a",
+      "category": "manual-merge",
+      "size": 6417
+    },
+    "docs/partners/claude-agent-builder.md": {
+      "sha256": "b3dda6810cfecfe11e0c5a9e3680a4952ef77cc3bbd0b304414713b55846bd3e",
+      "category": "manual-merge",
+      "size": 6031
+    },
+    "docs/partners/claude-agent-teams-ui.md": {
+      "sha256": "2a931a4dbe1f41f4d7c909f30cddb72b3cacbeefa3033304175a89bdb0491dd5",
+      "category": "manual-merge",
+      "size": 9169
+    },
+    "docs/partners/claude-code-best-practice.md": {
+      "sha256": "39853edc1e64d874f3c94cbc34f4dc5810d95395462ed1e1af4dee5653cb5547",
+      "category": "manual-merge",
+      "size": 4490
+    },
+    "docs/partners/claude-code-log-analyzer.md": {
+      "sha256": "f3ad5c6a88300720e07ed896cd7c27391d8b6c89e00eea77dbfe84a105507ec3",
+      "category": "manual-merge",
+      "size": 6690
+    },
+    "docs/partners/claude-code-production-grade-plugin.md": {
+      "sha256": "2f7357602e842fc1c318e1bea0481459af7b1202c70f06cecfbae24bcdd88226",
+      "category": "manual-merge",
+      "size": 7176
+    },
+    "docs/partners/claude-sessions.md": {
+      "sha256": "f743b772993a0ba3c38dd117e26dbcc220a191224300f97f841f76e7db54a93c",
+      "category": "manual-merge",
+      "size": 6028
+    },
+    "docs/partners/claude-workflow-v2.md": {
+      "sha256": "63aa4f5b485c173d56d7a48cb3f8ba1a9be23c77d3ab30466b7b8f5289ae1797",
+      "category": "manual-merge",
+      "size": 6534
+    },
+    "docs/partners/codebase-memory-mcp.md": {
+      "sha256": "5a40e6e59c83fd35e453396b90a8c3ee439e28575c19c83a85aef4edce3cae01",
+      "category": "manual-merge",
+      "size": 6193
+    },
+    "docs/partners/context-fabric.md": {
+      "sha256": "2ef61aa2a1e43e5700d9bda039bbfe6d4953d47d7ea2d09a3dcb6245d3f33668",
+      "category": "manual-merge",
+      "size": 10293
+    },
+    "docs/partners/eval-view.md": {
+      "sha256": "26c98a5a57514f1a37d82c6b369d69404bc93f15fca902fe9aeff54dfdbb79d6",
+      "category": "manual-merge",
+      "size": 13819
+    },
+    "docs/partners/everything-claude-code.md": {
+      "sha256": "88afed8981c398917f7d2f15910b08f41e829d41935860d058214169f8ec7100",
+      "category": "manual-merge",
+      "size": 4541
+    },
+    "docs/partners/full-stack-fastapi-template.md": {
+      "sha256": "38d7dc81c9c5045404a38ff6559f07c57f56349d6214673feac92928c636391c",
+      "category": "manual-merge",
+      "size": 7064
+    },
+    "docs/partners/grain.md": {
+      "sha256": "88703abfdbf4933daa2a0cf0eaf2a05d081e17c8f128380eaf64618ae4f399a2",
+      "category": "manual-merge",
+      "size": 7519
+    },
+    "docs/partners/hindsight.md": {
+      "sha256": "38569c421a5d1acce3fa3517cd56c859afc0bf98bf6fd3ac29ddaab0f34759ec",
+      "category": "manual-merge",
+      "size": 8158
+    },
+    "docs/partners/indxr.md": {
+      "sha256": "af277a3622bee60ca3fd15a3c5af2ed0abb1d163f80563543a4603fdc719bb5d",
+      "category": "manual-merge",
+      "size": 6634
+    },
+    "docs/partners/madr.md": {
+      "sha256": "2bf4588a7af821b7f7e5bb47e09895c43eef979e89a5492fb82c3a612f47f401",
+      "category": "manual-merge",
+      "size": 4699
+    },
+    "docs/partners/mcp-daemon.md": {
+      "sha256": "512a392e9804564824b17137c1e6bf3c1f5a78aeff5e12c4fdcb4074d3753f5d",
+      "category": "manual-merge",
+      "size": 5924
+    },
+    "docs/partners/mcpd.md": {
+      "sha256": "9fa45138bcd63a8e07869e7934ea8e431ef175748b9604ea7e6004166bf9c263",
+      "category": "manual-merge",
+      "size": 6270
+    },
+    "docs/partners/mengram.md": {
+      "sha256": "267cad1b970236700adbc3f8258b755760ca39b1eedfe5915ba9e71a156302e0",
+      "category": "manual-merge",
+      "size": 5270
+    },
+    "docs/partners/open-edison.md": {
+      "sha256": "0f5e8a483e2fdcd1e64b3f22863eacc2a03f37f01373ef1a9afe5f649e138d48",
+      "category": "manual-merge",
+      "size": 9574
+    },
+    "docs/partners/open-multi-agent.md": {
+      "sha256": "b6f7f5fa042830410df86fa0c53bb5c2d853f243945d3d6dfd29ec1106ac1733",
+      "category": "manual-merge",
+      "size": 7128
+    },
+    "docs/partners/pae.md": {
+      "sha256": "a39738249528e3068e6916513b03a2b3978cb1b20f3662b2e6db2cb431878846",
+      "category": "manual-merge",
+      "size": 8054
+    },
+    "docs/partners/project-foundation-workbench.md": {
+      "sha256": "3978ee40cabe6f0c9c57d72b7f3d49f3370dada9aa44031d7f4c2c0a75eec650",
+      "category": "manual-merge",
+      "size": 8358
+    },
+    "docs/partners/project-foundation.md": {
+      "sha256": "dbf815b5d013c39af9f97d65cc6b4fbcf195ae7dc2bbe6849235c27a89f254b1",
+      "category": "manual-merge",
+      "size": 10774
+    },
+    "docs/partners/README.md": {
+      "sha256": "0a107576f3f67b9db952d9d7ce482c168a22572fe306103459d65d3a54d24a2f",
+      "category": "manual-merge",
+      "size": 11190
+    },
+    "docs/partners/simple-commands-mcp.md": {
+      "sha256": "ab195797255b67bdfea3490da8b03f3581d5caf86ed979cc7d38cfd07098d3e6",
+      "category": "manual-merge",
+      "size": 6578
+    },
+    "docs/partners/superpowers.md": {
+      "sha256": "4f05f54f200f6ef79ffe998f7b8b78c77315357591d551aaa43d76bdfe0fca91",
+      "category": "manual-merge",
+      "size": 6949
+    },
+    "docs/partners/thinking-partner.md": {
+      "sha256": "27264b2ed5502c663f21af915ef7eaf9818643d5478f0255fcc218ce1b583a51",
+      "category": "manual-merge",
+      "size": 5187
+    },
+    "docs/partners/three-man-team.md": {
+      "sha256": "6a3f618b5c7ee9ca1658a0a3304a3251960cb2a1308f242ff7b2602efefc61b7",
+      "category": "manual-merge",
+      "size": 6339
+    },
+    "docs/partners/uio.md": {
+      "sha256": "d1f625818013e2718a2c330e53a59fe6dcb52313d64fd9504d7a03fd7dbd3f39",
+      "category": "manual-merge",
+      "size": 14670
+    },
+    "docs/partners/velocity-ops-engine.md": {
+      "sha256": "1e3dbe9dbd7069a5ba9fc69b821e540259caa8b6535bf20137e3d2c6b7d6f53b",
+      "category": "manual-merge",
+      "size": 10071
+    },
+    "docs/partners/vibe-tuning.md": {
+      "sha256": "6f184f3022cabffb729ac2901f761a290571712879363c5c5d9c5c21a3cc82c2",
+      "category": "manual-merge",
+      "size": 5554
+    },
+    "docs/remaining-phases.md": {
+      "sha256": "7ffe228d0f22b6638e79ef395febe69d12c4a5016114d0a2760d844a2a6b64cc",
+      "category": "manual-merge",
+      "size": 30368
+    },
+    "docs/sdlc/01-charter/non-goals.md": {
+      "sha256": "9fc522fdf22c8420b2f15edff0a8f9d45f7c6ab97d2b7990d760119f7a35f883",
+      "category": "manual-merge",
+      "size": 9687
+    },
+    "docs/sdlc/01-charter/product-strategy.md": {
+      "sha256": "0a4f46bc4759f8c25f30149b58c478e1f5572795d860ee8984a9e71960a029be",
+      "category": "manual-merge",
+      "size": 20474
+    },
+    "docs/sdlc/01-charter/README.md": {
+      "sha256": "0c5b781b6d2080f13a65039c067460c34a58d7bc721342e785afd6ad45932175",
+      "category": "manual-merge",
+      "size": 20876
+    },
+    "docs/sdlc/02-architecture/containers.md": {
+      "sha256": "44ffe8222275ceb385fe85dcb5e433c93621ca97ae33cbc945f5f93aaa6eee3e",
+      "category": "manual-merge",
+      "size": 7980
+    },
+    "docs/sdlc/02-architecture/data-flow.md": {
+      "sha256": "cd9d688201a4c1c5dbf0bedf68f277232c4858cee8da1a5c5b8c09ba482d7cb4",
+      "category": "manual-merge",
+      "size": 7893
+    },
+    "docs/sdlc/02-architecture/README.md": {
+      "sha256": "92c430c3a6de871dfe8f76370947f3764c21f065b1cac585b91998b0c16d0840",
+      "category": "manual-merge",
+      "size": 8922
+    },
+    "docs/sdlc/02-architecture/tradeoffs.md": {
+      "sha256": "4bc8720598ee37cddd2d4e1f2d30a74f5e0c5032d80318badf87577009e2480e",
+      "category": "manual-merge",
+      "size": 5880
+    },
+    "docs/sdlc/02-architecture/trust-boundaries.md": {
+      "sha256": "2d13c6f20d5aa8873524bac7aa7bbdbb4fd610b990cdad09c06138e90b2e0961",
+      "category": "manual-merge",
+      "size": 8097
+    },
+    "docs/sdlc/03-requirements/compliance-scope.md": {
+      "sha256": "0548d7f5deeb4dd1ee591583e3ce1904067867dbe63e903143bc9802a46e0e71",
+      "category": "manual-merge",
+      "size": 6765
+    },
+    "docs/sdlc/03-requirements/functional.md": {
+      "sha256": "3e3a0489b99e93305088f11933a052f776baccf803c3fca88827fb3ebf1aebb1",
+      "category": "manual-merge",
+      "size": 9954
+    },
+    "docs/sdlc/03-requirements/nfr-availability.md": {
+      "sha256": "581717943434da01038ed7efd419db43f40864ad4d63283c4305c69c5c57871c",
+      "category": "manual-merge",
+      "size": 8735
+    },
+    "docs/sdlc/03-requirements/nfr-performance.md": {
+      "sha256": "690018703dcf9be62cdccb88260d5c3b0aa53bde13075a9e9d2c77d7bc32ac42",
+      "category": "manual-merge",
+      "size": 5070
+    },
+    "docs/sdlc/03-requirements/nfr-scalability.md": {
+      "sha256": "afd8cf4c314f6da9f431c5c2bd5e589847831ad060e07fc5a2bc00b8b0a45a4c",
+      "category": "manual-merge",
+      "size": 4792
+    },
+    "docs/sdlc/03-requirements/nfr-security.md": {
+      "sha256": "944a3386787283f1a5a8fd0d1e21a3c50cabec645d405f2358dc82cb99ed05b8",
+      "category": "manual-merge",
+      "size": 6840
+    },
+    "docs/sdlc/04-design/api-mcp-tools.md": {
+      "sha256": "4a90522ea03b6dac08b0b2efab8c8c3e7d2471356ebca59e1650b8359b0c308e",
+      "category": "manual-merge",
+      "size": 6117
+    },
+    "docs/sdlc/04-design/api-mgmt-rest.md": {
+      "sha256": "6f2cd2c6c9f70a9f3e6757a2a2f130f8524f001c00a10c499ba22089fe785afd",
+      "category": "manual-merge",
+      "size": 10662
+    },
+    "docs/sdlc/04-design/module-context.md": {
+      "sha256": "b020c368e3bd817b1983848e4b38094f72c5d9e4a51c9b954a8afb93b2f9ec1c",
+      "category": "manual-merge",
+      "size": 21242
+    },
+    "docs/sdlc/04-design/module-mcp-runtime.md": {
+      "sha256": "75429fd5e19386b3a25391189cc20d9fd9c635e420e63830583529a65d1d053d",
+      "category": "manual-merge",
+      "size": 6894
+    },
+    "docs/sdlc/04-design/module-observability.md": {
+      "sha256": "2471114c58d6cfc4cc7900b8045941f8a754173057b13d8fd63ff076f5620060",
+      "category": "manual-merge",
+      "size": 14127
+    },
+    "docs/sdlc/04-design/module-preflight.md": {
+      "sha256": "ff50a934cb4006ba0c55524a656ec90beb41ae5f50b3a990f922ff83a150b758",
+      "category": "manual-merge",
+      "size": 11977
+    },
+    "docs/sdlc/04-design/module-providers-atlassian.md": {
+      "sha256": "40e6caf41212c0f33ce460aa80db9b231f567a90b831ea695c53aba057c61a65",
+      "category": "manual-merge",
+      "size": 5737
+    },
+    "docs/sdlc/04-design/module-providers-vcs.md": {
+      "sha256": "3da35392f9ee6cc46bcfaea9ed8eb54068bd60ecd92d07b0e462e9125f44c5a8",
+      "category": "manual-merge",
+      "size": 19579
+    },
+    "docs/sdlc/04-design/module-queue.md": {
+      "sha256": "24573af2b772b50e619a8bbad929885efee4ecf45fc68908cea09372e8048271",
+      "category": "manual-merge",
+      "size": 11504
+    },
+    "docs/sdlc/04-design/module-security.md": {
+      "sha256": "a063315063a0f2ae345d4d25782ffa91103aa59edd6b827853a98627d3ed6063",
+      "category": "manual-merge",
+      "size": 24836
+    },
+    "docs/sdlc/04-design/module-storage.md": {
+      "sha256": "e984e527ec73576e1ac4e69cf35319bfff41b54b0022c5e88ccc91ffc167f2c1",
+      "category": "manual-merge",
+      "size": 15955
+    },
+    "docs/sdlc/04-design/module-workflows.md": {
+      "sha256": "7262cbd56195dc3c961ea214d15d031a5d6b00d19e33ea695b66723f3f7ff193",
+      "category": "manual-merge",
+      "size": 6371
+    },
+    "docs/sdlc/04-design/sequence-diagrams.md": {
+      "sha256": "d210ee03ba4b749fbed93577a556a0adea3550e1a1fc5dd01150bd35b7f8b52e",
+      "category": "manual-merge",
+      "size": 10708
+    },
+    "docs/sdlc/05-data/audit-trail.md": {
+      "sha256": "561ca4299790b164ce1f570cd8e4e2593d9e3e74f4195199b7463fe568867654",
+      "category": "manual-merge",
+      "size": 5529
+    },
+    "docs/sdlc/05-data/classification.md": {
+      "sha256": "7161bcaeae2df77a18ee9c4174064c8e9072939fd389c3ee627cabd9154bb647",
+      "category": "manual-merge",
+      "size": 6745
+    },
+    "docs/sdlc/05-data/domain-model.md": {
+      "sha256": "b022a5858373e76047a75fc293d63eac13ca651369ed1500ecfe32ffe002ff7b",
+      "category": "manual-merge",
+      "size": 5830
+    },
+    "docs/sdlc/05-data/migrations.md": {
+      "sha256": "7319aece431789c88a10ee7413ad652f6d75159dac8c87f9f8744a0bf9bc9be3",
+      "category": "manual-merge",
+      "size": 6019
+    },
+    "docs/sdlc/05-data/retention.md": {
+      "sha256": "6054fd41f041f4b9ca8c2908017b16a2168e1f96a2d9e4e173b787eaafd318e7",
+      "category": "manual-merge",
+      "size": 6102
+    },
+    "docs/sdlc/05-data/schema.md": {
+      "sha256": "b05195e486f5546e168fd3b512c0f564927afc89ae71cbf44b5922b04b94df00",
+      "category": "manual-merge",
+      "size": 6721
+    },
+    "docs/sdlc/06-security/audit-chain-threat-model.md": {
+      "sha256": "2798160b65bcc301d9a9b3f0e7a0b23b7327c7bd449b70ab88e07d9b12ab1b33",
+      "category": "manual-merge",
+      "size": 29297
+    },
+    "docs/sdlc/06-security/controls-matrix.md": {
+      "sha256": "a5e03e6ecf900ce9bf31d455d740b17baba1b4ebb3f6d281061277508f513368",
+      "category": "manual-merge",
+      "size": 8238
+    },
+    "docs/sdlc/06-security/lethal-trifecta.md": {
+      "sha256": "03d5d35abfd9ec30bb55818242e6c99c482f9b80dbf9ef82b2fe2b7c16e871de",
+      "category": "manual-merge",
+      "size": 14328
+    },
+    "docs/sdlc/06-security/policy-decision-layer.md": {
+      "sha256": "ccbca9fc266547e348d792b42c96305f4cd068f26d1cf458c4965769cad5e880",
+      "category": "manual-merge",
+      "size": 7661
+    },
+    "docs/sdlc/06-security/secrets-mgmt.md": {
+      "sha256": "312e9a469e3bddee8106c2c98f2a695638fb4315d773036b05474dae16db3c9c",
+      "category": "manual-merge",
+      "size": 6973
+    },
+    "docs/sdlc/06-security/threat-model.md": {
+      "sha256": "17def739f38241a08e7896b356383962de728f8d12d9ffe3356b89a5ef9f27c8",
+      "category": "manual-merge",
+      "size": 29996
+    },
+    "docs/sdlc/06-security/token-storage.md": {
+      "sha256": "cd61e1842759cd52a203d26a2bdda97d7b225b863c0bd77ee5566f10fd5c4395",
+      "category": "manual-merge",
+      "size": 18842
+    },
+    "docs/sdlc/06-security/vulnerability-disclosure.md": {
+      "sha256": "ba0ab341e64c7078827b269b5c914226476dc51cc9ecd5320fc3ad12e75b8f47",
+      "category": "manual-merge",
+      "size": 4469
+    },
+    "docs/sdlc/06-security/webhook-verification.md": {
+      "sha256": "96c1c6f7de2db669d78d970c1a381e6edf1419a4974a343e31cea793572af2cf",
+      "category": "manual-merge",
+      "size": 7660
+    },
+    "docs/sdlc/07-testing/e2e-plan.md": {
+      "sha256": "97193bcc85735e07bd4f23b2135ce5496e481016bf01839cab19b9ac5e059a2c",
+      "category": "manual-merge",
+      "size": 4860
+    },
+    "docs/sdlc/07-testing/eval-view-integration.md": {
+      "sha256": "a8c50de313653b12e8b79d6c1db16d30336abd23afd80fb399e00b715e0a318e",
+      "category": "manual-merge",
+      "size": 4822
+    },
+    "docs/sdlc/07-testing/integration-plan.md": {
+      "sha256": "7eea931fb9afac7bd0220f4fae05f8f007d6ea49ec5930711e97696e0566b724",
+      "category": "manual-merge",
+      "size": 4660
+    },
+    "docs/sdlc/07-testing/perf-plan.md": {
+      "sha256": "9789feb648b1d20830be2bc27b63b27b9ff17a703f8b53199ad68589f2a53dd7",
+      "category": "manual-merge",
+      "size": 4602
+    },
+    "docs/sdlc/07-testing/security-test-plan.md": {
+      "sha256": "97a2d6aec09aecab21d0a76d5678dd0ef50a31fafc78f7e1a874d2e8c71a3e56",
+      "category": "manual-merge",
+      "size": 5729
+    },
+    "docs/sdlc/07-testing/strategy.md": {
+      "sha256": "0f151fbcc007d925c63ddc8aeace6d319232a1075e431b6b983c82da02a4f245",
+      "category": "manual-merge",
+      "size": 12489
+    },
+    "docs/sdlc/07-testing/unit-coverage.md": {
+      "sha256": "f226cf9643d145c4ac429d3147e750f237df3935804ce54d18cc52be79d6607a",
+      "category": "manual-merge",
+      "size": 4759
+    },
+    "docs/sdlc/08-operations/alerting.md": {
+      "sha256": "80e5b6f1156c08f540db2b3bf9e60c548e6a8a778044d1ee4d556dd3223715b2",
+      "category": "manual-merge",
+      "size": 8199
+    },
+    "docs/sdlc/08-operations/monitoring.md": {
+      "sha256": "a6f7c69b6e53738e126e56b6d3f27424ef6e322f4773cf7367bcec194291cd4c",
+      "category": "manual-merge",
+      "size": 7407
+    },
+    "docs/sdlc/08-operations/observability-stack.md": {
+      "sha256": "aba3ea61a59639bd1ad1e6565d8ea881c637fdf80ec8f600fa7c3a93473c5108",
+      "category": "manual-merge",
+      "size": 18293
+    },
+    "docs/sdlc/08-operations/on-call-playbook.md": {
+      "sha256": "a0046f02b06a8da907412e39467508b9f6dfca1f74caeaa37989a45150842c79",
+      "category": "manual-merge",
+      "size": 6083
+    },
+    "docs/sdlc/08-operations/runbook.md": {
+      "sha256": "7dd0d10bda42f2d3e1a8536a0af3ab46cea507a37e0999917699a0a5617b91b3",
+      "category": "manual-merge",
+      "size": 15141
+    },
+    "docs/sdlc/08-operations/slo-sli.md": {
+      "sha256": "7adccd6282aa80d9458ed04922bb78961a15e66af25c80bc4b2383d131eae798",
+      "category": "manual-merge",
+      "size": 7111
+    },
+    "docs/sdlc/09-deployment/ci-cd.md": {
+      "sha256": "e249040e24a31d20f203986b3e0ccffe7dc04335be13bc1ae195775032a4fcd4",
+      "category": "manual-merge",
+      "size": 8269
+    },
+    "docs/sdlc/09-deployment/deployment-targets.md": {
+      "sha256": "66e68addec8e41c4bca2b895501d45fdb2ed70bfe956b3207d291d02f76cf4a9",
+      "category": "manual-merge",
+      "size": 5848
+    },
+    "docs/sdlc/09-deployment/environments.md": {
+      "sha256": "e4be3f3dadc8dbc7d3c4e8a529e50a9c0cbbcb066a17a54816c0335b9091adbb",
+      "category": "manual-merge",
+      "size": 6390
+    },
+    "docs/sdlc/09-deployment/feature-flags.md": {
+      "sha256": "d3241779b43102367fdd7370ade2ec16868f0a9563fe626c1159996df90f3cff",
+      "category": "manual-merge",
+      "size": 5787
+    },
+    "docs/sdlc/09-deployment/release-process.md": {
+      "sha256": "804493a83e7b099774360d887bee0db9321ce71d7644f5d1ce76355e6e72b8e3",
+      "category": "manual-merge",
+      "size": 8650
+    },
+    "docs/sdlc/09-deployment/secrets-provisioning.md": {
+      "sha256": "1ca6cc838511ea2a004cd2df1072302181870e7ef491ea0315ea779ce60eeefc",
+      "category": "manual-merge",
+      "size": 8974
+    },
+    "docs/sdlc/10-dr-bcp/audit-chain-recovery.md": {
+      "sha256": "875dbdab20089ee7b7e4edc5e3a3b8f1c16626416326b7e52d79bbcc31d3a880",
+      "category": "manual-merge",
+      "size": 7869
+    },
+    "docs/sdlc/10-dr-bcp/backup-strategy.md": {
+      "sha256": "9e519a31027e074473ef3c868305cdb3ab6ae32c024f35d8531c0a7113e1e74d",
+      "category": "manual-merge",
+      "size": 6385
+    },
+    "docs/sdlc/10-dr-bcp/dr-test-schedule.md": {
+      "sha256": "c7e680290266a3fc2c3f98ddd68dd1907782f8224f438eb517c817ca49ca6e86",
+      "category": "manual-merge",
+      "size": 5649
+    },
+    "docs/sdlc/10-dr-bcp/failover.md": {
+      "sha256": "0b4e41c3d9b73b582bd224aa49695aaf9ea5c4617f8e84b9247917a581c45fbc",
+      "category": "manual-merge",
+      "size": 15820
+    },
+    "docs/sdlc/10-dr-bcp/recovery-objectives.md": {
+      "sha256": "452e5a60ad01d493dd0feb305c7c9eb7bf21a60caf1f9a82e92afecc1fc59d0a",
+      "category": "manual-merge",
+      "size": 4878
+    },
+    "docs/sdlc/11-onboarding/developer-setup.md": {
+      "sha256": "ae397bfadd38af523a903ff1640a896009615025069b1d09a720c7ff1306439a",
+      "category": "manual-merge",
+      "size": 5625
+    },
+    "docs/sdlc/11-onboarding/glossary-quick.md": {
+      "sha256": "99600f92c90e8cae28e96f15959cae084778358a10df65122f33b459443a86b1",
+      "category": "manual-merge",
+      "size": 4086
+    },
+    "docs/sdlc/11-onboarding/integrator-guide.md": {
+      "sha256": "36d889a08789905288a802d754dd5b2f1567b96d6593a477b2076f1e097904d1",
+      "category": "manual-merge",
+      "size": 6273
+    },
+    "docs/sdlc/11-onboarding/operator-guide.md": {
+      "sha256": "e0bf1d69150e5e887e0ebb3f62e60cb283d796a80e49e7d0802a91339a1fca61",
+      "category": "manual-merge",
+      "size": 8032
+    },
+    "docs/sdlc/11-onboarding/partner-onboarding.md": {
+      "sha256": "cb4379777ff11e577442b697abba59283a6f53d9a4f7d8a6a0e3d2c7104addc0",
+      "category": "manual-merge",
+      "size": 7363
+    },
+    "docs/sdlc/11-onboarding/README.md": {
+      "sha256": "ca4938b9a43305c0909dfea4042702d6b6788e2a164075d7fde9cb1f3a47469b",
+      "category": "manual-merge",
+      "size": 9729
+    },
+    "docs/sdlc/12-governance/adr-process.md": {
+      "sha256": "3630483620d3d5d627d71ab08c609bebb4482da66e53127aa5ff2d8a03f77076",
+      "category": "manual-merge",
+      "size": 4573
+    },
+    "docs/sdlc/12-governance/change-management.md": {
+      "sha256": "8fa5324e37894795fc4fafa016b14387ed0de661f617152793e2dcde1e1149f5",
+      "category": "manual-merge",
+      "size": 5689
+    },
+    "docs/sdlc/12-governance/code-review.md": {
+      "sha256": "53027521fbd9063e2124136b69e0e973dbccaa55a96c464346199084cc6d7587",
+      "category": "manual-merge",
+      "size": 5033
+    },
+    "docs/sdlc/12-governance/decision-log.md": {
+      "sha256": "856352278367dfa29765cb40f15cd1099d41c173cebda84e3f88bf9db579c138",
+      "category": "manual-merge",
+      "size": 17549
+    },
+    "docs/sdlc/12-governance/definition-of-ready-done.md": {
+      "sha256": "2b8bf3c1bc8001311ad2569bc6ccc11e9d72ebaa5dee72a7c021eac15a808257",
+      "category": "manual-merge",
+      "size": 5539
+    },
+    "docs/sdlc/13-quality/anti-slop.md": {
+      "sha256": "576a96b5ae0ac68f7abddd5e970f72e8f82dc73c8d6a4796ead85b4517eff9a8",
+      "category": "manual-merge",
+      "size": 4749
+    },
+    "docs/sdlc/13-quality/code-style.md": {
+      "sha256": "475cbbe113bfdbd76303a49d7fe2a3c58896663c0c1959a809a70876821531ad",
+      "category": "manual-merge",
+      "size": 6291
+    },
+    "docs/sdlc/13-quality/iron-laws.md": {
+      "sha256": "b28074aff4091c05db41eb40a0b21a21303dde9c4f0a249f38c6592b86824609",
+      "category": "manual-merge",
+      "size": 5360
+    },
+    "docs/sdlc/13-quality/quality-gates.md": {
+      "sha256": "0957300c9d0c6eded83c493a755402e87c341976f5a025533e3344a20d6986d7",
+      "category": "manual-merge",
+      "size": 4440
+    },
+    "docs/sdlc/14-incidents/blameless-review.md": {
+      "sha256": "2753fe0bfc34d33de7020dfea1d45abfffb5a6ae5a54000f1f08cc9c7a32286f",
+      "category": "manual-merge",
+      "size": 7019
+    },
+    "docs/sdlc/14-incidents/failure-mode-taxonomy.md": {
+      "sha256": "c33338fd8d71654141d90fb39f6ac161882062122635a2701f9d91f5b78cd36a",
+      "category": "manual-merge",
+      "size": 14178
+    },
+    "docs/sdlc/14-incidents/fix-type-taxonomy.md": {
+      "sha256": "8f197c37825cc982d000ea800ac295b29f545ebd9e92afe0305b4517b68e885a",
+      "category": "manual-merge",
+      "size": 18738
+    },
+    "docs/sdlc/14-incidents/incident-library.md": {
+      "sha256": "830823b8a9715bf2171bd241a9a019361a920a88fa1b4eb04c0f58ee6f12dcf4",
+      "category": "manual-merge",
+      "size": 12630
+    },
+    "docs/sdlc/14-incidents/postmortem-template.md": {
+      "sha256": "a60f54707c26e77380887267d16a1ab47b7f132841d2fef4aefea9103fd37fed",
+      "category": "manual-merge",
+      "size": 3779
+    },
+    "docs/sdlc/15-capacity/benchmarks.md": {
+      "sha256": "2061bc7ec33c772dc8379cc31084628f1582ece56cfa2d66bf4ac0728ad2d24f",
+      "category": "manual-merge",
+      "size": 4802
+    },
+    "docs/sdlc/15-capacity/capacity-planning.md": {
+      "sha256": "4828f270119ce8a065ee4de9fcf63eed1d8528711debec7a4591601d6d379d86",
+      "category": "manual-merge",
+      "size": 7285
+    },
+    "docs/sdlc/15-capacity/current-limits.md": {
+      "sha256": "fbf8e26268e06b6324da544713a8ac3e4442a41df045def7bee38e31da3f8d11",
+      "category": "manual-merge",
+      "size": 6875
+    },
+    "docs/sdlc/15-capacity/load-test-runbook.md": {
+      "sha256": "0819110afbf30608239aa54191e6620ad2aea22a6bb6613f2461db4ed0c85880",
+      "category": "manual-merge",
+      "size": 5933
+    },
+    "docs/sdlc/16-cost/cost-model.md": {
+      "sha256": "8c64bc2a436371ae64a22c4edf42943f376a31482492dfd730df23eef8a4334b",
+      "category": "manual-merge",
+      "size": 13401
+    },
+    "docs/sdlc/16-cost/finops.md": {
+      "sha256": "7900521689ff98352c7ac9f8c1f98d2c004028266f781bd9fe33066adb08df67",
+      "category": "manual-merge",
+      "size": 4695
+    },
+    "docs/sdlc/16-cost/pricing-runway.md": {
+      "sha256": "78e5ce002b699c28afad22167617d9c1fbbfd8dd60bea4effa969e43fb6767b5",
+      "category": "manual-merge",
+      "size": 5585
+    },
+    "docs/sdlc/17-glossary/domain-vocabulary.md": {
+      "sha256": "1d52432ef5b0ce200b77f97bcbe6eb3651e447c693189816294f9fe92631181f",
+      "category": "manual-merge",
+      "size": 9754
+    },
+    "docs/sdlc/17-glossary/README.md": {
+      "sha256": "9cf26ad51ff54be00cbed69bc6c0e66471fd213bbdfdb556e6eeb4a0c57ae11d",
+      "category": "manual-merge",
+      "size": 11088
+    },
+    "docs/sdlc/README.md": {
+      "sha256": "02888fc34a46a7227af2faa31ef04c0248c5a2a9280e1f1523089d2cc6d727e6",
+      "category": "manual-merge",
+      "size": 18487
+    },
+    "docs/sdlc/templates/adr-template.md": {
+      "sha256": "cc53139333827e609677aea1e191889c522f04b33c93d512db1fc5c1f237b37e",
+      "category": "manual-merge",
+      "size": 3672
+    },
+    "docs/sdlc/templates/module-design-template.md": {
+      "sha256": "ba352164f45f3fca4ec8ce778b4a29a56723f697e5a811a3b6184e73fffb10fb",
+      "category": "manual-merge",
+      "size": 5395
+    },
+    "docs/sdlc/templates/perf-test-template.md": {
+      "sha256": "7155284de00c1a3c12739fe52b7e507a8e62847a6e7b88c6c44ca5032a1a4b37",
+      "category": "manual-merge",
+      "size": 4944
+    },
+    "docs/sdlc/templates/postmortem-template.md": {
+      "sha256": "2288b8b1c89f1fead50dab6c746335807a669a5076fd6046f24340f7b2e34a20",
+      "category": "manual-merge",
+      "size": 5634
+    },
+    "docs/sdlc/templates/runbook-template.md": {
+      "sha256": "a53eb1bdee5a13916e2938ea157f8e3fce84775b196a8885c62937d825827c1d",
+      "category": "manual-merge",
+      "size": 4007
+    },
+    "docs/sdlc/templates/security-test-template.md": {
+      "sha256": "d7fffc3eedd49eab178860f29e72e049cd23a3940586cff2c0a807134ea00758",
+      "category": "manual-merge",
+      "size": 4848
+    },
+    "docs/sdlc/templates/sequence-diagram-template.md": {
+      "sha256": "0ecba684c27fa9cd857f79e26afa61e208a442f743fa8d723025112a0435fdc8",
+      "category": "manual-merge",
+      "size": 4738
+    },
+    "docs/sdlc/templates/threat-model-template.md": {
+      "sha256": "dbc752a239ff3822916007fd82b1d2f61da13d9c995e6da5cc4fb2911e8a771a",
+      "category": "manual-merge",
+      "size": 5558
+    },
+    "docs/session-log-2026-04-26.md": {
+      "sha256": "a696b6e0b3e9b00800254de6892fb470b1dfa8476dc17be441500134eea80b01",
+      "category": "manual-merge",
+      "size": 29821
+    },
+    "docs/velocity-ops-content/agents/architect.md": {
+      "sha256": "e82ee01f280802cd11c4e8d17fa8d567dff7ee98c8171d28327643cfb06da6b4",
+      "category": "manual-merge",
+      "size": 12302
+    },
+    "docs/velocity-ops-content/agents/critic.md": {
+      "sha256": "ce28879a61d3eaa042f9763d727e877aeaad1cba82026eb68ce5cef76d1dd923",
+      "category": "manual-merge",
+      "size": 10406
+    },
+    "docs/velocity-ops-content/agents/docs.md": {
+      "sha256": "e0d540ec9e472f6b5b7c24faf44fcba53f1c48a7e7384de67c5678fe985c21db",
+      "category": "manual-merge",
+      "size": 16803
+    },
+    "docs/velocity-ops-content/agents/guardrails-sentinel.md": {
+      "sha256": "edccb23524ea81ccf43710f2966cc5c962fcc2b7b9325b6304bf361f0f5a1b52",
+      "category": "manual-merge",
+      "size": 3280
+    },
+    "docs/velocity-ops-content/agents/implementer.md": {
+      "sha256": "d4efa250dba4792fa7aac5ce0d9b7c03f959ff7a686cdac1ffa77d209ad10109",
+      "category": "manual-merge",
+      "size": 14378
+    },
+    "docs/velocity-ops-content/agents/judge.md": {
+      "sha256": "f1ce0d2005a14d5ab7639a4d97d9b04acbf64c1c471e0391549bdc2e242fb6dd",
+      "category": "manual-merge",
+      "size": 13182
+    },
+    "docs/velocity-ops-content/agents/ops.md": {
+      "sha256": "5e409e6d977fc88b851e146c015df416dd5a97b2584769c2ae15aa2d8cc56c7f",
+      "category": "manual-merge",
+      "size": 2462
+    },
+    "docs/velocity-ops-content/agents/post-incident.md": {
+      "sha256": "a522335a480e1408290d69de7e1913ee7a22f84c2de7b0166a46e32729322369",
+      "category": "manual-merge",
+      "size": 1992
+    },
+    "docs/velocity-ops-content/agents/researcher.md": {
+      "sha256": "c6982ca9e66ad44ed0ca1e22d7ceae70fa78b4dcc4551a54a8b8faf292da9f5c",
+      "category": "manual-merge",
+      "size": 9066
+    },
+    "docs/velocity-ops-content/agents/reviewer.md": {
+      "sha256": "06112d3957a1366ba46c4e5a778b2adfc94bc10b718e0184dc9a75d72dabc216",
+      "category": "manual-merge",
+      "size": 15310
+    },
+    "docs/velocity-ops-content/agents/tdd-coach.md": {
+      "sha256": "ae26c19894af452bf937d5b697ef847932e3fdc82b13dd585d736c12988f63c9",
+      "category": "manual-merge",
+      "size": 9030
+    },
+    "docs/velocity-ops-content/agents/tester.md": {
+      "sha256": "ae16336aefe278a360fc0b5e3fa3301e1c385e18a4d2b0cc3775b7acd204ec88",
+      "category": "manual-merge",
+      "size": 17401
+    },
+    "docs/velocity-ops-content/agents/thinking-partner.md": {
+      "sha256": "a7277b5c7b427a6ea0046f226abf4ee131a6aa5ca4cc61532f7493f2f944f87e",
+      "category": "manual-merge",
+      "size": 4526
+    },
+    "docs/velocity-ops-content/modules/assumption-check.md": {
+      "sha256": "478e97e975bf027749510b90f813039695d345fc886517ae3bf909c6d434af80",
+      "category": "manual-merge",
+      "size": 5025
+    },
+    "docs/velocity-ops-content/modules/astro-5.md": {
+      "sha256": "bc9f1ae514b985c4f42e3ff342e1ffeb6a715e07ae960e516720df02a8b2dea9",
+      "category": "manual-merge",
+      "size": 9839
+    },
+    "docs/velocity-ops-content/modules/conversation-guardrails.md": {
+      "sha256": "55935c0c9306b8e906f2225ba628e6ca20bbde1663ccdbb6373e49f25c8d7324",
+      "category": "manual-merge",
+      "size": 14804
+    },
+    "docs/velocity-ops-content/modules/drizzle-orm.md": {
+      "sha256": "8ca120aa931ecd61ff7c0a0a53860b25eb3938ef126a9d33f7c9ec662823d971",
+      "category": "manual-merge",
+      "size": 12962
+    },
+    "docs/velocity-ops-content/modules/fast-check.md": {
+      "sha256": "916fef1f20ff6d28d59bc2bde6ce8a27c1da0812956e41592e4b5c39cfa52dd2",
+      "category": "manual-merge",
+      "size": 6421
+    },
+    "docs/velocity-ops-content/modules/fastapi.md": {
+      "sha256": "49af2554eab60641cf6e433ac9b710eb345dc9dcd59c6af92bacbf120da19958",
+      "category": "manual-merge",
+      "size": 2049
+    },
+    "docs/velocity-ops-content/modules/firebase.md": {
+      "sha256": "ffb3d837639c7d99c5b7a788ba59c494ff9ec70679d1f2bb710a4837fe356259",
+      "category": "manual-merge",
+      "size": 1300
+    },
+    "docs/velocity-ops-content/modules/flutter.md": {
+      "sha256": "be47982ff23f3ac7159d5bb407cc1764f29cfe1fdf0fb3547f1bbe80632f024f",
+      "category": "manual-merge",
+      "size": 1278
+    },
+    "docs/velocity-ops-content/modules/guardrails.md": {
+      "sha256": "efd5e27fabf5ddb907ab741b048809f9579afd90875f0650e1dede16e7e87e64",
+      "category": "manual-merge",
+      "size": 8145
+    },
+    "docs/velocity-ops-content/modules/hono-cloudflare-workers.md": {
+      "sha256": "fd39dcbe0f014a48d575bf4dc29d00450f63ee5f66a43f92ecb64391cf30a381",
+      "category": "manual-merge",
+      "size": 2892
+    },
+    "docs/velocity-ops-content/modules/kafka.md": {
+      "sha256": "86eecf544323f503eecbf1d261358c2cceff8fcaebc0a993f757342f14ca7f52",
+      "category": "manual-merge",
+      "size": 1310
+    },
+    "docs/velocity-ops-content/modules/kong-gateway.md": {
+      "sha256": "425550aa46c1d7f84db7bac69ddadd86ddcf0e0b8c086fe115e736afa67dcdd0",
+      "category": "manual-merge",
+      "size": 1348
+    },
+    "docs/velocity-ops-content/modules/layercake-uplot.md": {
+      "sha256": "d6f368abee5dfefe5b7014d3bbc33e53d79fcfd1a1e25bff5b624421ae857df1",
+      "category": "manual-merge",
+      "size": 2191
+    },
+    "docs/velocity-ops-content/modules/lessons-learned.md": {
+      "sha256": "74fbc8954344c01cc4890cdca0d950cb52a07320597dddfac23c83a1d09c9de2",
+      "category": "manual-merge",
+      "size": 8491
+    },
+    "docs/velocity-ops-content/modules/lstm-gru.md": {
+      "sha256": "597daa442ef456e71ec003eb99ab4a6836cbde14401b890eded85e6b026b1527",
+      "category": "manual-merge",
+      "size": 1203
+    },
+    "docs/velocity-ops-content/modules/maplibre-gl.md": {
+      "sha256": "89a1474cdf93c0ce22919c493d5f458b2b817b7bf74faf17b4101617393c9db3",
+      "category": "manual-merge",
+      "size": 2408
+    },
+    "docs/velocity-ops-content/modules/mcp-development.md": {
+      "sha256": "98f056fdd9042cf7d14806ca16a64cf27f5b43acef7482444d0ae6df50af1f37",
+      "category": "manual-merge",
+      "size": 12800
+    },
+    "docs/velocity-ops-content/modules/mcp-governance.md": {
+      "sha256": "960f450ec6aae4ed8ce692579296dbd6e0bd5758e8f8290a38d909f90f38ae18",
+      "category": "manual-merge",
+      "size": 20929
+    },
+    "docs/velocity-ops-content/modules/nextjs-15.md": {
+      "sha256": "7e9c4c6bab26105fa95d10dc651b61ada60ef50451224051e4469e977b8700c4",
+      "category": "manual-merge",
+      "size": 10934
+    },
+    "docs/velocity-ops-content/modules/nodejs-runtime.md": {
+      "sha256": "57ec445c706aef2294efcd67ebf9ef462d983884c7990886cff868c37b660a35",
+      "category": "manual-merge",
+      "size": 2645
+    },
+    "docs/velocity-ops-content/modules/postgis.md": {
+      "sha256": "fde86ab0ca7a0b1c6b1d4f784f6096719ddff4bdffc271873bfb1df79edb11f4",
+      "category": "manual-merge",
+      "size": 1434
+    },
+    "docs/velocity-ops-content/modules/postgresql.md": {
+      "sha256": "f2838db9fbdf5b5a55f935779f637cb4241047de044f4ae5e55860b15e3e7883",
+      "category": "manual-merge",
+      "size": 2164
+    },
+    "docs/velocity-ops-content/modules/prettier.md": {
+      "sha256": "8188027e5a6054becce1b8f3eee8dde9fda645750463b60036d513189a4ea35f",
+      "category": "manual-merge",
+      "size": 3714
+    },
+    "docs/velocity-ops-content/modules/production-hardening.md": {
+      "sha256": "287061dd6217e23bc9d22e02c7e6cfc4357b5ff72ad440a5939fa7dc058b01b6",
+      "category": "manual-merge",
+      "size": 8259
+    },
+    "docs/velocity-ops-content/modules/python.md": {
+      "sha256": "c6e7e5467383f7e9a5ff8490d8fac76cb031d7372afbc1f860a1b388000d6332",
+      "category": "manual-merge",
+      "size": 10411
+    },
+    "docs/velocity-ops-content/modules/react-web.md": {
+      "sha256": "2f5e13dcd2fa91399d9f2ce58424cfdb887f39b7e0a463b79c97e2f8f413204f",
+      "category": "manual-merge",
+      "size": 1636
+    },
+    "docs/velocity-ops-content/modules/runtime-contracts.md": {
+      "sha256": "f7f0cea872e01b2c7bdc00a5649deae83f95236f684c7d7262f53ed31e6b332b",
+      "category": "manual-merge",
+      "size": 10896
+    },
+    "docs/velocity-ops-content/modules/stripe-billing.md": {
+      "sha256": "43434e814e77a7d1aa0be32797dbf6705ad7d588d2f9b8a31e43796f932f3ab6",
+      "category": "manual-merge",
+      "size": 2788
+    },
+    "docs/velocity-ops-content/modules/sveltekit.md": {
+      "sha256": "f25284a3bbc272845aa10da7095e91adb538a58d3fe0ddcaad3a5594874ecd46",
+      "category": "manual-merge",
+      "size": 4002
+    },
+    "docs/velocity-ops-content/modules/tailwind-shadcn.md": {
+      "sha256": "22a22b3623bc99e03acd8cb16c650a1c8bfd53a5b0ea2ff9a4adfcd5bee2b22c",
+      "category": "manual-merge",
+      "size": 11564
+    },
+    "docs/velocity-ops-content/modules/tailwind-v4.md": {
+      "sha256": "fc9ed397103e9b1ed77040eadb46ff9be0c592356e4d991df34f7aef2cc1a262",
+      "category": "manual-merge",
+      "size": 2166
+    },
+    "docs/velocity-ops-content/modules/thinking-partner.md": {
+      "sha256": "b7ff03d823dcc6bcc27661b7c150077e7ec2c3e87cfb51bc4b32de6bf6c12932",
+      "category": "manual-merge",
+      "size": 3649
+    },
+    "docs/velocity-ops-content/modules/timescaledb.md": {
+      "sha256": "417e39a21531709766c3793d22215c91cd79f879cc62ba6457f0590436e093c6",
+      "category": "manual-merge",
+      "size": 1290
+    },
+    "docs/velocity-ops-content/modules/trpc-v11.md": {
+      "sha256": "b3bd36319a1abafd0ebe105de6be59455020e9153dff93a7b73ce6c775cb8d51",
+      "category": "manual-merge",
+      "size": 13505
+    },
+    "docs/velocity-ops-content/modules/typescript-strict.md": {
+      "sha256": "a70b0c8bf0deab6e117d47b26f42949b5e09d1e265f78ad3b5786b8ca2337d00",
+      "category": "manual-merge",
+      "size": 9469
+    },
+    "docs/velocity-ops-content/modules/vitest.md": {
+      "sha256": "6e92c1b9d67e37d16467f7d1620f631415b7f50ff41ee7aa79e23ec3a9b963a2",
+      "category": "manual-merge",
+      "size": 10392
+    },
+    "docs/velocity-ops-content/modules/xgboost-lightgbm.md": {
+      "sha256": "1d3cc181fde789b45ff7dd221c4332d01bee3aea43818b03612a6dd9c8291998",
+      "category": "manual-merge",
+      "size": 1274
+    },
+    "docs/velocity-ops-content/modules/zod.md": {
+      "sha256": "91042ca3b6785aa6e671c79ad4c946baad94ffbd9952a06919d3ed31fce34438",
+      "category": "manual-merge",
+      "size": 12915
+    },
+    "docs/velocity-ops-content/phases/01-intake.md": {
+      "sha256": "170a06925a2256cbd7a8f61b75460cb384ba2129299dca590f248075a4e943d7",
+      "category": "manual-merge",
+      "size": 2160
+    },
+    "docs/velocity-ops-content/phases/02-discovery.md": {
+      "sha256": "9d74609679758f86a90324266242618fcabf421861085cdadc45989581731a90",
+      "category": "manual-merge",
+      "size": 2818
+    },
+    "docs/velocity-ops-content/phases/03-scoping.md": {
+      "sha256": "ddf8d2e21ddff2cba8dfb2b467aa060510aac3036936de5ee0fc53d67d0b2091",
+      "category": "manual-merge",
+      "size": 3757
+    },
+    "docs/velocity-ops-content/phases/05-setup.md": {
+      "sha256": "1ba64ad2871cde439a5233209575fdebd351d031e9c949010f504e5deeab6567",
+      "category": "manual-merge",
+      "size": 1050
+    },
+    "docs/velocity-ops-content/phases/06-architecture.md": {
+      "sha256": "9a5ac5ceffe87ad218fb3fa67388f1a2b666864cf56361d3d96e0645c6546b87",
+      "category": "manual-merge",
+      "size": 1603
+    },
+    "docs/velocity-ops-content/phases/09-handoff.md": {
+      "sha256": "b0fa72c2eb0d95ec81b9ef8907b7c4c3991640c2f8ae8c6d591992d5ddcd3aae",
+      "category": "manual-merge",
+      "size": 1385
+    },
+    "docs/velocity-ops-content/README.md": {
+      "sha256": "a07cd102a969bc537c6e94363e0b183a58750b77848b332dd9d926af23f5e3f8",
+      "category": "manual-merge",
+      "size": 2255
+    },
+    "docs/velocity-ops-content/templates/api-standards.md": {
+      "sha256": "0b9fd816b082edb4370914e5049254f2e595be067c19ec289c6c77b2cb5b756f",
+      "category": "manual-merge",
+      "size": 6196
+    },
+    "docs/velocity-ops-content/templates/architecture-decision.md": {
+      "sha256": "28c44ef1af04374f9eb05d65f33381439f8ea5cb5a10d3270eb6ac115339c917",
+      "category": "manual-merge",
+      "size": 9371
+    },
+    "docs/velocity-ops-content/templates/common-tasks-runbook.md": {
+      "sha256": "29cb5d5bc82554089437b93e3ab87f99a9b7c9a2d0fd2b9520dc445c8119a0ae",
+      "category": "manual-merge",
+      "size": 19643
+    },
+    "docs/velocity-ops-content/templates/contributing.md": {
+      "sha256": "771d4ed0db73167c8c8fb60cec0b220c65266c83b426dce170832a1fb0596873",
+      "category": "manual-merge",
+      "size": 3973
+    },
+    "docs/velocity-ops-content/templates/feature-spec.md": {
+      "sha256": "0095304e992d4d8c060a253c48cf07c73678e4edaf5eefe76545a27488453ed3",
+      "category": "manual-merge",
+      "size": 5972
+    },
+    "docs/velocity-ops-content/templates/framework-waivers.md": {
+      "sha256": "c71c902e26b0b4ec3cfbcb8259a1c04290d4ba40a8e61549d7fb87ccd44eef79",
+      "category": "manual-merge",
+      "size": 686
+    },
+    "docs/velocity-ops-content/templates/git-branching.md": {
+      "sha256": "a6a17d09d5ec8455bc62984d958ffa21dcbd423bd611054f3e0ddf9d5ea5ea01",
+      "category": "manual-merge",
+      "size": 3784
+    },
+    "docs/velocity-ops-content/templates/incident-response.md": {
+      "sha256": "17b3a8f6f3a7049fe06228e2b1830964c6ee3e2bae62bfebfef9358adc174174",
+      "category": "manual-merge",
+      "size": 4141
+    },
+    "docs/velocity-ops-content/templates/prd.md": {
+      "sha256": "c97c114f5ad3f5f0fd2a1782212acba13ceb38a701b1c3625567c7b70096c29c",
+      "category": "manual-merge",
+      "size": 12326
+    },
+    "docs/velocity-ops-content/templates/project-brief.md": {
+      "sha256": "fb9f32c74729da14f349670a6f35ab5e5498094545c8a548a1af47f8640f66c9",
+      "category": "manual-merge",
+      "size": 4942
+    },
+    "docs/velocity-ops-content/templates/requirements-catalog.md": {
+      "sha256": "2a2003a09626b400f90dcdce8882e5deb58e9e728523649ea19f613d84d6b7cb",
+      "category": "manual-merge",
+      "size": 3005
+    },
+    "docs/velocity-ops-content/templates/runbook.md": {
+      "sha256": "168ee00ec74849a762fb5e053c6003654a7ba06c6509d63b422bef8c3842b629",
+      "category": "manual-merge",
+      "size": 4033
+    },
+    "docs/velocity-ops-content/templates/session-handoff.md": {
+      "sha256": "397688ede8ee5fcaacfa18a25a13010321648f93e3150c71c2dbb6762769471a",
+      "category": "manual-merge",
+      "size": 9185
+    },
+    "docs/velocity-ops-content/templates/slo-definition.md": {
+      "sha256": "89555cbf25ce2e3b19eeaf8d6a32371bbc13e5439bc712ce8b095ac9625542c3",
+      "category": "manual-merge",
+      "size": 3406
+    },
+    "docs/velocity-ops-content/templates/task-spec.md": {
+      "sha256": "ca37d35109eed0bc56b83dbb1dc9c3adc21fbc98ca099936f22aa6cc104fc429",
+      "category": "manual-merge",
+      "size": 906
+    },
+    "docs/velocity-ops-content/templates/threat-model.md": {
+      "sha256": "85e53853f28e10b12d637b02d957ecaa545bbf8352ded54d2bcb1f3b8971e59d",
+      "category": "manual-merge",
+      "size": 3989
+    },
+    "docs/velocity-ops-content/workflows/decision-flow.md": {
+      "sha256": "fe79ae74e1c4f28a81bfa22f6f91e6c7bbfd6d37adf805ccc5f9a6797f73707b",
+      "category": "manual-merge",
+      "size": 4587
+    },
+    "docs/velocity-ops-content/workflows/deploy-flow.md": {
+      "sha256": "04ade256cf3a199739d1a06f376fef99c340aff6c59c33856409f0e8b1ee35a6",
+      "category": "manual-merge",
+      "size": 12580
+    },
+    "docs/velocity-ops-content/workflows/feature-flow.md": {
+      "sha256": "975c502f320a121ceb1e340018997062088242cc4dde1de47334eb57cb061853",
+      "category": "manual-merge",
+      "size": 16568
+    },
+    "docs/velocity-ops-content/workflows/incident-flow.md": {
+      "sha256": "cba57f87c75988ec724512ed3fabc60d528f3e36f53ff45ba0603582fe144c4f",
+      "category": "manual-merge",
+      "size": 14173
+    },
+    "docs/velocity-ops-content/workflows/multi-agent-flow.md": {
+      "sha256": "82b86df2d646878923d62dc8803eb9a7692e355622727f86520dbe06d76693e8",
+      "category": "manual-merge",
+      "size": 21362
+    },
+    "docs/velocity-ops-content/workflows/session-handoff.md": {
+      "sha256": "b645244dfdb15355df45df62615e8b25f1e142d1217fbe35ff0e84d6fa15f10e",
+      "category": "manual-merge",
+      "size": 5957
+    },
+    "docs/velocity-ops-content/workflows/tdd-flow.md": {
+      "sha256": "2ac54ae07a60958ac6016b34e9dbe0634491b71bfc085d422d3fcee5d1f37326",
+      "category": "manual-merge",
+      "size": 14776
+    },
+    "docs/velocity-ops-port-plan.md": {
+      "sha256": "117d44d6911c5e5708de80a3bbedfdba820d25b8c155b75048e5950dced63573",
+      "category": "manual-merge",
+      "size": 47026
+    },
+    "docs/velocity-ops-port-status.md": {
+      "sha256": "be2c97c422b25c598dc0bdcc5a1d7d0582551c64b45e94da8e4d486768398df6",
+      "category": "manual-merge",
+      "size": 10291
+    },
+    "docs/visualizations/index.html": {
+      "sha256": "0d9a44794b290a4f9100a18c3a3bd9ac18d7e10def4cbc331375d7160f9e9989",
+      "category": "manual-merge",
+      "size": 23052
+    },
+    "docs/visualizations/README.md": {
+      "sha256": "7bd5dd7f4e6ce06913a1947fc9ab29f327ceb6fdfc37a6cc9d00779ef3f503cd",
+      "category": "manual-merge",
+      "size": 7054
+    },
+    "docs/visualizations/styles.css": {
+      "sha256": "e6c409e8b273dbcfb5bc00e545a00fdccff0e026df2349a11d8f8e0d740e15cd",
+      "category": "manual-merge",
+      "size": 7235
+    },
+    "docs/visualizations/v01-audit-chain-construction.html": {
+      "sha256": "c77c65c2355d1ac4ca325629906b065f1fec80d2b6f67167cb6684cc06754806",
+      "category": "manual-merge",
+      "size": 11955
+    },
+    "docs/visualizations/v02-lethal-trifecta.html": {
+      "sha256": "b2af4275f4783bd4b03ce55eb931e9f819dda1ad4d28d3d70a0f665ac2a226db",
+      "category": "manual-merge",
+      "size": 8383
+    },
+    "docs/visualizations/v03-test-pyramid.html": {
+      "sha256": "5018fc7e7075b13fb3dcac68811285bf78f3430a00613429534b0508aaa87967",
+      "category": "manual-merge",
+      "size": 7641
+    },
+    "docs/visualizations/v04-milestone-gantt.html": {
+      "sha256": "3352d85b7f3b8dae9514eed171d8b9640241b4a5d527cce04794739f2e4a2405",
+      "category": "manual-merge",
+      "size": 13569
+    },
+    "docs/visualizations/v05-token-envelope.html": {
+      "sha256": "c66785d8a6986c45ae6e9fa6edfc57cad053d83923713bd47310963012a90164",
+      "category": "manual-merge",
+      "size": 11499
+    },
+    "docs/visualizations/v06-observability-pillars.html": {
+      "sha256": "e94e938484a10fccde68a6c019296eb986878903b5210bf52e78491b7b999756",
+      "category": "manual-merge",
+      "size": 11928
+    },
+    "docs/visualizations/v07-stride-matrix.html": {
+      "sha256": "c4331159723109dfaa5a66d901ad03c6e19921df68f4b258f725db33c7b2e99e",
+      "category": "manual-merge",
+      "size": 8511
+    },
+    "docs/visualizations/v08-failure-ishikawa.html": {
+      "sha256": "8797337e191d455a0ff0af634ca1baf3f8252a92c930988f6d16dc3051c50c94",
+      "category": "manual-merge",
+      "size": 10039
+    },
+    "docs/visualizations/v09-failure-fix-matrix.html": {
+      "sha256": "567efccd2e4f246e33bd6c1ea0697dbe50d643fb768a8da483c70b0dce80de78",
+      "category": "manual-merge",
+      "size": 10112
+    },
+    "docs/visualizations/v10-key-rotation.html": {
+      "sha256": "c8ad0b2b2bc7a665bc1025e40728dc85c8c50e61f169fcf41b4a037b95b7c88a",
+      "category": "manual-merge",
+      "size": 9538
+    },
+    "docs/visualizations/v11-token-budget.html": {
+      "sha256": "7c670f8b472f9ae95c129b0de1d63fc347b72e29de761bdf9b512445e826cf96",
+      "category": "manual-merge",
+      "size": 8747
+    },
+    "docs/visualizations/v12-provider-class.html": {
+      "sha256": "3b70721864e3f80a407f474107ee3f83b04c20394ab1d80ac90521bb2c455119",
+      "category": "manual-merge",
+      "size": 8535
+    },
+    "docs/visualizations/v13-onboarding-tree.html": {
+      "sha256": "86ad1989c402064ef252f3b97b589f03abe79fc9b8d69f1ab14bfd88208ba7de",
+      "category": "manual-merge",
+      "size": 9326
+    },
+    "docs/visualizations/v14-dr-tree.html": {
+      "sha256": "1fea734d6aa601c78446e5855562598f2db052c08118e7d9de4b322c996d0a7c",
+      "category": "manual-merge",
+      "size": 9140
+    },
+    "docs/visualizations/v15-c4-l3.html": {
+      "sha256": "826433dbf29b08ca88b78b41e2f8b8eb37c965f2a440be9fe3117c1af70c3c47",
+      "category": "manual-merge",
+      "size": 18284
+    },
+    "docs/visualizations/v16-role-map.html": {
+      "sha256": "67a238e62fe149b69c87afe4ef9294fcbefd44253f7ee3b815f063bf4f27c529",
+      "category": "manual-merge",
+      "size": 12597
+    },
+    "docs/visualizations/v17-cost-stack.html": {
+      "sha256": "b88136a5a429e1d8a5b8e3ce1ae247ffffbd5ea6d42e95398d8942374201ce50",
+      "category": "manual-merge",
+      "size": 8357
+    },
+    "docs/visualizations/v18-adr-graph.html": {
+      "sha256": "bc65b927978bca2eeeefc69565911219e7bfe9cbcc3e9e2887b08228a563e465",
+      "category": "manual-merge",
+      "size": 12778
+    },
+    "gui/README.md": {
+      "sha256": "13f42396a39dfbe192b808bb2d7135c0d6a2c023e65133864ff689ef510f69e6",
+      "category": "manual-merge",
+      "size": 56019
+    },
+    "gui/source/AGENTS.md": {
+      "sha256": "3d0c3f8989ea51c19a6e0a1e6be39aca2137e27e654d80a3717fa6cb79df364f",
+      "category": "manual-merge",
+      "size": 4660
+    },
+    "gui/source/CLAUDE.md": {
+      "sha256": "5dc1c2564496ef1fe77463e679d453b7e3bb619203b0aec8f4b193dc9411ba7a",
+      "category": "manual-merge",
+      "size": 3675
+    },
+    "gui/source/docs/adr/0000-adr-process.md": {
+      "sha256": "79337e5aad658accc788a5625d51134c109388edbb81efe01516a7ab63f72c7d",
+      "category": "manual-merge",
+      "size": 4451
+    },
+    "gui/source/docs/adr/0001-pglite-for-dev.md": {
+      "sha256": "ffad071475639292e7f27a61e022c55c0fb6e6d98692e4ae2c446f489404d18c",
+      "category": "manual-merge",
+      "size": 4709
+    },
+    "gui/source/docs/adr/0002-token-encryption-noble-ciphers.md": {
+      "sha256": "9c8cc487de5bcd58c4d53b966ff314502dca2cfbfd96d9d2957349ce1de2f56c",
+      "category": "manual-merge",
+      "size": 5616
+    },
+    "gui/source/docs/adr/0003-confluence-storage-default-adf-flagged.md": {
+      "sha256": "893241a5ff0d0ad38c25224540bc7840fbba6f5851ed3e6407f621745eb1dea8",
+      "category": "manual-merge",
+      "size": 5226
+    },
+    "gui/source/docs/adr/0004-bitbucket-app-password-vs-oauth.md": {
+      "sha256": "86e83e9886958c022942e29eb6a70f059691eff2a140dcd05000531611bb65a5",
+      "category": "manual-merge",
+      "size": 4587
+    },
+    "gui/source/docs/adr/0005-audit-signing-pipeline.md": {
+      "sha256": "35b54625caa5c863af08356ec103fc3b7c3401859a36a6479b77cd2a566e740c",
+      "category": "manual-merge",
+      "size": 4773
+    },
+    "gui/source/docs/sdlc/02-architecture/containers.md": {
+      "sha256": "44ffe8222275ceb385fe85dcb5e433c93621ca97ae33cbc945f5f93aaa6eee3e",
+      "category": "manual-merge",
+      "size": 7980
+    },
+    "gui/source/docs/sdlc/02-architecture/data-flow.md": {
+      "sha256": "cd9d688201a4c1c5dbf0bedf68f277232c4858cee8da1a5c5b8c09ba482d7cb4",
+      "category": "manual-merge",
+      "size": 7893
+    },
+    "gui/source/docs/sdlc/02-architecture/README.md": {
+      "sha256": "92c430c3a6de871dfe8f76370947f3764c21f065b1cac585b91998b0c16d0840",
+      "category": "manual-merge",
+      "size": 8922
+    },
+    "gui/source/docs/sdlc/02-architecture/tradeoffs.md": {
+      "sha256": "4bc8720598ee37cddd2d4e1f2d30a74f5e0c5032d80318badf87577009e2480e",
+      "category": "manual-merge",
+      "size": 5880
+    },
+    "gui/source/docs/sdlc/02-architecture/trust-boundaries.md": {
+      "sha256": "2d13c6f20d5aa8873524bac7aa7bbdbb4fd610b990cdad09c06138e90b2e0961",
+      "category": "manual-merge",
+      "size": 8097
+    },
+    "gui/source/docs/sdlc/04-design/api-mcp-tools.md": {
+      "sha256": "4a90522ea03b6dac08b0b2efab8c8c3e7d2471356ebca59e1650b8359b0c308e",
+      "category": "manual-merge",
+      "size": 6117
+    },
+    "gui/source/docs/sdlc/04-design/api-mgmt-rest.md": {
+      "sha256": "6f2cd2c6c9f70a9f3e6757a2a2f130f8524f001c00a10c499ba22089fe785afd",
+      "category": "manual-merge",
+      "size": 10662
+    },
+    "gui/source/docs/sdlc/04-design/module-context.md": {
+      "sha256": "b020c368e3bd817b1983848e4b38094f72c5d9e4a51c9b954a8afb93b2f9ec1c",
+      "category": "manual-merge",
+      "size": 21242
+    },
+    "gui/source/docs/sdlc/04-design/module-mcp-runtime.md": {
+      "sha256": "75429fd5e19386b3a25391189cc20d9fd9c635e420e63830583529a65d1d053d",
+      "category": "manual-merge",
+      "size": 6894
+    },
+    "gui/source/docs/sdlc/04-design/module-observability.md": {
+      "sha256": "2471114c58d6cfc4cc7900b8045941f8a754173057b13d8fd63ff076f5620060",
+      "category": "manual-merge",
+      "size": 14127
+    },
+    "gui/source/docs/sdlc/04-design/module-preflight.md": {
+      "sha256": "ff50a934cb4006ba0c55524a656ec90beb41ae5f50b3a990f922ff83a150b758",
+      "category": "manual-merge",
+      "size": 11977
+    },
+    "gui/source/docs/sdlc/04-design/module-providers-atlassian.md": {
+      "sha256": "40e6caf41212c0f33ce460aa80db9b231f567a90b831ea695c53aba057c61a65",
+      "category": "manual-merge",
+      "size": 5737
+    },
+    "gui/source/docs/sdlc/04-design/module-providers-vcs.md": {
+      "sha256": "bb59fa9779957badc06c60f7a6ea2316fdd959c019caaf9e8615fe9e1ea2a27c",
+      "category": "manual-merge",
+      "size": 19576
+    },
+    "gui/source/docs/sdlc/04-design/module-queue.md": {
+      "sha256": "24573af2b772b50e619a8bbad929885efee4ecf45fc68908cea09372e8048271",
+      "category": "manual-merge",
+      "size": 11504
+    },
+    "gui/source/docs/sdlc/04-design/module-security.md": {
+      "sha256": "a063315063a0f2ae345d4d25782ffa91103aa59edd6b827853a98627d3ed6063",
+      "category": "manual-merge",
+      "size": 24836
+    },
+    "gui/source/docs/sdlc/04-design/module-storage.md": {
+      "sha256": "e984e527ec73576e1ac4e69cf35319bfff41b54b0022c5e88ccc91ffc167f2c1",
+      "category": "manual-merge",
+      "size": 15955
+    },
+    "gui/source/docs/sdlc/04-design/module-workflows.md": {
+      "sha256": "7262cbd56195dc3c961ea214d15d031a5d6b00d19e33ea695b66723f3f7ff193",
+      "category": "manual-merge",
+      "size": 6371
+    },
+    "gui/source/docs/sdlc/04-design/sequence-diagrams.md": {
+      "sha256": "d210ee03ba4b749fbed93577a556a0adea3550e1a1fc5dd01150bd35b7f8b52e",
+      "category": "manual-merge",
+      "size": 10708
+    },
+    "gui/source/docs/sdlc/05-data/audit-trail.md": {
+      "sha256": "561ca4299790b164ce1f570cd8e4e2593d9e3e74f4195199b7463fe568867654",
+      "category": "manual-merge",
+      "size": 5529
+    },
+    "gui/source/docs/sdlc/05-data/classification.md": {
+      "sha256": "7161bcaeae2df77a18ee9c4174064c8e9072939fd389c3ee627cabd9154bb647",
+      "category": "manual-merge",
+      "size": 6745
+    },
+    "gui/source/docs/sdlc/05-data/domain-model.md": {
+      "sha256": "b022a5858373e76047a75fc293d63eac13ca651369ed1500ecfe32ffe002ff7b",
+      "category": "manual-merge",
+      "size": 5830
+    },
+    "gui/source/docs/sdlc/05-data/migrations.md": {
+      "sha256": "7319aece431789c88a10ee7413ad652f6d75159dac8c87f9f8744a0bf9bc9be3",
+      "category": "manual-merge",
+      "size": 6019
+    },
+    "gui/source/docs/sdlc/05-data/retention.md": {
+      "sha256": "6054fd41f041f4b9ca8c2908017b16a2168e1f96a2d9e4e173b787eaafd318e7",
+      "category": "manual-merge",
+      "size": 6102
+    },
+    "gui/source/docs/sdlc/05-data/schema.md": {
+      "sha256": "b05195e486f5546e168fd3b512c0f564927afc89ae71cbf44b5922b04b94df00",
+      "category": "manual-merge",
+      "size": 6721
+    },
+    "gui/source/docs/sdlc/06-security/audit-chain-threat-model.md": {
+      "sha256": "2798160b65bcc301d9a9b3f0e7a0b23b7327c7bd449b70ab88e07d9b12ab1b33",
+      "category": "manual-merge",
+      "size": 29297
+    },
+    "gui/source/docs/sdlc/06-security/controls-matrix.md": {
+      "sha256": "a5e03e6ecf900ce9bf31d455d740b17baba1b4ebb3f6d281061277508f513368",
+      "category": "manual-merge",
+      "size": 8238
+    },
+    "gui/source/docs/sdlc/06-security/lethal-trifecta.md": {
+      "sha256": "03d5d35abfd9ec30bb55818242e6c99c482f9b80dbf9ef82b2fe2b7c16e871de",
+      "category": "manual-merge",
+      "size": 14328
+    },
+    "gui/source/docs/sdlc/06-security/policy-decision-layer.md": {
+      "sha256": "ccbca9fc266547e348d792b42c96305f4cd068f26d1cf458c4965769cad5e880",
+      "category": "manual-merge",
+      "size": 7661
+    },
+    "gui/source/docs/sdlc/06-security/secrets-mgmt.md": {
+      "sha256": "312e9a469e3bddee8106c2c98f2a695638fb4315d773036b05474dae16db3c9c",
+      "category": "manual-merge",
+      "size": 6973
+    },
+    "gui/source/docs/sdlc/06-security/threat-model.md": {
+      "sha256": "17def739f38241a08e7896b356383962de728f8d12d9ffe3356b89a5ef9f27c8",
+      "category": "manual-merge",
+      "size": 29996
+    },
+    "gui/source/docs/sdlc/06-security/token-storage.md": {
+      "sha256": "cd61e1842759cd52a203d26a2bdda97d7b225b863c0bd77ee5566f10fd5c4395",
+      "category": "manual-merge",
+      "size": 18842
+    },
+    "gui/source/docs/sdlc/06-security/vulnerability-disclosure.md": {
+      "sha256": "ba0ab341e64c7078827b269b5c914226476dc51cc9ecd5320fc3ad12e75b8f47",
+      "category": "manual-merge",
+      "size": 4469
+    },
+    "gui/source/docs/sdlc/06-security/webhook-verification.md": {
+      "sha256": "96c1c6f7de2db669d78d970c1a381e6edf1419a4974a343e31cea793572af2cf",
+      "category": "manual-merge",
+      "size": 7660
+    },
+    "gui/source/docs/sdlc/08-operations/alerting.md": {
+      "sha256": "80e5b6f1156c08f540db2b3bf9e60c548e6a8a778044d1ee4d556dd3223715b2",
+      "category": "manual-merge",
+      "size": 8199
+    },
+    "gui/source/docs/sdlc/08-operations/monitoring.md": {
+      "sha256": "a6f7c69b6e53738e126e56b6d3f27424ef6e322f4773cf7367bcec194291cd4c",
+      "category": "manual-merge",
+      "size": 7407
+    },
+    "gui/source/docs/sdlc/08-operations/observability-stack.md": {
+      "sha256": "aba3ea61a59639bd1ad1e6565d8ea881c637fdf80ec8f600fa7c3a93473c5108",
+      "category": "manual-merge",
+      "size": 18293
+    },
+    "gui/source/docs/sdlc/08-operations/on-call-playbook.md": {
+      "sha256": "a0046f02b06a8da907412e39467508b9f6dfca1f74caeaa37989a45150842c79",
+      "category": "manual-merge",
+      "size": 6083
+    },
+    "gui/source/docs/sdlc/08-operations/runbook.md": {
+      "sha256": "7dd0d10bda42f2d3e1a8536a0af3ab46cea507a37e0999917699a0a5617b91b3",
+      "category": "manual-merge",
+      "size": 15141
+    },
+    "gui/source/docs/sdlc/08-operations/slo-sli.md": {
+      "sha256": "7adccd6282aa80d9458ed04922bb78961a15e66af25c80bc4b2383d131eae798",
+      "category": "manual-merge",
+      "size": 7111
+    },
+    "gui/source/docs/sdlc/09-deployment/ci-cd.md": {
+      "sha256": "e249040e24a31d20f203986b3e0ccffe7dc04335be13bc1ae195775032a4fcd4",
+      "category": "manual-merge",
+      "size": 8269
+    },
+    "gui/source/docs/sdlc/09-deployment/deployment-targets.md": {
+      "sha256": "66e68addec8e41c4bca2b895501d45fdb2ed70bfe956b3207d291d02f76cf4a9",
+      "category": "manual-merge",
+      "size": 5848
+    },
+    "gui/source/docs/sdlc/09-deployment/environments.md": {
+      "sha256": "e4be3f3dadc8dbc7d3c4e8a529e50a9c0cbbcb066a17a54816c0335b9091adbb",
+      "category": "manual-merge",
+      "size": 6390
+    },
+    "gui/source/docs/sdlc/09-deployment/feature-flags.md": {
+      "sha256": "d3241779b43102367fdd7370ade2ec16868f0a9563fe626c1159996df90f3cff",
+      "category": "manual-merge",
+      "size": 5787
+    },
+    "gui/source/docs/sdlc/09-deployment/release-process.md": {
+      "sha256": "804493a83e7b099774360d887bee0db9321ce71d7644f5d1ce76355e6e72b8e3",
+      "category": "manual-merge",
+      "size": 8650
+    },
+    "gui/source/docs/sdlc/09-deployment/secrets-provisioning.md": {
+      "sha256": "1ca6cc838511ea2a004cd2df1072302181870e7ef491ea0315ea779ce60eeefc",
+      "category": "manual-merge",
+      "size": 8974
+    },
+    "gui/source/docs/sdlc/10-dr-bcp/audit-chain-recovery.md": {
+      "sha256": "875dbdab20089ee7b7e4edc5e3a3b8f1c16626416326b7e52d79bbcc31d3a880",
+      "category": "manual-merge",
+      "size": 7869
+    },
+    "gui/source/docs/sdlc/10-dr-bcp/backup-strategy.md": {
+      "sha256": "9e519a31027e074473ef3c868305cdb3ab6ae32c024f35d8531c0a7113e1e74d",
+      "category": "manual-merge",
+      "size": 6385
+    },
+    "gui/source/docs/sdlc/10-dr-bcp/dr-test-schedule.md": {
+      "sha256": "c7e680290266a3fc2c3f98ddd68dd1907782f8224f438eb517c817ca49ca6e86",
+      "category": "manual-merge",
+      "size": 5649
+    },
+    "gui/source/docs/sdlc/10-dr-bcp/failover.md": {
+      "sha256": "0b4e41c3d9b73b582bd224aa49695aaf9ea5c4617f8e84b9247917a581c45fbc",
+      "category": "manual-merge",
+      "size": 15820
+    },
+    "gui/source/docs/sdlc/10-dr-bcp/recovery-objectives.md": {
+      "sha256": "452e5a60ad01d493dd0feb305c7c9eb7bf21a60caf1f9a82e92afecc1fc59d0a",
+      "category": "manual-merge",
+      "size": 4878
+    },
+    "gui/source/docs/sdlc/11-onboarding/developer-setup.md": {
+      "sha256": "ae397bfadd38af523a903ff1640a896009615025069b1d09a720c7ff1306439a",
+      "category": "manual-merge",
+      "size": 5625
+    },
+    "gui/source/docs/sdlc/11-onboarding/glossary-quick.md": {
+      "sha256": "99600f92c90e8cae28e96f15959cae084778358a10df65122f33b459443a86b1",
+      "category": "manual-merge",
+      "size": 4086
+    },
+    "gui/source/docs/sdlc/11-onboarding/integrator-guide.md": {
+      "sha256": "36d889a08789905288a802d754dd5b2f1567b96d6593a477b2076f1e097904d1",
+      "category": "manual-merge",
+      "size": 6273
+    },
+    "gui/source/docs/sdlc/11-onboarding/operator-guide.md": {
+      "sha256": "e0bf1d69150e5e887e0ebb3f62e60cb283d796a80e49e7d0802a91339a1fca61",
+      "category": "manual-merge",
+      "size": 8032
+    },
+    "gui/source/docs/sdlc/11-onboarding/partner-onboarding.md": {
+      "sha256": "cb4379777ff11e577442b697abba59283a6f53d9a4f7d8a6a0e3d2c7104addc0",
+      "category": "manual-merge",
+      "size": 7363
+    },
+    "gui/source/docs/sdlc/11-onboarding/README.md": {
+      "sha256": "ca4938b9a43305c0909dfea4042702d6b6788e2a164075d7fde9cb1f3a47469b",
+      "category": "manual-merge",
+      "size": 9729
+    },
+    "gui/source/docs/sdlc/14-incidents/blameless-review.md": {
+      "sha256": "a256c17915201e1fcc16c998e4318114805b90b2844cfc662b141b8a72010852",
+      "category": "manual-merge",
+      "size": 7020
+    },
+    "gui/source/docs/sdlc/14-incidents/failure-mode-taxonomy.md": {
+      "sha256": "b5e034f201ed8f412a2d9a2873fbcf13828e05e003d3bc6789923da9eeabc6f5",
+      "category": "manual-merge",
+      "size": 14180
+    },
+    "gui/source/docs/sdlc/14-incidents/fix-type-taxonomy.md": {
+      "sha256": "8f197c37825cc982d000ea800ac295b29f545ebd9e92afe0305b4517b68e885a",
+      "category": "manual-merge",
+      "size": 18738
+    },
+    "gui/source/docs/sdlc/14-incidents/incident-library.md": {
+      "sha256": "830823b8a9715bf2171bd241a9a019361a920a88fa1b4eb04c0f58ee6f12dcf4",
+      "category": "manual-merge",
+      "size": 12630
+    },
+    "gui/source/docs/sdlc/14-incidents/postmortem-template.md": {
+      "sha256": "58e5b773930a04d9f1f184d04f28aeeef6608d37adf6c6240c5fec692b0336fb",
+      "category": "manual-merge",
+      "size": 3764
+    },
+    "gui/source/docs/sdlc/15-capacity/benchmarks.md": {
+      "sha256": "2061bc7ec33c772dc8379cc31084628f1582ece56cfa2d66bf4ac0728ad2d24f",
+      "category": "manual-merge",
+      "size": 4802
+    },
+    "gui/source/docs/sdlc/15-capacity/capacity-planning.md": {
+      "sha256": "4828f270119ce8a065ee4de9fcf63eed1d8528711debec7a4591601d6d379d86",
+      "category": "manual-merge",
+      "size": 7285
+    },
+    "gui/source/docs/sdlc/15-capacity/current-limits.md": {
+      "sha256": "fbf8e26268e06b6324da544713a8ac3e4442a41df045def7bee38e31da3f8d11",
+      "category": "manual-merge",
+      "size": 6875
+    },
+    "gui/source/docs/sdlc/15-capacity/load-test-runbook.md": {
+      "sha256": "0819110afbf30608239aa54191e6620ad2aea22a6bb6613f2461db4ed0c85880",
+      "category": "manual-merge",
+      "size": 5933
+    },
+    "gui/source/docs/sdlc/17-glossary/domain-vocabulary.md": {
+      "sha256": "1d52432ef5b0ce200b77f97bcbe6eb3651e447c693189816294f9fe92631181f",
+      "category": "manual-merge",
+      "size": 9754
+    },
+    "gui/source/docs/sdlc/17-glossary/README.md": {
+      "sha256": "9cf26ad51ff54be00cbed69bc6c0e66471fd213bbdfdb556e6eeb4a0c57ae11d",
+      "category": "manual-merge",
+      "size": 11088
+    },
+    "gui/source/docs/sdlc/README.md": {
+      "sha256": "02888fc34a46a7227af2faa31ef04c0248c5a2a9280e1f1523089d2cc6d727e6",
+      "category": "manual-merge",
+      "size": 18487
+    },
+    "gui/source/existing-visualizations/index.html": {
+      "sha256": "0d9a44794b290a4f9100a18c3a3bd9ac18d7e10def4cbc331375d7160f9e9989",
+      "category": "manual-merge",
+      "size": 23052
+    },
+    "gui/source/existing-visualizations/styles.css": {
+      "sha256": "e6c409e8b273dbcfb5bc00e545a00fdccff0e026df2349a11d8f8e0d740e15cd",
+      "category": "manual-merge",
+      "size": 7235
+    },
+    "gui/source/existing-visualizations/v01-audit-chain-construction.html": {
+      "sha256": "c77c65c2355d1ac4ca325629906b065f1fec80d2b6f67167cb6684cc06754806",
+      "category": "manual-merge",
+      "size": 11955
+    },
+    "gui/source/existing-visualizations/v06-observability-pillars.html": {
+      "sha256": "e94e938484a10fccde68a6c019296eb986878903b5210bf52e78491b7b999756",
+      "category": "manual-merge",
+      "size": 11928
+    },
+    "gui/source/existing-visualizations/v07-stride-matrix.html": {
+      "sha256": "c4331159723109dfaa5a66d901ad03c6e19921df68f4b258f725db33c7b2e99e",
+      "category": "manual-merge",
+      "size": 8511
+    },
+    "gui/source/existing-visualizations/v15-c4-l3.html": {
+      "sha256": "826433dbf29b08ca88b78b41e2f8b8eb37c965f2a440be9fe3117c1af70c3c47",
+      "category": "manual-merge",
+      "size": 18284
+    },
+    "gui/source/repo-readme.md": {
+      "sha256": "1b2edaaebfd063ed98f2523eea1c403f6d1b4e5cb350463ec16d526051126706",
+      "category": "manual-merge",
+      "size": 3826
+    },
+    "gui/source/v6-spec-excerpts.md": {
+      "sha256": "a828631ec0eb278911df33ac9117a80843dfbc35cb07ed9cad6b7c249b1fb735",
+      "category": "manual-merge",
+      "size": 100211
+    },
+    "package-lock.json": {
+      "sha256": "449b8cdb6cfa746180728a58350e654d7589848264cd6e574a4878630eec7b1c",
+      "category": "seed-only",
+      "size": 125548
+    },
+    "package.json": {
+      "sha256": "cf904835e494542671aed66e0c3feba8cc221df2db560196e59e91621620e9ef",
+      "category": "manual-merge",
+      "size": 2006
+    },
+    "plain-language-reference.md": {
+      "sha256": "6f408bf29df2a46fe3051e03ac2a50fbce4454963d7e67105edc62a423586533",
+      "category": "manual-merge",
+      "size": 15986
+    },
+    "prompts/blueprint-generation.md": {
+      "sha256": "82f9be519852fd593a8a01f73a4caaf8bdee83a3c8e5481ecab8caf187029cb7",
+      "category": "manual-merge",
+      "size": 651
+    },
+    "prompts/intake-interview.md": {
+      "sha256": "037c4aca03c168ddad714ad0b168625e7dff38bda353870cdaa758a6c350c807",
+      "category": "manual-merge",
+      "size": 581
+    },
+    "quality/pre-commit-security-scan.sh": {
+      "sha256": "d2c8c717ccc4d8201223f344be8051e09ae05323aa220f2f61c75303ac32386d",
+      "category": "manual-merge",
+      "size": 6847
+    },
+    "README.md": {
+      "sha256": "1b2edaaebfd063ed98f2523eea1c403f6d1b4e5cb350463ec16d526051126706",
+      "category": "manual-merge",
+      "size": 3826
+    },
+    "repo-extraction-findings.md": {
+      "sha256": "158e907ad5bb80d7ffa1932f1f6a515bb8e2cd5604d0bab554da5bc90dfb9d8a",
+      "category": "manual-merge",
+      "size": 171132
+    },
+    "scripts/anti-stub-scan.ts": {
+      "sha256": "46d14ec8d60853457cf03e8c15ff5f95bcb5cf8347c6d3ea3bd348ceb795dcc9",
+      "category": "manual-merge",
+      "size": 1394
+    },
+    "scripts/audit-keys-init.ts": {
+      "sha256": "99acd605833a9e74af54fe5c770a24b1c23b4c3d824805ed5c79610b5f28976e",
+      "category": "manual-merge",
+      "size": 963
+    },
+    "scripts/blueprint-cli.ts": {
+      "sha256": "3e0e1a1a9bf126be7b054fb89d70a9b1bb31e9de9c4ff3923ad261586bc9a81e",
+      "category": "manual-merge",
+      "size": 2423
+    },
+    "scripts/build-framework-manifest.mjs": {
+      "sha256": "a2098f7652f7cf1c327373ad610acd5c18d8d660d346ece47ce5e6f1e4693722",
+      "category": "manual-merge",
+      "size": 4593
+    },
+    "scripts/copy-runtime-assets.mjs": {
+      "sha256": "1df5dad94e71d1d2ce68340cd164218e47309fef328a5c647cb46edf220dfef7",
+      "category": "manual-merge",
+      "size": 1359
+    },
+    "scripts/demo/embed-visualizations.py": {
+      "sha256": "9e6c9068ba785af2c1480c2256b9415766e6d19dc0940bb18eaffd0595735da6",
+      "category": "seed-only",
+      "size": 13196
+    },
+    "scripts/demo/seed-confluence.py": {
+      "sha256": "74ef07f56335340ef8c9deef5a7782500f25163300c91deb1fecd9df6dd76f05",
+      "category": "seed-only",
+      "size": 57794
+    },
+    "scripts/demo/seed-jira.py": {
+      "sha256": "5e531d4109a713616696ce51c484818cc5430caec784d9ea89253955cad3aad3",
+      "category": "seed-only",
+      "size": 45069
+    },
+    "scripts/lint-no-stdout.mjs": {
+      "sha256": "639583ae94258b9a49d0bdafcb82fc6d458997c2756f14155144414d80b1c400",
+      "category": "manual-merge",
+      "size": 1665
+    },
+    "scripts/lint-semgrep.mjs": {
+      "sha256": "26555ca1b046c7dcee739b5de87daaa82bd8e58dd948489400666d2a0259505a",
+      "category": "manual-merge",
+      "size": 1905
+    },
+    "scripts/preflight-cli.ts": {
+      "sha256": "5dac4348dc9a177347066dcce3559506496ceb39075cf236faf5eb6fc8a5da98",
+      "category": "manual-merge",
+      "size": 3708
+    },
+    "scripts/provision-execute-cli.ts": {
+      "sha256": "67fa6426210c37980e04cf51ff85f6e1a8a5d711de43137abb1b3bc587d71bb5",
+      "category": "manual-merge",
+      "size": 2378
+    },
+    "scripts/provision-preview-cli.ts": {
+      "sha256": "c67d9444d567be6357d431b4b4fb83c5fccb5524854ba4f6e9fd9f642940114a",
+      "category": "manual-merge",
+      "size": 2224
+    },
+    "scripts/start-server.mjs": {
+      "sha256": "e936569de0be77592d90cfefc0b5f53ef3b8db238695413261a1833429766942",
+      "category": "manual-merge",
+      "size": 997
+    },
+    "scripts/syncAgentConfigs.ts": {
+      "sha256": "9ce7e011d5cb63319fdc5d1072f25827d287e06bad1492ad8951850270aa0f63",
+      "category": "manual-merge",
+      "size": 3480
+    },
+    "SECURITY.md": {
+      "sha256": "eb5da59fd12216c0fae5be34b2051b9510ff4f9f6754a38d6d4fadc563021268",
+      "category": "manual-merge",
+      "size": 721
+    },
+    "semgrep/stub-detection.yml": {
+      "sha256": "faf314f86367574cca13c82ae2dd9b8f1033583e48e0cb519c24024f49500eb8",
+      "category": "seed-only",
+      "size": 10064
+    },
+    "src/compositionRoot.ts": {
+      "sha256": "9dcb3c6051f01213e722e062b02c1b1005721a9b47da94391fff9bf186cd180d",
+      "category": "manual-merge",
+      "size": 13042
+    },
+    "src/config.ts": {
+      "sha256": "7d1cb0ece89292600b93f3da2baa1a2895e0c0c3e8ba2052e71d75d689b4cb7c",
+      "category": "manual-merge",
+      "size": 3648
+    },
+    "src/config/env.ts": {
+      "sha256": "ca7d86b961ef5ad2eeeaa5d3f14ce175f0024e2e06c231848dd90b6fce691260",
+      "category": "manual-merge",
+      "size": 2065
+    },
+    "src/context/modelContext.ts": {
+      "sha256": "1f5d8f54c3690cb6ec219d42ab68e9f8ecdae42f7a5ab9c5f6ea291fff9e1c5f",
+      "category": "manual-merge",
+      "size": 745
+    },
+    "src/context/redaction.ts": {
+      "sha256": "47435a47a43e901c0a90af0e5b593cd2a2bee86605b6d6bfc2430cbf048a4124",
+      "category": "manual-merge",
+      "size": 560
+    },
+    "src/coordination/claimsManager.ts": {
+      "sha256": "5bbecebd59bf3258505df23ce52a3eb33e63a3f42bc7e24c2214f58e581719e8",
+      "category": "manual-merge",
+      "size": 1086
+    },
+    "src/domain/aclEntry.ts": {
+      "sha256": "bedc024509a863b212ad914ed56b7aec4f348deaa31525691aa4c11e90e525d9",
+      "category": "manual-merge",
+      "size": 781
+    },
+    "src/domain/artifactRef.ts": {
+      "sha256": "5a5b4f5da70f0a729cb92667d211f9c4f0f06c752e53e1893cc89d712afa72cc",
+      "category": "manual-merge",
+      "size": 1400
+    },
+    "src/domain/auditEntry.ts": {
+      "sha256": "cfa3dc74787adedcfe0356e00911de769f470318b2e7f9e2371699101fb6217d",
+      "category": "manual-merge",
+      "size": 1598
+    },
+    "src/domain/blueprintExtras.ts": {
+      "sha256": "4ccdd4bfd4569e12445b738a63310f8b4c227eba3b92a49f3e2d5d506a0d9c27",
+      "category": "manual-merge",
+      "size": 1558
+    },
+    "src/domain/confidence.ts": {
+      "sha256": "1d326d3a5675770a203c871357fa1e314964db1459f280ec00d4a375eeab5eaf",
+      "category": "manual-merge",
+      "size": 1370
+    },
+    "src/domain/contextPack.ts": {
+      "sha256": "9cd228e8e2d02dd633e1b327a3f7eccfc03dd68d4d57b137477d7ddbb077aa88",
+      "category": "manual-merge",
+      "size": 1465
+    },
+    "src/domain/epicPlan.ts": {
+      "sha256": "efe8777c63acc6f1924c5dd3cf308d85ecf9b41712708ca10f2df90a85228f17",
+      "category": "manual-merge",
+      "size": 859
+    },
+    "src/domain/index.ts": {
+      "sha256": "515988cf71d51913e0abb6e93c89a00533f2106c3a3361e5b21f1d9960123e04",
+      "category": "manual-merge",
+      "size": 703
+    },
+    "src/domain/mcpSessionProfile.ts": {
+      "sha256": "520cca7f3b5b0e542f5943fae857f748a8eeb3a73e19c0dab6402374f9cf5587",
+      "category": "manual-merge",
+      "size": 1259
+    },
+    "src/domain/policyDecision.ts": {
+      "sha256": "610da512fe11f3892bfb34024fb46a9613363abafba429b3194ad1609c18419b",
+      "category": "manual-merge",
+      "size": 1485
+    },
+    "src/domain/projectBlueprint.ts": {
+      "sha256": "f418a9d8176433757b9bf5a6dd93e0b90c1899425e3642552ef9a666ae3d8429",
+      "category": "manual-merge",
+      "size": 3374
+    },
+    "src/domain/projectGraph.ts": {
+      "sha256": "2e1950b163b43141a4da99501355185e43c3ccfb0ce86304fe81df407d0b19d3",
+      "category": "manual-merge",
+      "size": 804
+    },
+    "src/domain/projectIntake.ts": {
+      "sha256": "983800b33bd5b8d49fb95651912a2963cf14fe365714b1fb2b2b7c4f683a08fa",
+      "category": "manual-merge",
+      "size": 876
+    },
+    "src/domain/projectProfile.ts": {
+      "sha256": "c451cf1f048426e97137f21447da9fdcd6a2ba36b2494765087bf3279719aa6f",
+      "category": "manual-merge",
+      "size": 2815
+    },
+    "src/domain/projectState.ts": {
+      "sha256": "e10be716587d17dd4f21df123fd20c40ab1bc5f99fb4df5d24782c345da9d93c",
+      "category": "manual-merge",
+      "size": 1915
+    },
+    "src/domain/requirement.ts": {
+      "sha256": "b4ab702218a4a14b199d1cce93ddd9346981de3a3bdc99ad694ed1490372a07e",
+      "category": "manual-merge",
+      "size": 1688
+    },
+    "src/domain/sourcePin.ts": {
+      "sha256": "d495d96053b1ded06ccf7ffc6d39ebd3057f96fd00286837894bf4d97fa09406",
+      "category": "manual-merge",
+      "size": 713
+    },
+    "src/domain/tenantScope.ts": {
+      "sha256": "e8672bd5e29c59a109cbdfe6c7e71ef7c71b7c1c4fb6beba4f806a9600ebd1a7",
+      "category": "manual-merge",
+      "size": 1437
+    },
+    "src/domain/tokenBudget.ts": {
+      "sha256": "8c39eb379d5e0e0153992d54ce1936d3a21052ecfc1394abf810a56cf77f3336",
+      "category": "manual-merge",
+      "size": 1357
+    },
+    "src/domain/traceLink.ts": {
+      "sha256": "20447b9cc29e6a97e2a6adeac208fbd06baf8131a6f64111174539d2522d6bbc",
+      "category": "manual-merge",
+      "size": 655
+    },
+    "src/evals/evalGate.ts": {
+      "sha256": "2559911880a1601efc1220b18f0e9366cf9dd964cec1d6f991ef344803ba247f",
+      "category": "manual-merge",
+      "size": 476
+    },
+    "src/mcp/admin/auditedWrite.ts": {
+      "sha256": "a5c078fc9e90c50f9f845a5797d0043462763cf9d789401a90d8a613edc41140",
+      "category": "manual-merge",
+      "size": 2637
+    },
+    "src/mcp/admin/buildAdminServer.ts": {
+      "sha256": "152bccd083023a3b4ba52cd79586697d536c2a8cdf7f876ad63e7a4b1056dcc3",
+      "category": "manual-merge",
+      "size": 1464
+    },
+    "src/mcp/admin/registry.ts": {
+      "sha256": "2a5fa32149e9d4c941267a9ae790842486fe6b8e60242a2350e9b50f48bcd199",
+      "category": "manual-merge",
+      "size": 4273
+    },
+    "src/mcp/admin/tools/atlassian.ts": {
+      "sha256": "45b1bd1b1aad6c42d40c309f7fcb6b6d327c50c8bbcad00736dfeeb0b63860eb",
+      "category": "manual-merge",
+      "size": 7523
+    },
+    "src/mcp/admin/tools/audit.ts": {
+      "sha256": "b80c91f03e928d6d622727f6127393e9d16dc95bf9b8c4db031c8e970113c636",
+      "category": "manual-merge",
+      "size": 5671
+    },
+    "src/mcp/admin/tools/config.ts": {
+      "sha256": "857cb5d775b4fd0607054bdf899b197ad74788c9ab534f210ad7f8931ad82738",
+      "category": "manual-merge",
+      "size": 4372
+    },
+    "src/mcp/admin/tools/dataLimited.ts": {
+      "sha256": "2646e8c915cf6a0b9ffc887e204fe678ed00db480239ce9e5f18a941ca5124ef",
+      "category": "manual-merge",
+      "size": 24318
+    },
+    "src/mcp/admin/tools/health.ts": {
+      "sha256": "af6674e148f2512b508a326747b26fc2d6967483233cacbb95c72141876e9a3a",
+      "category": "manual-merge",
+      "size": 5119
+    },
+    "src/mcp/admin/tools/jobs.ts": {
+      "sha256": "4147ff43878080dec2bb4e2c504429a6f8cb52a3af8565182528ce5db7ebbde2",
+      "category": "manual-merge",
+      "size": 2376
+    },
+    "src/mcp/admin/tools/lifecycle.ts": {
+      "sha256": "54d095b9db2ee182c6272fab77877b691270f0d40da617dc6b2b1c1e8fc7b632",
+      "category": "manual-merge",
+      "size": 26727
+    },
+    "src/mcp/admin/tools/migrations.ts": {
+      "sha256": "c1316ebb2124896e8f7e8d84f9072ca6ec727a10bdd521d0874f0f4e47feebcf",
+      "category": "manual-merge",
+      "size": 2344
+    },
+    "src/mcp/admin/tools/policy.ts": {
+      "sha256": "cf281dd7ac41ef27fcdf6d943c38dcf03829eff9eb5211481adf7c4bfdc34809",
+      "category": "manual-merge",
+      "size": 3325
+    },
+    "src/mcp/admin/tools/projects.ts": {
+      "sha256": "9a742567735dc17fe56d31bc3791ead4f25db9db4a42a42e8b9a0271047aa7c8",
+      "category": "manual-merge",
+      "size": 6599
+    },
+    "src/mcp/admin/tools/providers.ts": {
+      "sha256": "1ff0166ad6920395246316964238e6c5315a7a6bbb075a370b0581e581a0758f",
+      "category": "manual-merge",
+      "size": 3068
+    },
+    "src/mcp/admin/tools/secrets.ts": {
+      "sha256": "aab749b0139d33f7680d3f4c742e338c001a31ed2a0e3cb534b219ae6ab80cfb",
+      "category": "manual-merge",
+      "size": 2532
+    },
+    "src/mcp/admin/tools/sessions.ts": {
+      "sha256": "58b5b3588c9f6831a414c4855aaf382ee56dcdc10d6becb250e73d3333b4d440",
+      "category": "manual-merge",
+      "size": 2181
+    },
+    "src/mcp/admin/tools/velocity.ts": {
+      "sha256": "99119e3421303266722bce82fc4e4867e9036976a6628a861c282892990e111b",
+      "category": "manual-merge",
+      "size": 4892
+    },
+    "src/mcp/admin/tools/writes.ts": {
+      "sha256": "4aed2ceeec9ce383917adca8a28932cb4b5216b03bed37a696a045be8ec864b9",
+      "category": "manual-merge",
+      "size": 15803
+    },
+    "src/mcp/buildServer.ts": {
+      "sha256": "e2f4f489746002e896be661a22bb239a4281f9cab9f9f4bd7bc72a66d9e3b376",
+      "category": "manual-merge",
+      "size": 2888
+    },
+    "src/mcp/registerCompositionTools.ts": {
+      "sha256": "4ea064ff4d6608fb2ae9bcd9a6bb75227ffeba7d99dd12d2ec8c7c32ef2d20bc",
+      "category": "manual-merge",
+      "size": 7757
+    },
+    "src/mcp/registerResources.ts": {
+      "sha256": "afe36671aee49ef8d68423cf29d4879ad0b540c5c294da4110a3a120d12a00c0",
+      "category": "manual-merge",
+      "size": 5172
+    },
+    "src/mcp/registerTools.ts": {
+      "sha256": "eba69b820f88c000961ef3d93a7cbb15d879237015c9aaa6c4baef07449c6a0c",
+      "category": "manual-merge",
+      "size": 2481
+    },
+    "src/mcp/sampling.ts": {
+      "sha256": "03fa8a40e4750117c77e0b0490773ceecd0283ab1e500c05c769744fd4030ec5",
+      "category": "manual-merge",
+      "size": 2689
+    },
+    "src/mcp/sessionCapabilities.ts": {
+      "sha256": "5566279eea995d0d1f8d243dea8034d2bb87497d81319ee434c7cb7e774252ae",
+      "category": "manual-merge",
+      "size": 3596
+    },
+    "src/mcp/sessionNegotiation.ts": {
+      "sha256": "692b34ea540906dac0f38fb57ae4f1a1d45003241b86f95780ff3ec312b45f8b",
+      "category": "manual-merge",
+      "size": 2161
+    },
+    "src/mcp/toolRegistry.ts": {
+      "sha256": "d1e9e24c5d1d96ff748e44e15a8801aaea79142f44fe6850d823102e7a7db6aa",
+      "category": "manual-merge",
+      "size": 1435
+    },
+    "src/mcp/tools/projectIntake.ts": {
+      "sha256": "b927c2072cc64edb433afb3e15d0536ff76e34b35a44d189a93211275c4b40f4",
+      "category": "manual-merge",
+      "size": 9027
+    },
+    "src/mcp/tools/projectPreflight.ts": {
+      "sha256": "a6c51a96f498961f692408ff0f09bb5a7d6d93eba6b89a8af4827f7710594036",
+      "category": "manual-merge",
+      "size": 4849
+    },
+    "src/mcp/tools/projectProvision.ts": {
+      "sha256": "65d034d50eb95d1ba1e883019cfde6627564361c94fcda44882fb2376c28e46a",
+      "category": "manual-merge",
+      "size": 4942
+    },
+    "src/mcp/tools/projectWorkflows.ts": {
+      "sha256": "993a1a924d49bc5f914b7b5c3f0e4ade8c2dbd6218aebad17f2d6f5e006c2e92",
+      "category": "manual-merge",
+      "size": 6240
+    },
+    "src/observability/logger.ts": {
+      "sha256": "b03b06371a0afb642bd11b7f96fd6577589cfce9d0bbb9e19ac4ef77d8d6fc46",
+      "category": "manual-merge",
+      "size": 1513
+    },
+    "src/planning/actorAttribution.ts": {
+      "sha256": "4582b312bdf9ab04ff3bcc51031d4cdc5da1434b9af5b85473353ec33ce48880",
+      "category": "manual-merge",
+      "size": 897
+    },
+    "src/planning/artifactPlan.ts": {
+      "sha256": "464f255131dd08576db5bdd93a5f78b9f1c593125a3bb6ddaa12c57cbd859128",
+      "category": "manual-merge",
+      "size": 1761
+    },
+    "src/planning/artifactPlanSchema.ts": {
+      "sha256": "ab5c74bc97f7ea7b69629f991a20aecd666e723ffb1bed44d692f3f2d9062333",
+      "category": "manual-merge",
+      "size": 2564
+    },
+    "src/preflight/preflightWorkflow.ts": {
+      "sha256": "1e0b61d9519ba9b3f3726b942b56916c09bb816664dfcc878cc223361cffa9d6",
+      "category": "manual-merge",
+      "size": 7947
+    },
+    "src/providers/atlassian/adf.ts": {
+      "sha256": "792d86173328b6ab26ba1da32324409c6fada241e1b5995b1e61f104b775a273",
+      "category": "manual-merge",
+      "size": 4094
+    },
+    "src/providers/atlassian/auth/actorAttribution.ts": {
+      "sha256": "c12fe078bcd0152d6e7edbdb267aa49740ab6c6a2056209c0e2a32241d6a1046",
+      "category": "manual-merge",
+      "size": 2429
+    },
+    "src/providers/atlassian/auth/apiToken.ts": {
+      "sha256": "9119fadb9dfab4d910e41cab480d1f564e1b0bb4d3955c159ce32f7f59530281",
+      "category": "manual-merge",
+      "size": 1230
+    },
+    "src/providers/atlassian/auth/oauth3lo.ts": {
+      "sha256": "0d43b8b5c34cb726bd04dad87826a0eb000d845d252b141804a1156e30116ed8",
+      "category": "manual-merge",
+      "size": 5021
+    },
+    "src/providers/atlassian/auth/types.ts": {
+      "sha256": "472409b8c1f0c5ac1c989da1c54e46afa18d1f495117f624da84c132bac1aa80",
+      "category": "manual-merge",
+      "size": 1167
+    },
+    "src/providers/atlassian/confluenceProvider.ts": {
+      "sha256": "3f78af46f332e9d7a05442685ad8b5c31c22188049d65666630d810675d64cb4",
+      "category": "manual-merge",
+      "size": 2120
+    },
+    "src/providers/atlassian/confluenceRestProvider.ts": {
+      "sha256": "439e54708a9af963250da147dbaec1fab80189430ea434eb65731397e9ec5395",
+      "category": "manual-merge",
+      "size": 8690
+    },
+    "src/providers/atlassian/confluenceStorageRenderer.ts": {
+      "sha256": "d9a2355354c8cc64891a18ef91200e196faaa7d5dd386984a1b57725d34f48e3",
+      "category": "manual-merge",
+      "size": 5355
+    },
+    "src/providers/atlassian/jiraProvider.ts": {
+      "sha256": "a2a38e06b2c6c0504f573f54248b1c55de4eb7e66bdec342348228cb54eb6456",
+      "category": "manual-merge",
+      "size": 2817
+    },
+    "src/providers/atlassian/jiraRestProvider.ts": {
+      "sha256": "aad8db7d5d55755163c810abc3ed8179537d071f6678cf36867840a5c895bbf1",
+      "category": "manual-merge",
+      "size": 9627
+    },
+    "src/providers/http/pagination.ts": {
+      "sha256": "145fe0dae8d7fdc4042c8eb4f284caa83776a6e572964fedea516901627735f3",
+      "category": "manual-merge",
+      "size": 1151
+    },
+    "src/providers/http/restClient.ts": {
+      "sha256": "ab6b071d2a86dd2834487fd5246eb2a8371e6517bb9402b2ae04bf8b729e176d",
+      "category": "manual-merge",
+      "size": 6474
+    },
+    "src/providers/http/restHttpAdapter.ts": {
+      "sha256": "05d5ae0c6fb5c1471af74701ac322818a761bcfb9e1d22dd3928b4e4a77139fe",
+      "category": "manual-merge",
+      "size": 1812
+    },
+    "src/providers/http/retry.ts": {
+      "sha256": "abc1ebd7796043cc6710a15f757639c9cbb934fe03820eb36dc8d1d5af0f5fe4",
+      "category": "manual-merge",
+      "size": 4172
+    },
+    "src/providers/Provider.ts": {
+      "sha256": "a5dbce24af84602205a9dd69388dc06f29afd8fd7fd4b1ff0a289007305b24b0",
+      "category": "manual-merge",
+      "size": 914
+    },
+    "src/providers/uio/uioMcpAdapter.ts": {
+      "sha256": "d7e4d962cbd4eb550688f7d598e9445996151bad110dab840dcce269b7f51054",
+      "category": "manual-merge",
+      "size": 6932
+    },
+    "src/providers/vcs/bitbucket/auth/appPassword.ts": {
+      "sha256": "81e3ad26f6b111e001df7547703a00e9ea4222dd4dfeb9896ce029bda6d1fd61",
+      "category": "manual-merge",
+      "size": 1974
+    },
+    "src/providers/vcs/bitbucket/bitbucketRestProvider.ts": {
+      "sha256": "216da33012bc2828014e2cb76f697dce63b7d9173be9ecf8d8c06754648962fd",
+      "category": "manual-merge",
+      "size": 14076
+    },
+    "src/providers/vcs/VcsProvider.ts": {
+      "sha256": "013cffd6fb65b30a61abc84929d2e36cf871b89a58e873afa76c4a7e49d3294a",
+      "category": "manual-merge",
+      "size": 4858
+    },
+    "src/providers/vcs/worktreeManager.ts": {
+      "sha256": "98cbe8886cac1dad4026ab1d4093694b23511a5365807cc2fbb081e6ab23ad7f",
+      "category": "manual-merge",
+      "size": 9217
+    },
+    "src/queue/jobs/confluenceProvisionJob.ts": {
+      "sha256": "5cab1dbae54b9d83e6a6476b0de2c7e6f31e2a45b1a192a10305467199dd80c9",
+      "category": "manual-merge",
+      "size": 2235
+    },
+    "src/queue/jobs/provisionJob.ts": {
+      "sha256": "45ab04a7e1a1263c24188c469012f7fa0141dbb357e20f1592edee8a740d12b7",
+      "category": "manual-merge",
+      "size": 7254
+    },
+    "src/queue/jobs/vcsProvisionJob.ts": {
+      "sha256": "54cefa9ed4b460999f9aaf9fb1cb79af85b432c0e3f4439dc9a5552559cf5c2b",
+      "category": "manual-merge",
+      "size": 2875
+    },
+    "src/queue/provisionQueue.ts": {
+      "sha256": "124fde5bd681c12ebe8a249b22f34a9be5eb9a52ae570f1f91b94113801b52be",
+      "category": "manual-merge",
+      "size": 2518
+    },
+    "src/review/adversarialTriplet.ts": {
+      "sha256": "0a8ec853e86e409c47229fac8fd56311fcb8b42fe72603361a880855a61ed956",
+      "category": "manual-merge",
+      "size": 7875
+    },
+    "src/security/antiStubScanner.ts": {
+      "sha256": "77e5f525af2f44d1f86a849b953fcfd76e59ab57eea6201cc079376334e91cdb",
+      "category": "manual-merge",
+      "size": 2827
+    },
+    "src/security/auditChain.ts": {
+      "sha256": "a61cbcddd2a1f290ded46e39037e2b9e112428ba65b9b5c2b9c4b056c1cb2e5d",
+      "category": "manual-merge",
+      "size": 4406
+    },
+    "src/security/policyAdapters/codePolicyAdapter.ts": {
+      "sha256": "0753c837f671d9f2682cef5bdc85073e92b3d0802f0d9331283cca0da2b1c179",
+      "category": "manual-merge",
+      "size": 3976
+    },
+    "src/security/policyDecisionLayer.ts": {
+      "sha256": "87159a79b97daaf6880afcb89f408b080df46424b9344c7b2f89753cfbfe52c2",
+      "category": "manual-merge",
+      "size": 2981
+    },
+    "src/security/tokenEncryption.testDouble.ts": {
+      "sha256": "b57a57883ab8ff45f200892c9279d7c40b7c1ec55075b7d4fa3fd9b23c48c6b0",
+      "category": "manual-merge",
+      "size": 1032
+    },
+    "src/security/tokenEncryption.ts": {
+      "sha256": "952203931a9998ed4ed30eb47cfbc0715666d8442adf08fa75fcb09bca47f186",
+      "category": "manual-merge",
+      "size": 3973
+    },
+    "src/security/tokenStore.ts": {
+      "sha256": "1dbf4c598901fe0f6b9fb729cc8c7359076450839d2206644d1a51d5dd64d618",
+      "category": "manual-merge",
+      "size": 2097
+    },
+    "src/security/webhookSignatures.ts": {
+      "sha256": "63b01d501356fe7f2b16a74972e6c618284d47e6403436c3804a13d6a2b413b5",
+      "category": "manual-merge",
+      "size": 4449
+    },
+    "src/server.ts": {
+      "sha256": "9997e979509e63d65e47a15c4c23db50395a5b1b51d5230926b8e7d017d796e5",
+      "category": "manual-merge",
+      "size": 4489
+    },
+    "src/server/adminMcpRoutes.ts": {
+      "sha256": "53fdaafa4f67359ab4b29a229c264edb25b1b38346df0248dfc56b0a94d6eb5c",
+      "category": "manual-merge",
+      "size": 4312
+    },
+    "src/server/mgmtApi.ts": {
+      "sha256": "cd5b77be990e39e4dfea34d68dc1d297b5502a74104a2bcf0603ced9db623fe5",
+      "category": "manual-merge",
+      "size": 4800
+    },
+    "src/server/uiAssets.ts": {
+      "sha256": "7c0704e2a6e892d7a9912a946b53820f55c2770fc0f6f5bad07981db719aaf31",
+      "category": "manual-merge",
+      "size": 3303
+    },
+    "src/storage/db.ts": {
+      "sha256": "aa2cb06b54e1394c87501576e96b25c7d3bd3e0947d5edd78586384c6ba477ff",
+      "category": "manual-merge",
+      "size": 4174
+    },
+    "src/storage/migrationRunner.ts": {
+      "sha256": "0bbc7f8a0db8e935a80a59b1b24bd9c5f899b632e3bfac894276b66020bb574c",
+      "category": "manual-merge",
+      "size": 4307
+    },
+    "src/storage/migrations/0001_init.sql": {
+      "sha256": "b4c934069cd478b23ef011da4f9ae720ffd58a497e715d744cd4360a0da58314",
+      "category": "manual-merge",
+      "size": 6937
+    },
+    "src/storage/migrations/0002_provision_jobs.sql": {
+      "sha256": "d8b0808773e6f005900d17e78f3cbfed45d8fa8e118c6fa6e440bf0838d97116",
+      "category": "manual-merge",
+      "size": 956
+    },
+    "src/storage/migrations/0003_webhook_deliveries.sql": {
+      "sha256": "6dd6278e45a20b74d59cd238cdb2ccec44f51c7d0a577271cf3b0d7b5b2136ee",
+      "category": "manual-merge",
+      "size": 470
+    },
+    "src/storage/repositories/aclRepository.ts": {
+      "sha256": "d76c55763e250d3c4e939f0adc11813d680873787edd5b875923b4c14abcd612",
+      "category": "manual-merge",
+      "size": 2813
+    },
+    "src/storage/repositories/auditRepository.ts": {
+      "sha256": "7b9c4c8ff0e6aaef87634c236cdf8a649e098a64f6b4c735f920f388c2f74911",
+      "category": "manual-merge",
+      "size": 4488
+    },
+    "src/storage/repositories/contextPackRepository.ts": {
+      "sha256": "a1ccd7a6be87f0acc221f426947127c70c6c81b64c89ae8fd462ad97afa65dea",
+      "category": "manual-merge",
+      "size": 1942
+    },
+    "src/storage/repositories/encryptedTokenRepository.ts": {
+      "sha256": "59ca5ce22daf1048b982c893c4290e910f62a0e405e3eb7ca691c38ac242dd62",
+      "category": "manual-merge",
+      "size": 4452
+    },
+    "src/storage/repositories/index.ts": {
+      "sha256": "eee1acd28d0341584c4ed943573db77a0c06cf964277ba9fe9a9b7e20d648ffd",
+      "category": "manual-merge",
+      "size": 3086
+    },
+    "src/storage/repositories/keyRegistryRepository.ts": {
+      "sha256": "c33eec449ad1f84ba7f7c064f9dc666617d22609d8d7b95c7879b54ec6883829",
+      "category": "manual-merge",
+      "size": 1177
+    },
+    "src/storage/repositories/mcpSessionProfileRepository.ts": {
+      "sha256": "90449a352be803184e500a6cd0d609f68cdd5fc62aef10c509dedba1267ed0e7",
+      "category": "manual-merge",
+      "size": 2353
+    },
+    "src/storage/repositories/policyDecisionRepository.ts": {
+      "sha256": "25a775bd73947fa5f537043a98ae07c11cd4b77e1da0b003237ebfd8b8f3885c",
+      "category": "manual-merge",
+      "size": 2062
+    },
+    "src/storage/repositories/projectProfileRepository.ts": {
+      "sha256": "442fd44abb076108297cea4972270e6bf61ff3117525921dbf6529a70bb64e22",
+      "category": "manual-merge",
+      "size": 2030
+    },
+    "src/storage/repositories/projectRepository.ts": {
+      "sha256": "89d26ce1694b7b15dc5032349b1da99fb3b46f61cf9dab1c7ce5c0e31c2fd638",
+      "category": "manual-merge",
+      "size": 3651
+    },
+    "src/storage/repositories/provisionJobRepository.ts": {
+      "sha256": "ec989cf6bfa46c96dca90de81ef18692526a6f8d2bd2a99dbddd8298b7f82fe5",
+      "category": "manual-merge",
+      "size": 4308
+    },
+    "src/storage/repositories/readinessRepository.ts": {
+      "sha256": "78d2c2f0d3e39c43ce330afa8d8c0e2a4ec8b7d5e6416438c6b1097b59ced4f1",
+      "category": "manual-merge",
+      "size": 2236
+    },
+    "src/storage/repositories/traceLinkRepository.ts": {
+      "sha256": "f49db9dfbaaa69ebe9451e7ab2b9214c133bdb7cc7413b3484bd6183bdea9ab1",
+      "category": "manual-merge",
+      "size": 2177
+    },
+    "src/storage/repositories/webhookDeliveryRepository.ts": {
+      "sha256": "c560fbbb3572c517476aa93f779973f446c452de0e072cb28b602d1730d6842f",
+      "category": "manual-merge",
+      "size": 1300
+    },
+    "src/storage/schema/aclEntries.ts": {
+      "sha256": "5702f921c4e3adfebdd402cd40ac4eb0cb8dfbe4c896086cc3a306b95c518e59",
+      "category": "manual-merge",
+      "size": 1042
+    },
+    "src/storage/schema/auditEntries.ts": {
+      "sha256": "f7379a8fa0547a2eea4b043c1becd7eab3a22307b72e205d33b513c7846cd248",
+      "category": "manual-merge",
+      "size": 1291
+    },
+    "src/storage/schema/contextPacks.ts": {
+      "sha256": "eebcd9bfa8c476c5f0cf90095fead8f58b4925c27069c21ce754c1e90f10fbf2",
+      "category": "manual-merge",
+      "size": 817
+    },
+    "src/storage/schema/encryptedTokens.ts": {
+      "sha256": "a1ca242fd007dbdb067a2c02c9d032fb1e534910de3876161d61b272ed3d0a47",
+      "category": "manual-merge",
+      "size": 2017
+    },
+    "src/storage/schema/index.ts": {
+      "sha256": "4799b4d289528f1857f1485c95c47a9ad8dedbfb9ed676e68ac7cb8ee33585bf",
+      "category": "manual-merge",
+      "size": 1478
+    },
+    "src/storage/schema/mcpSessionProfiles.ts": {
+      "sha256": "2fdf966e4921dde129e253a3fcb515c34f29b6d0d775e35f3e852be577fbfc8f",
+      "category": "manual-merge",
+      "size": 837
+    },
+    "src/storage/schema/policyDecisions.ts": {
+      "sha256": "289cdc4bae80d83fcd412cd287841122e15b4469798a273e77a06fd4a0ab422a",
+      "category": "manual-merge",
+      "size": 955
+    },
+    "src/storage/schema/projectProfiles.ts": {
+      "sha256": "3f0bfa94017ef5f5195a4c93c9393bf94b39414c9934933c2290f2ce8fc5636c",
+      "category": "manual-merge",
+      "size": 736
+    },
+    "src/storage/schema/projects.ts": {
+      "sha256": "2a60fa8541ee10a0c5c9341e5c19fb870a01a256dcf8378f15c4ff311f122e29",
+      "category": "manual-merge",
+      "size": 1339
+    },
+    "src/storage/schema/provisionJobs.ts": {
+      "sha256": "e6f385bcad0b6c40069a10e9816e9bb4b5430c6fd4b481d09f735b05872ddfdd",
+      "category": "manual-merge",
+      "size": 1338
+    },
+    "src/storage/schema/readinessReports.ts": {
+      "sha256": "51bf7bba151ec33cf6e3f4d690783d3ac5a6b16f3569015a6d6094416882b4c1",
+      "category": "manual-merge",
+      "size": 1108
+    },
+    "src/storage/schema/traceLinks.ts": {
+      "sha256": "e8150ca68126e688e4f16f50be27806b49f94856eb4fbe00e44fcb28058c23c5",
+      "category": "manual-merge",
+      "size": 1023
+    },
+    "src/storage/schema/webhookDeliveries.ts": {
+      "sha256": "64a98cbe41d2ac9805a9f694fe7a017edac9da7b0428219aa09181305ed02f4e",
+      "category": "manual-merge",
+      "size": 787
+    },
+    "src/transport/http.ts": {
+      "sha256": "ef0a2da13a3c4e2912f4d2e98258e87d13508c025ea627198c683fafd675c7cc",
+      "category": "manual-merge",
+      "size": 8147
+    },
+    "src/transport/stdio.ts": {
+      "sha256": "acbb8bb51c63e941022ae338e9493f643387a4fa9ec5f35f6a20e14b196874c9",
+      "category": "manual-merge",
+      "size": 4225
+    },
+    "src/validators/blueprintValidator.ts": {
+      "sha256": "2f052a5c714e3e0a98f2b3ceaf6c4199fe2c3ad57173cd4dc02cfff884839eb8",
+      "category": "manual-merge",
+      "size": 3413
+    },
+    "src/velocity/contentRegistry.ts": {
+      "sha256": "60f66d6f9ce8b278acbc05d213f19483b74042a3d9315ff120285da6a41121b0",
+      "category": "manual-merge",
+      "size": 5999
+    },
+    "src/velocity/critiquePromptScaffold.ts": {
+      "sha256": "c45e65bc4f288f9f1b669482bd405793a18c4ab4b3ef30ad2d1e55a4e6c73d83",
+      "category": "manual-merge",
+      "size": 2461
+    },
+    "src/velocity/promptScaffold.ts": {
+      "sha256": "6c1d730f2df98db62b3509d4ad2ae3273e0c6bfad166b27e857a0b3bf730ae27",
+      "category": "manual-merge",
+      "size": 3673
+    },
+    "src/velocity/templateRenderer.ts": {
+      "sha256": "7bc16baa31bad18174a874fdf6cc4fb2ededc1432a7320dbd93aca383df9236d",
+      "category": "manual-merge",
+      "size": 3535
+    },
+    "src/workflows/blueprintReviseWorkflow.ts": {
+      "sha256": "37e27515d7e06b4a906a35b9b0c595bbb9fda040a742abf626bdec0667c0109e",
+      "category": "manual-merge",
+      "size": 6504
+    },
+    "src/workflows/blueprintWorkflow.ts": {
+      "sha256": "0fd23dbb33c8255276544fcbf11d97322dcf2e797c5e318bb0369792aead79a5",
+      "category": "manual-merge",
+      "size": 7237
+    },
+    "src/workflows/confluencePagesWorkflow.ts": {
+      "sha256": "78844fff8e2db9119d8b441b8b22a4c1965245e4fd7fef090eede18383d0fa93",
+      "category": "manual-merge",
+      "size": 6427
+    },
+    "src/workflows/contextPackWorkflow.ts": {
+      "sha256": "4fefb1e7ceb56cf0bd94b00226b8f2597acd66af1ede4b39e1e9c7e20ede17b3",
+      "category": "manual-merge",
+      "size": 2831
+    },
+    "src/workflows/handoffWorkflow.ts": {
+      "sha256": "757dce97b8e9302171072ac78638251a7f1ce11bdc5e0c4f23044219a6a7e9e6",
+      "category": "manual-merge",
+      "size": 1377
+    },
+    "src/workflows/intakeWorkflow.ts": {
+      "sha256": "ccfa8645ee1d53e9c676ee452c64ac1214dba73f058d96fc79bce28181f38e27",
+      "category": "manual-merge",
+      "size": 4075
+    },
+    "src/workflows/jiraIssueTreeWorkflow.ts": {
+      "sha256": "e254c93c288eee08ca81799ccd92e2da8a398686e4499e285a8866bc705b11c4",
+      "category": "manual-merge",
+      "size": 3985
+    },
+    "src/workflows/markdownBlueprintParser.ts": {
+      "sha256": "0a76654b4af4ef0450caa72557576a46f610c8855bc7238dcc67da690b90d8ec",
+      "category": "manual-merge",
+      "size": 6193
+    },
+    "src/workflows/notificationWorkflow.ts": {
+      "sha256": "4b654a64f11d74e6de930d1c5013c42b89adb6ab34c0a435c2c027c2a003f446",
+      "category": "manual-merge",
+      "size": 881
+    },
+    "src/workflows/provisioningWorkflow.ts": {
+      "sha256": "c5464de7ee692968eaab0cafed923c985f8abebca32b20c48c76808c0f939af3",
+      "category": "manual-merge",
+      "size": 3860
+    },
+    "src/workflows/readinessWorkflow.ts": {
+      "sha256": "f0261b8eb76dce7ec4e76ffe61418438162a325dd0bfaf890af0ac1af3a8bfcf",
+      "category": "manual-merge",
+      "size": 1692
+    },
+    "src/workflows/vcsRepoScaffoldWorkflow.ts": {
+      "sha256": "7e5f6301c5540e49fe561610bb1f5d2d190183b985574139fa8b9d246f8adc3b",
+      "category": "manual-merge",
+      "size": 10461
+    },
+    "src/workflows/webhookIngestionWorkflow.ts": {
+      "sha256": "b316d3367b0bef53f4032e146ba7c1e3add549f3052d77a88ef27bb1c86eeeb5",
+      "category": "manual-merge",
+      "size": 2701
+    },
+    "tests/contract/providerContracts.test.ts": {
+      "sha256": "5584dc27b0e16dd7a36b1c4d3bb082368e5041edfd7fd49835825205884c342c",
+      "category": "manual-merge",
+      "size": 1064
+    },
+    "tests/fixtures/requirements-billing.md": {
+      "sha256": "e0c89ddd8ff45aafe4a86407d07e6eb9c3cda18a60c1329021a07620ecf57db7",
+      "category": "manual-merge",
+      "size": 737
+    },
+    "tests/integration/admin/_adminFixture.ts": {
+      "sha256": "569566060b846cde3111e5a84c03a20d5716ea8d1aa9e1637de6d0fbe8246932",
+      "category": "manual-merge",
+      "size": 2425
+    },
+    "tests/integration/admin/lifecycleTools.test.ts": {
+      "sha256": "f0e4e37434cee2d4982fbcd3da55ce147d529273da2f2cfacdc0574d52eeb24b",
+      "category": "manual-merge",
+      "size": 11350
+    },
+    "tests/integration/admin/readTools.test.ts": {
+      "sha256": "3637761eeb5452ddbe758196df25d07e2097641b49c50c33757dca8db1c06093",
+      "category": "manual-merge",
+      "size": 8818
+    },
+    "tests/integration/admin/transportAndUi.test.ts": {
+      "sha256": "f829bcf7426eaf0fa9a01fbfc07107e62d46a598505ff3ed9cc947dd173f6ae5",
+      "category": "manual-merge",
+      "size": 2419
+    },
+    "tests/integration/admin/writeTools.test.ts": {
+      "sha256": "bc68b948a8a9f232419789afc68af30671da3b4224522d5056e00ba4a5ac5d60",
+      "category": "manual-merge",
+      "size": 8525
+    },
+    "tests/integration/live/atlassian.test.ts": {
+      "sha256": "3785b4207d3953a524f6c6fa11b751bad826d28d18e376d82add70660d270831",
+      "category": "manual-merge",
+      "size": 3054
+    },
+    "tests/integration/live/bitbucket.test.ts": {
+      "sha256": "f0bd020c0177a9cd01dcb9494336266cada88b233f7f9b04959b78e8b8e9e02a",
+      "category": "manual-merge",
+      "size": 1766
+    },
+    "tests/integration/live/uio.test.ts": {
+      "sha256": "3883c24047cd1b9d5624e4fd305c5f9e260788df8668e2a2af07c9dbe707612a",
+      "category": "manual-merge",
+      "size": 1548
+    },
+    "tests/integration/mgmtApi.test.ts": {
+      "sha256": "bd08b8f9cb45a69b07efbab7a720bdf1689f7a11010e2d27c83ab0bb1634e274",
+      "category": "manual-merge",
+      "size": 2027
+    },
+    "tests/integration/preflight.test.ts": {
+      "sha256": "7a83ee6f2d029378a188050c39246b1bf251698f9b929fb7a454444d73ab6e29",
+      "category": "manual-merge",
+      "size": 7204
+    },
+    "tests/integration/providers/confluenceRestProvider.test.ts": {
+      "sha256": "bc250ca71d1b952151e21839e531f472d61315f5894976187cb68d364eda2331",
+      "category": "manual-merge",
+      "size": 6145
+    },
+    "tests/integration/providers/jiraRestProvider.test.ts": {
+      "sha256": "9e49382b5da2a408500a1b26d16fa26f0e04c708712643b2dd0a93919b07f6e5",
+      "category": "manual-merge",
+      "size": 5390
+    },
+    "tests/integration/providers/vcs/bitbucketRestProvider.test.ts": {
+      "sha256": "41014ac1d413d02fc97e1c0d61aa351896f33b53eb0093e95e4617fff8e9f5c4",
+      "category": "manual-merge",
+      "size": 9233
+    },
+    "tests/integration/providers/vcs/worktreeManager.test.ts": {
+      "sha256": "f79fc18e1c38950bb09046a72a3f845313cab31472f280cfb0883e675b792aae",
+      "category": "manual-merge",
+      "size": 5283
+    },
+    "tests/integration/registerCompositionTools.test.ts": {
+      "sha256": "40e0265bdf6bb0c47b10de7efef5528471427444de5c4c25daf196bb88da1822",
+      "category": "manual-merge",
+      "size": 5725
+    },
+    "tests/integration/security/auditChain.test.ts": {
+      "sha256": "bf1211fa68c7748e73d80916aef4a80d43356be48a74fe31007cb22d78d54006",
+      "category": "manual-merge",
+      "size": 3439
+    },
+    "tests/integration/storage/_testDb.ts": {
+      "sha256": "467e5a0b6ea8c0af24196126b2d38a088dbaec93a38a5e1e6544bec2e7ae03f8",
+      "category": "manual-merge",
+      "size": 663
+    },
+    "tests/integration/storage/auditRepository.test.ts": {
+      "sha256": "a045253a7abab5362138c35c1d7fa8a9b33ddae28fda2b9ded6e994354034849",
+      "category": "manual-merge",
+      "size": 3140
+    },
+    "tests/integration/storage/migrationRehearsal.test.ts": {
+      "sha256": "9051b5b88dbb179bd69324daf497269f47ebbcef6a4b87e8b6de285ba139985b",
+      "category": "manual-merge",
+      "size": 4980
+    },
+    "tests/integration/storage/provisionJobRepository.test.ts": {
+      "sha256": "f84ed037089d9b88f197b655843e111c63bc661507bf65f0199ddc7db02961e8",
+      "category": "manual-merge",
+      "size": 2448
+    },
+    "tests/integration/storage/repositories.test.ts": {
+      "sha256": "97b0d58bbcfe7b784fa97fc4b91d0450e4adc7d8421e82d656fcdcd6521b3757",
+      "category": "manual-merge",
+      "size": 7293
+    },
+    "tests/integration/storage/tokenStore.test.ts": {
+      "sha256": "c725448b917e0be06b554737d778994b9cdfeccccd836762d82c49b2dbb2e725",
+      "category": "manual-merge",
+      "size": 3606
+    },
+    "tests/integration/storage/webhookDeliveryRepository.test.ts": {
+      "sha256": "5d18b221f10333275cd39defd89631e4e4cd30550e80a074dee873040e695e0b",
+      "category": "manual-merge",
+      "size": 1216
+    },
+    "tests/integration/workflows/vcsRepoScaffoldWorkflow.test.ts": {
+      "sha256": "d52a9fb6f3ae3762950384b643b6c9ec3091a2699275fd7e611d0d70a2b56fa2",
+      "category": "manual-merge",
+      "size": 3756
+    },
+    "tests/lint/anti-stub.test.ts": {
+      "sha256": "decde7ddf8b2a1446ba5f3ee41c29bd194117dca5dd17dcc73dd2a71551f1209",
+      "category": "manual-merge",
+      "size": 888
+    },
+    "tests/lint/no-stdout.test.ts": {
+      "sha256": "19b26ef21a987dd2c2244f17e648b9ddaac80af5802845c6674d45d758627323",
+      "category": "manual-merge",
+      "size": 2427
+    },
+    "tests/unit/buildServer.test.ts": {
+      "sha256": "90064621b7acaef7df5e5ccf52b50405d614487cebde563fb719d6a968194454",
+      "category": "manual-merge",
+      "size": 1319
+    },
+    "tests/unit/domain/__snapshots__/serialization.test.ts.snap": {
+      "sha256": "5d9639c64b6b81efbc25c6b2013e4d7a75b7946d296a129b858235c6921ec6cb",
+      "category": "seed-only",
+      "size": 2975
+    },
+    "tests/unit/domain/confidence.test.ts": {
+      "sha256": "a758cb3a3d41f807db48476e6b4e77cef1f807cde1cdd4c167a4816d9efedc51",
+      "category": "manual-merge",
+      "size": 1402
+    },
+    "tests/unit/domain/projectState.test.ts": {
+      "sha256": "443a27bd6324c7b533c0853d203562657d8a1871f486958990a3f4f299c211bb",
+      "category": "manual-merge",
+      "size": 1334
+    },
+    "tests/unit/domain/serialization.test.ts": {
+      "sha256": "420388af0a322e7d42ffa59f18fa7461111a0f1c11d8d06af2ef923cfcbd6c49",
+      "category": "manual-merge",
+      "size": 2405
+    },
+    "tests/unit/domain/tenantScope.test.ts": {
+      "sha256": "12d37dbd210c0846c7e7143128e90795a95c06b224b811d2e986a6b958dbbe90",
+      "category": "manual-merge",
+      "size": 1178
+    },
+    "tests/unit/env.test.ts": {
+      "sha256": "6916545276c8baf199d207bfe90fd0e175b133224accf40850477b5ce38bf310",
+      "category": "manual-merge",
+      "size": 3439
+    },
+    "tests/unit/mcp/projectIntakeTools.test.ts": {
+      "sha256": "018d3d8ce7dcd604fa09ed293ad825695ef9dcda071dd20657b025c358dcda9b",
+      "category": "manual-merge",
+      "size": 2455
+    },
+    "tests/unit/mcp/projectProvisionTools.test.ts": {
+      "sha256": "4d5258133286c3d1fc2a27bf149268d8dfa0ee681d1bb7282c956b5a784b2c63",
+      "category": "manual-merge",
+      "size": 2721
+    },
+    "tests/unit/mcp/sampling.test.ts": {
+      "sha256": "790c6163cb7b05cff9ea9b5b026c4049cfc8d76b7edc8520dd0376e40e7aa18a",
+      "category": "manual-merge",
+      "size": 2397
+    },
+    "tests/unit/providers/atlassian/__snapshots__/adf.test.ts.snap": {
+      "sha256": "01728b70c809a4a8508f685be374bc8c7f7e873e2d3487b22a5b21b35a09dbbe",
+      "category": "seed-only",
+      "size": 2088
+    },
+    "tests/unit/providers/atlassian/adf.test.ts": {
+      "sha256": "195d3c1d5754a1663041c34f787bc700664188333985e749026bc0b997e0092f",
+      "category": "manual-merge",
+      "size": 2008
+    },
+    "tests/unit/providers/atlassian/auth.test.ts": {
+      "sha256": "55abc467eb22cf4fcd08457f3eaa06ec4929a67759dab95ad18f8eb45feead13",
+      "category": "manual-merge",
+      "size": 6870
+    },
+    "tests/unit/providers/atlassian/confluenceStorageRenderer.test.ts": {
+      "sha256": "3836c6717f229b98c38b37298e4388b30780c2480f2d751d5bd0b4ab371f9ea5",
+      "category": "manual-merge",
+      "size": 2150
+    },
+    "tests/unit/providers/http/restClient.test.ts": {
+      "sha256": "7f1756f1fe9a5c40d97069b964d5f60404b678d198d435346e2f4354660ec271",
+      "category": "manual-merge",
+      "size": 5501
+    },
+    "tests/unit/providers/http/retry.test.ts": {
+      "sha256": "3a934ccb01d71a9f2b2de685c4296aa436aedf7e2a950c7b908fe47ecb039855",
+      "category": "manual-merge",
+      "size": 2795
+    },
+    "tests/unit/providers/vcs/bitbucketAuth.test.ts": {
+      "sha256": "7abadec74374c05f1198b31ae0f8395a6949fa4b395b43b80aa33ab36111dde8",
+      "category": "manual-merge",
+      "size": 1397
+    },
+    "tests/unit/queue/auditDouble.ts": {
+      "sha256": "5c843f3a22a6a11ce93f06ccc645c4f5e3130433014f8aae6745de8ea4c9923f",
+      "category": "manual-merge",
+      "size": 985
+    },
+    "tests/unit/queue/provisionConfluenceVcs.test.ts": {
+      "sha256": "f335c9b9c9c152a649bb695ac5a99b8ebf12a32a6fda9e216c98a74ac3d19b1c",
+      "category": "manual-merge",
+      "size": 3868
+    },
+    "tests/unit/queue/provisionJob.test.ts": {
+      "sha256": "ee12fb625481155d74efe3c9e6ad6eb621209748ae7e0f380bffec489c8f71f1",
+      "category": "manual-merge",
+      "size": 11553
+    },
+    "tests/unit/queue/traceLinkDouble.ts": {
+      "sha256": "91446ba817ff26204cf30642b2acfbdb610dd1faa195b540e11a8921fc8426ac",
+      "category": "manual-merge",
+      "size": 977
+    },
+    "tests/unit/review/adversarialTriplet.test.ts": {
+      "sha256": "bb8d2cf6f51a1662ac555d59f8abb698077374d3b50be72ca1827da835b37228",
+      "category": "manual-merge",
+      "size": 4367
+    },
+    "tests/unit/scripts/syncAgentConfigs.test.ts": {
+      "sha256": "40f76f44ed274ca453e2530ff3b0a1b74bd8251182e85fb4b301e58be7445f36",
+      "category": "manual-merge",
+      "size": 2274
+    },
+    "tests/unit/security/codePolicyAdapter.test.ts": {
+      "sha256": "331d288c99bbfbfb5376979be31d018fccc7daaeb9bf76441ebb6faf96af2f6a",
+      "category": "manual-merge",
+      "size": 2247
+    },
+    "tests/unit/security/tokenEncryption.test.ts": {
+      "sha256": "3127f23778bd09ea035028d9f162256920f8902b7786419766de57b68a10d3e4",
+      "category": "manual-merge",
+      "size": 2142
+    },
+    "tests/unit/security/webhookSignatures.test.ts": {
+      "sha256": "65ad8c28a50560f4bd2d65a336464107ac90b2e64b1b41cd052ce6a99063bc08",
+      "category": "manual-merge",
+      "size": 3680
+    },
+    "tests/unit/sessionCapabilities.test.ts": {
+      "sha256": "e8e79eb094abba62563299371b61af48a3a4cea6707c0c7fbad5485878e44457",
+      "category": "manual-merge",
+      "size": 3889
+    },
+    "tests/unit/validators/blueprintValidator.test.ts": {
+      "sha256": "eeb40c819c57f82abc1c0eeee203c70a65a8dc24ff699122857799f68f2f597f",
+      "category": "manual-merge",
+      "size": 2024
+    },
+    "tests/unit/velocity/contentRegistry.test.ts": {
+      "sha256": "55848931284a7aee7389044dfe9fdfbd644be46c165fd3e7ebc1052de8038e26",
+      "category": "manual-merge",
+      "size": 2199
+    },
+    "tests/unit/velocity/templateRenderer.test.ts": {
+      "sha256": "15e998d3373ca78b6eb68dba489e77e47c92892bd0c50da142a17dc2940cf131",
+      "category": "manual-merge",
+      "size": 1903
+    },
+    "tests/unit/workflows/__snapshots__/blueprintWorkflow.test.ts.snap": {
+      "sha256": "9172088d32e6e12a0ed0b9b76f2c195039f42c36e6e45059b62c4801983c4af6",
+      "category": "seed-only",
+      "size": 5672
+    },
+    "tests/unit/workflows/blueprintReviseWorkflow.test.ts": {
+      "sha256": "3c3a0bd0f98066ba83301a9a19d0188792b79e9a05c9f0459cea6f8ce4632e7f",
+      "category": "manual-merge",
+      "size": 4727
+    },
+    "tests/unit/workflows/blueprintWorkflow.test.ts": {
+      "sha256": "610306b610ae242555b7807e11f846664a08877d21512a1da765115cdd8e9665",
+      "category": "manual-merge",
+      "size": 3219
+    },
+    "tests/unit/workflows/contextReadinessHandoff.test.ts": {
+      "sha256": "151b8f7c37a266bb8ae413fb9b258e28708447637e14dcd58eb1a0a9d9e37a0f",
+      "category": "manual-merge",
+      "size": 2895
+    },
+    "tests/unit/workflows/inMemoryProjectRepository.ts": {
+      "sha256": "a7bf47860fe1ddef25d78c1179c5f559337d5544668e18bf314c250b8226a83f",
+      "category": "manual-merge",
+      "size": 2049
+    },
+    "tests/unit/workflows/intakeWorkflow.test.ts": {
+      "sha256": "002c8dc8b2bb679500fe591b4e4612686f8e23effb77839cddae05c94b78aad4",
+      "category": "manual-merge",
+      "size": 2630
+    },
+    "tests/unit/workflows/provisioningWorkflow.test.ts": {
+      "sha256": "b2b13b4c2b02492a501e404a1f16133e5ec5e915aa40fbae26112906d58ecf78",
+      "category": "manual-merge",
+      "size": 3096
+    },
+    "tests/unit/workflows/webhookNotificationsHardening.test.ts": {
+      "sha256": "264af525f67416e299b9efa5936fdf6223771592cf20ce8ff98e952938dd4e1a",
+      "category": "manual-merge",
+      "size": 3113
+    },
+    "tsconfig.json": {
+      "sha256": "0afdf872cc794b9998539f3d5430c5bce56ae36f0a10287b655ffe1160fef8b6",
+      "category": "manual-merge",
+      "size": 717
+    },
+    "tsconfig.test.json": {
+      "sha256": "782608a013e2bf095146c8062b5323fee3a656f5066da06b427f95702eaffed2",
+      "category": "seed-only",
+      "size": 188
+    },
+    "visualizations/README.md": {
+      "sha256": "09a5246994beee8155b04025db935e6d056923a07727516cd287bef6f162d7cf",
+      "category": "manual-merge",
+      "size": 54452
+    },
+    "visualizations/source/AGENTS.md": {
+      "sha256": "3d0c3f8989ea51c19a6e0a1e6be39aca2137e27e654d80a3717fa6cb79df364f",
+      "category": "manual-merge",
+      "size": 4660
+    },
+    "visualizations/source/CLAUDE.md": {
+      "sha256": "5dc1c2564496ef1fe77463e679d453b7e3bb619203b0aec8f4b193dc9411ba7a",
+      "category": "manual-merge",
+      "size": 3675
+    },
+    "visualizations/source/docs/adr/0000-adr-process.md": {
+      "sha256": "79337e5aad658accc788a5625d51134c109388edbb81efe01516a7ab63f72c7d",
+      "category": "manual-merge",
+      "size": 4451
+    },
+    "visualizations/source/docs/adr/0001-pglite-for-dev.md": {
+      "sha256": "ffad071475639292e7f27a61e022c55c0fb6e6d98692e4ae2c446f489404d18c",
+      "category": "manual-merge",
+      "size": 4709
+    },
+    "visualizations/source/docs/adr/0002-token-encryption-noble-ciphers.md": {
+      "sha256": "9c8cc487de5bcd58c4d53b966ff314502dca2cfbfd96d9d2957349ce1de2f56c",
+      "category": "manual-merge",
+      "size": 5616
+    },
+    "visualizations/source/docs/adr/0003-confluence-storage-default-adf-flagged.md": {
+      "sha256": "893241a5ff0d0ad38c25224540bc7840fbba6f5851ed3e6407f621745eb1dea8",
+      "category": "manual-merge",
+      "size": 5226
+    },
+    "visualizations/source/docs/adr/0004-bitbucket-app-password-vs-oauth.md": {
+      "sha256": "86e83e9886958c022942e29eb6a70f059691eff2a140dcd05000531611bb65a5",
+      "category": "manual-merge",
+      "size": 4587
+    },
+    "visualizations/source/docs/adr/0005-audit-signing-pipeline.md": {
+      "sha256": "35b54625caa5c863af08356ec103fc3b7c3401859a36a6479b77cd2a566e740c",
+      "category": "manual-merge",
+      "size": 4773
+    },
+    "visualizations/source/docs/sdlc/01-charter/non-goals.md": {
+      "sha256": "14a29fe5a392ab405a4804b4fca091b92af6493f88d16c97145d3e630bdf67bc",
+      "category": "manual-merge",
+      "size": 9702
+    },
+    "visualizations/source/docs/sdlc/01-charter/product-strategy.md": {
+      "sha256": "278393f24515d6a6206cbe5670d1dac3b7b7e14adc2dd340f67bb97d61a83eb8",
+      "category": "manual-merge",
+      "size": 7781
+    },
+    "visualizations/source/docs/sdlc/01-charter/README.md": {
+      "sha256": "4943d208b5f22c8302476901e157c0211a0591e5476a640d992114ccc310e511",
+      "category": "manual-merge",
+      "size": 9230
+    },
+    "visualizations/source/docs/sdlc/02-architecture/containers.md": {
+      "sha256": "44ffe8222275ceb385fe85dcb5e433c93621ca97ae33cbc945f5f93aaa6eee3e",
+      "category": "manual-merge",
+      "size": 7980
+    },
+    "visualizations/source/docs/sdlc/02-architecture/data-flow.md": {
+      "sha256": "cd9d688201a4c1c5dbf0bedf68f277232c4858cee8da1a5c5b8c09ba482d7cb4",
+      "category": "manual-merge",
+      "size": 7893
+    },
+    "visualizations/source/docs/sdlc/02-architecture/README.md": {
+      "sha256": "92c430c3a6de871dfe8f76370947f3764c21f065b1cac585b91998b0c16d0840",
+      "category": "manual-merge",
+      "size": 8922
+    },
+    "visualizations/source/docs/sdlc/02-architecture/tradeoffs.md": {
+      "sha256": "4bc8720598ee37cddd2d4e1f2d30a74f5e0c5032d80318badf87577009e2480e",
+      "category": "manual-merge",
+      "size": 5880
+    },
+    "visualizations/source/docs/sdlc/02-architecture/trust-boundaries.md": {
+      "sha256": "2d13c6f20d5aa8873524bac7aa7bbdbb4fd610b990cdad09c06138e90b2e0961",
+      "category": "manual-merge",
+      "size": 8097
+    },
+    "visualizations/source/docs/sdlc/03-requirements/compliance-scope.md": {
+      "sha256": "0548d7f5deeb4dd1ee591583e3ce1904067867dbe63e903143bc9802a46e0e71",
+      "category": "manual-merge",
+      "size": 6765
+    },
+    "visualizations/source/docs/sdlc/03-requirements/functional.md": {
+      "sha256": "3e3a0489b99e93305088f11933a052f776baccf803c3fca88827fb3ebf1aebb1",
+      "category": "manual-merge",
+      "size": 9954
+    },
+    "visualizations/source/docs/sdlc/03-requirements/nfr-availability.md": {
+      "sha256": "581717943434da01038ed7efd419db43f40864ad4d63283c4305c69c5c57871c",
+      "category": "manual-merge",
+      "size": 8735
+    },
+    "visualizations/source/docs/sdlc/03-requirements/nfr-performance.md": {
+      "sha256": "690018703dcf9be62cdccb88260d5c3b0aa53bde13075a9e9d2c77d7bc32ac42",
+      "category": "manual-merge",
+      "size": 5070
+    },
+    "visualizations/source/docs/sdlc/03-requirements/nfr-scalability.md": {
+      "sha256": "afd8cf4c314f6da9f431c5c2bd5e589847831ad060e07fc5a2bc00b8b0a45a4c",
+      "category": "manual-merge",
+      "size": 4792
+    },
+    "visualizations/source/docs/sdlc/03-requirements/nfr-security.md": {
+      "sha256": "944a3386787283f1a5a8fd0d1e21a3c50cabec645d405f2358dc82cb99ed05b8",
+      "category": "manual-merge",
+      "size": 6840
+    },
+    "visualizations/source/docs/sdlc/04-design/api-mcp-tools.md": {
+      "sha256": "4a90522ea03b6dac08b0b2efab8c8c3e7d2471356ebca59e1650b8359b0c308e",
+      "category": "manual-merge",
+      "size": 6117
+    },
+    "visualizations/source/docs/sdlc/04-design/api-mgmt-rest.md": {
+      "sha256": "6f2cd2c6c9f70a9f3e6757a2a2f130f8524f001c00a10c499ba22089fe785afd",
+      "category": "manual-merge",
+      "size": 10662
+    },
+    "visualizations/source/docs/sdlc/04-design/module-context.md": {
+      "sha256": "07c4a21d971af8510413aff2585b7b0a1001c368fa87b9fec1465af56439bc50",
+      "category": "manual-merge",
+      "size": 13306
+    },
+    "visualizations/source/docs/sdlc/04-design/module-mcp-runtime.md": {
+      "sha256": "75429fd5e19386b3a25391189cc20d9fd9c635e420e63830583529a65d1d053d",
+      "category": "manual-merge",
+      "size": 6894
+    },
+    "visualizations/source/docs/sdlc/04-design/module-observability.md": {
+      "sha256": "2471114c58d6cfc4cc7900b8045941f8a754173057b13d8fd63ff076f5620060",
+      "category": "manual-merge",
+      "size": 14127
+    },
+    "visualizations/source/docs/sdlc/04-design/module-preflight.md": {
+      "sha256": "ff50a934cb4006ba0c55524a656ec90beb41ae5f50b3a990f922ff83a150b758",
+      "category": "manual-merge",
+      "size": 11977
+    },
+    "visualizations/source/docs/sdlc/04-design/module-providers-atlassian.md": {
+      "sha256": "40e6caf41212c0f33ce460aa80db9b231f567a90b831ea695c53aba057c61a65",
+      "category": "manual-merge",
+      "size": 5737
+    },
+    "visualizations/source/docs/sdlc/04-design/module-providers-vcs.md": {
+      "sha256": "af651833d703e9a41417e0c1227e178a89d7d7f2c83a21c1433101ae9ce1a213",
+      "category": "manual-merge",
+      "size": 11766
+    },
+    "visualizations/source/docs/sdlc/04-design/module-queue.md": {
+      "sha256": "24573af2b772b50e619a8bbad929885efee4ecf45fc68908cea09372e8048271",
+      "category": "manual-merge",
+      "size": 11504
+    },
+    "visualizations/source/docs/sdlc/04-design/module-security.md": {
+      "sha256": "716c0ef565dff15412634601cfa97512d2c3f8f3bd0926e3cddcd3b545420e29",
+      "category": "manual-merge",
+      "size": 15048
+    },
+    "visualizations/source/docs/sdlc/04-design/module-storage.md": {
+      "sha256": "8ddcbfab1f55b98d8fb8f0016af125caa84e87c7f40e2fdf40198f703012ecf7",
+      "category": "manual-merge",
+      "size": 6341
+    },
+    "visualizations/source/docs/sdlc/04-design/module-workflows.md": {
+      "sha256": "7262cbd56195dc3c961ea214d15d031a5d6b00d19e33ea695b66723f3f7ff193",
+      "category": "manual-merge",
+      "size": 6371
+    },
+    "visualizations/source/docs/sdlc/04-design/sequence-diagrams.md": {
+      "sha256": "d210ee03ba4b749fbed93577a556a0adea3550e1a1fc5dd01150bd35b7f8b52e",
+      "category": "manual-merge",
+      "size": 10708
+    },
+    "visualizations/source/docs/sdlc/05-data/audit-trail.md": {
+      "sha256": "561ca4299790b164ce1f570cd8e4e2593d9e3e74f4195199b7463fe568867654",
+      "category": "manual-merge",
+      "size": 5529
+    },
+    "visualizations/source/docs/sdlc/05-data/classification.md": {
+      "sha256": "7161bcaeae2df77a18ee9c4174064c8e9072939fd389c3ee627cabd9154bb647",
+      "category": "manual-merge",
+      "size": 6745
+    },
+    "visualizations/source/docs/sdlc/05-data/domain-model.md": {
+      "sha256": "b022a5858373e76047a75fc293d63eac13ca651369ed1500ecfe32ffe002ff7b",
+      "category": "manual-merge",
+      "size": 5830
+    },
+    "visualizations/source/docs/sdlc/05-data/migrations.md": {
+      "sha256": "7319aece431789c88a10ee7413ad652f6d75159dac8c87f9f8744a0bf9bc9be3",
+      "category": "manual-merge",
+      "size": 6019
+    },
+    "visualizations/source/docs/sdlc/05-data/retention.md": {
+      "sha256": "6054fd41f041f4b9ca8c2908017b16a2168e1f96a2d9e4e173b787eaafd318e7",
+      "category": "manual-merge",
+      "size": 6102
+    },
+    "visualizations/source/docs/sdlc/05-data/schema.md": {
+      "sha256": "b05195e486f5546e168fd3b512c0f564927afc89ae71cbf44b5922b04b94df00",
+      "category": "manual-merge",
+      "size": 6721
+    },
+    "visualizations/source/docs/sdlc/06-security/audit-chain-threat-model.md": {
+      "sha256": "a73a2695379ba2c934a2bd92df7abb8425ce70ef6a77377d2835d5a247ee2a92",
+      "category": "manual-merge",
+      "size": 10673
+    },
+    "visualizations/source/docs/sdlc/06-security/controls-matrix.md": {
+      "sha256": "a5e03e6ecf900ce9bf31d455d740b17baba1b4ebb3f6d281061277508f513368",
+      "category": "manual-merge",
+      "size": 8238
+    },
+    "visualizations/source/docs/sdlc/06-security/lethal-trifecta.md": {
+      "sha256": "aa290dca9101c0e03c9217e454b8bd5cf5151d28091c2e70cdd693fd0e9e584e",
+      "category": "manual-merge",
+      "size": 7472
+    },
+    "visualizations/source/docs/sdlc/06-security/policy-decision-layer.md": {
+      "sha256": "ccbca9fc266547e348d792b42c96305f4cd068f26d1cf458c4965769cad5e880",
+      "category": "manual-merge",
+      "size": 7661
+    },
+    "visualizations/source/docs/sdlc/06-security/secrets-mgmt.md": {
+      "sha256": "312e9a469e3bddee8106c2c98f2a695638fb4315d773036b05474dae16db3c9c",
+      "category": "manual-merge",
+      "size": 6973
+    },
+    "visualizations/source/docs/sdlc/06-security/threat-model.md": {
+      "sha256": "0f8c2c79031f284e8d2ec485a6da3c010829622588816ef1b004d6ba5713138a",
+      "category": "manual-merge",
+      "size": 22203
+    },
+    "visualizations/source/docs/sdlc/06-security/token-storage.md": {
+      "sha256": "b84c19be921a0c12f5e2bf788f216f21cf7841cab8874709b6e163bf38ea613e",
+      "category": "manual-merge",
+      "size": 8720
+    },
+    "visualizations/source/docs/sdlc/06-security/vulnerability-disclosure.md": {
+      "sha256": "ba0ab341e64c7078827b269b5c914226476dc51cc9ecd5320fc3ad12e75b8f47",
+      "category": "manual-merge",
+      "size": 4469
+    },
+    "visualizations/source/docs/sdlc/06-security/webhook-verification.md": {
+      "sha256": "96c1c6f7de2db669d78d970c1a381e6edf1419a4974a343e31cea793572af2cf",
+      "category": "manual-merge",
+      "size": 7660
+    },
+    "visualizations/source/docs/sdlc/07-testing/e2e-plan.md": {
+      "sha256": "97193bcc85735e07bd4f23b2135ce5496e481016bf01839cab19b9ac5e059a2c",
+      "category": "manual-merge",
+      "size": 4860
+    },
+    "visualizations/source/docs/sdlc/07-testing/eval-view-integration.md": {
+      "sha256": "a8c50de313653b12e8b79d6c1db16d30336abd23afd80fb399e00b715e0a318e",
+      "category": "manual-merge",
+      "size": 4822
+    },
+    "visualizations/source/docs/sdlc/07-testing/integration-plan.md": {
+      "sha256": "7eea931fb9afac7bd0220f4fae05f8f007d6ea49ec5930711e97696e0566b724",
+      "category": "manual-merge",
+      "size": 4660
+    },
+    "visualizations/source/docs/sdlc/07-testing/perf-plan.md": {
+      "sha256": "9789feb648b1d20830be2bc27b63b27b9ff17a703f8b53199ad68589f2a53dd7",
+      "category": "manual-merge",
+      "size": 4602
+    },
+    "visualizations/source/docs/sdlc/07-testing/security-test-plan.md": {
+      "sha256": "97a2d6aec09aecab21d0a76d5678dd0ef50a31fafc78f7e1a874d2e8c71a3e56",
+      "category": "manual-merge",
+      "size": 5729
+    },
+    "visualizations/source/docs/sdlc/07-testing/strategy.md": {
+      "sha256": "2df8cfdc6335bb9bd4d9c5efbbd8b8437f8f213107b6be981c58f6214ea5f5e9",
+      "category": "manual-merge",
+      "size": 6086
+    },
+    "visualizations/source/docs/sdlc/07-testing/unit-coverage.md": {
+      "sha256": "f226cf9643d145c4ac429d3147e750f237df3935804ce54d18cc52be79d6607a",
+      "category": "manual-merge",
+      "size": 4759
+    },
+    "visualizations/source/docs/sdlc/08-operations/alerting.md": {
+      "sha256": "80e5b6f1156c08f540db2b3bf9e60c548e6a8a778044d1ee4d556dd3223715b2",
+      "category": "manual-merge",
+      "size": 8199
+    },
+    "visualizations/source/docs/sdlc/08-operations/monitoring.md": {
+      "sha256": "a6f7c69b6e53738e126e56b6d3f27424ef6e322f4773cf7367bcec194291cd4c",
+      "category": "manual-merge",
+      "size": 7407
+    },
+    "visualizations/source/docs/sdlc/08-operations/observability-stack.md": {
+      "sha256": "89bcbe647c9dad0e274170b104e3dcfd18c4b78ae3d61dedc34d3826dddc6721",
+      "category": "manual-merge",
+      "size": 7382
+    },
+    "visualizations/source/docs/sdlc/08-operations/on-call-playbook.md": {
+      "sha256": "a0046f02b06a8da907412e39467508b9f6dfca1f74caeaa37989a45150842c79",
+      "category": "manual-merge",
+      "size": 6083
+    },
+    "visualizations/source/docs/sdlc/08-operations/runbook.md": {
+      "sha256": "7dd0d10bda42f2d3e1a8536a0af3ab46cea507a37e0999917699a0a5617b91b3",
+      "category": "manual-merge",
+      "size": 15141
+    },
+    "visualizations/source/docs/sdlc/08-operations/slo-sli.md": {
+      "sha256": "7adccd6282aa80d9458ed04922bb78961a15e66af25c80bc4b2383d131eae798",
+      "category": "manual-merge",
+      "size": 7111
+    },
+    "visualizations/source/docs/sdlc/09-deployment/ci-cd.md": {
+      "sha256": "e249040e24a31d20f203986b3e0ccffe7dc04335be13bc1ae195775032a4fcd4",
+      "category": "manual-merge",
+      "size": 8269
+    },
+    "visualizations/source/docs/sdlc/09-deployment/deployment-targets.md": {
+      "sha256": "66e68addec8e41c4bca2b895501d45fdb2ed70bfe956b3207d291d02f76cf4a9",
+      "category": "manual-merge",
+      "size": 5848
+    },
+    "visualizations/source/docs/sdlc/09-deployment/environments.md": {
+      "sha256": "e4be3f3dadc8dbc7d3c4e8a529e50a9c0cbbcb066a17a54816c0335b9091adbb",
+      "category": "manual-merge",
+      "size": 6390
+    },
+    "visualizations/source/docs/sdlc/09-deployment/feature-flags.md": {
+      "sha256": "d3241779b43102367fdd7370ade2ec16868f0a9563fe626c1159996df90f3cff",
+      "category": "manual-merge",
+      "size": 5787
+    },
+    "visualizations/source/docs/sdlc/09-deployment/release-process.md": {
+      "sha256": "804493a83e7b099774360d887bee0db9321ce71d7644f5d1ce76355e6e72b8e3",
+      "category": "manual-merge",
+      "size": 8650
+    },
+    "visualizations/source/docs/sdlc/09-deployment/secrets-provisioning.md": {
+      "sha256": "1ca6cc838511ea2a004cd2df1072302181870e7ef491ea0315ea779ce60eeefc",
+      "category": "manual-merge",
+      "size": 8974
+    },
+    "visualizations/source/docs/sdlc/10-dr-bcp/audit-chain-recovery.md": {
+      "sha256": "875dbdab20089ee7b7e4edc5e3a3b8f1c16626416326b7e52d79bbcc31d3a880",
+      "category": "manual-merge",
+      "size": 7869
+    },
+    "visualizations/source/docs/sdlc/10-dr-bcp/backup-strategy.md": {
+      "sha256": "9e519a31027e074473ef3c868305cdb3ab6ae32c024f35d8531c0a7113e1e74d",
+      "category": "manual-merge",
+      "size": 6385
+    },
+    "visualizations/source/docs/sdlc/10-dr-bcp/dr-test-schedule.md": {
+      "sha256": "c7e680290266a3fc2c3f98ddd68dd1907782f8224f438eb517c817ca49ca6e86",
+      "category": "manual-merge",
+      "size": 5649
+    },
+    "visualizations/source/docs/sdlc/10-dr-bcp/failover.md": {
+      "sha256": "17f0057b18b962c0a32be7ef161f3d09a8e1447b7a18b7628b05d13217cd06bf",
+      "category": "manual-merge",
+      "size": 7552
+    },
+    "visualizations/source/docs/sdlc/10-dr-bcp/recovery-objectives.md": {
+      "sha256": "452e5a60ad01d493dd0feb305c7c9eb7bf21a60caf1f9a82e92afecc1fc59d0a",
+      "category": "manual-merge",
+      "size": 4878
+    },
+    "visualizations/source/docs/sdlc/11-onboarding/developer-setup.md": {
+      "sha256": "ae397bfadd38af523a903ff1640a896009615025069b1d09a720c7ff1306439a",
+      "category": "manual-merge",
+      "size": 5625
+    },
+    "visualizations/source/docs/sdlc/11-onboarding/glossary-quick.md": {
+      "sha256": "99600f92c90e8cae28e96f15959cae084778358a10df65122f33b459443a86b1",
+      "category": "manual-merge",
+      "size": 4086
+    },
+    "visualizations/source/docs/sdlc/11-onboarding/integrator-guide.md": {
+      "sha256": "36d889a08789905288a802d754dd5b2f1567b96d6593a477b2076f1e097904d1",
+      "category": "manual-merge",
+      "size": 6273
+    },
+    "visualizations/source/docs/sdlc/11-onboarding/operator-guide.md": {
+      "sha256": "e0bf1d69150e5e887e0ebb3f62e60cb283d796a80e49e7d0802a91339a1fca61",
+      "category": "manual-merge",
+      "size": 8032
+    },
+    "visualizations/source/docs/sdlc/11-onboarding/partner-onboarding.md": {
+      "sha256": "cb4379777ff11e577442b697abba59283a6f53d9a4f7d8a6a0e3d2c7104addc0",
+      "category": "manual-merge",
+      "size": 7363
+    },
+    "visualizations/source/docs/sdlc/12-governance/adr-process.md": {
+      "sha256": "3630483620d3d5d627d71ab08c609bebb4482da66e53127aa5ff2d8a03f77076",
+      "category": "manual-merge",
+      "size": 4573
+    },
+    "visualizations/source/docs/sdlc/12-governance/change-management.md": {
+      "sha256": "8fa5324e37894795fc4fafa016b14387ed0de661f617152793e2dcde1e1149f5",
+      "category": "manual-merge",
+      "size": 5689
+    },
+    "visualizations/source/docs/sdlc/12-governance/code-review.md": {
+      "sha256": "06fad1746d2840ee6e1d0ba276a660552a7ed33feea4fef39f040b22c984cc68",
+      "category": "manual-merge",
+      "size": 5037
+    },
+    "visualizations/source/docs/sdlc/12-governance/decision-log.md": {
+      "sha256": "0ca70b51d29df9b09fa2aefb4b28f3c866815b86d197d06fc5d39f227ce76872",
+      "category": "manual-merge",
+      "size": 5670
+    },
+    "visualizations/source/docs/sdlc/12-governance/definition-of-ready-done.md": {
+      "sha256": "2b8bf3c1bc8001311ad2569bc6ccc11e9d72ebaa5dee72a7c021eac15a808257",
+      "category": "manual-merge",
+      "size": 5539
+    },
+    "visualizations/source/docs/sdlc/13-quality/anti-slop.md": {
+      "sha256": "576a96b5ae0ac68f7abddd5e970f72e8f82dc73c8d6a4796ead85b4517eff9a8",
+      "category": "manual-merge",
+      "size": 4749
+    },
+    "visualizations/source/docs/sdlc/13-quality/code-style.md": {
+      "sha256": "475cbbe113bfdbd76303a49d7fe2a3c58896663c0c1959a809a70876821531ad",
+      "category": "manual-merge",
+      "size": 6291
+    },
+    "visualizations/source/docs/sdlc/13-quality/iron-laws.md": {
+      "sha256": "b28074aff4091c05db41eb40a0b21a21303dde9c4f0a249f38c6592b86824609",
+      "category": "manual-merge",
+      "size": 5360
+    },
+    "visualizations/source/docs/sdlc/13-quality/quality-gates.md": {
+      "sha256": "0957300c9d0c6eded83c493a755402e87c341976f5a025533e3344a20d6986d7",
+      "category": "manual-merge",
+      "size": 4440
+    },
+    "visualizations/source/docs/sdlc/14-incidents/blameless-review.md": {
+      "sha256": "a256c17915201e1fcc16c998e4318114805b90b2844cfc662b141b8a72010852",
+      "category": "manual-merge",
+      "size": 7020
+    },
+    "visualizations/source/docs/sdlc/14-incidents/failure-mode-taxonomy.md": {
+      "sha256": "38d64109f422e994e5fc46e1155b53b349d6e540f7b306cb7f68bae9230ce5db",
+      "category": "manual-merge",
+      "size": 5038
+    },
+    "visualizations/source/docs/sdlc/14-incidents/fix-type-taxonomy.md": {
+      "sha256": "12f40d5fcc1d0105f9e49da032b4fbc7b3ae7f2627e965e8d4dcde871987932a",
+      "category": "manual-merge",
+      "size": 9447
+    },
+    "visualizations/source/docs/sdlc/14-incidents/incident-library.md": {
+      "sha256": "830823b8a9715bf2171bd241a9a019361a920a88fa1b4eb04c0f58ee6f12dcf4",
+      "category": "manual-merge",
+      "size": 12630
+    },
+    "visualizations/source/docs/sdlc/14-incidents/postmortem-template.md": {
+      "sha256": "58e5b773930a04d9f1f184d04f28aeeef6608d37adf6c6240c5fec692b0336fb",
+      "category": "manual-merge",
+      "size": 3764
+    },
+    "visualizations/source/docs/sdlc/15-capacity/benchmarks.md": {
+      "sha256": "2061bc7ec33c772dc8379cc31084628f1582ece56cfa2d66bf4ac0728ad2d24f",
+      "category": "manual-merge",
+      "size": 4802
+    },
+    "visualizations/source/docs/sdlc/15-capacity/capacity-planning.md": {
+      "sha256": "4828f270119ce8a065ee4de9fcf63eed1d8528711debec7a4591601d6d379d86",
+      "category": "manual-merge",
+      "size": 7285
+    },
+    "visualizations/source/docs/sdlc/15-capacity/current-limits.md": {
+      "sha256": "fbf8e26268e06b6324da544713a8ac3e4442a41df045def7bee38e31da3f8d11",
+      "category": "manual-merge",
+      "size": 6875
+    },
+    "visualizations/source/docs/sdlc/15-capacity/load-test-runbook.md": {
+      "sha256": "0819110afbf30608239aa54191e6620ad2aea22a6bb6613f2461db4ed0c85880",
+      "category": "manual-merge",
+      "size": 5933
+    },
+    "visualizations/source/docs/sdlc/16-cost/cost-model.md": {
+      "sha256": "1cc5ebb9c1640f9174cc62bdafe8a2a82e1b335fa3c1d6265f04e50c9cc13c8d",
+      "category": "manual-merge",
+      "size": 5942
+    },
+    "visualizations/source/docs/sdlc/16-cost/finops.md": {
+      "sha256": "7900521689ff98352c7ac9f8c1f98d2c004028266f781bd9fe33066adb08df67",
+      "category": "manual-merge",
+      "size": 4695
+    },
+    "visualizations/source/docs/sdlc/16-cost/pricing-runway.md": {
+      "sha256": "78e5ce002b699c28afad22167617d9c1fbbfd8dd60bea4effa969e43fb6767b5",
+      "category": "manual-merge",
+      "size": 5585
+    },
+    "visualizations/source/docs/sdlc/17-glossary/domain-vocabulary.md": {
+      "sha256": "1d52432ef5b0ce200b77f97bcbe6eb3651e447c693189816294f9fe92631181f",
+      "category": "manual-merge",
+      "size": 9754
+    },
+    "visualizations/source/docs/sdlc/17-glossary/README.md": {
+      "sha256": "9cf26ad51ff54be00cbed69bc6c0e66471fd213bbdfdb556e6eeb4a0c57ae11d",
+      "category": "manual-merge",
+      "size": 11088
+    },
+    "visualizations/source/docs/sdlc/README.md": {
+      "sha256": "c5b80e6b41f45630bc87577fde6586e174f05d18e940ae14953c4a896f162dd4",
+      "category": "manual-merge",
+      "size": 18343
+    },
+    "visualizations/source/docs/sdlc/templates/adr-template.md": {
+      "sha256": "cc53139333827e609677aea1e191889c522f04b33c93d512db1fc5c1f237b37e",
+      "category": "manual-merge",
+      "size": 3672
+    },
+    "visualizations/source/docs/sdlc/templates/module-design-template.md": {
+      "sha256": "ba352164f45f3fca4ec8ce778b4a29a56723f697e5a811a3b6184e73fffb10fb",
+      "category": "manual-merge",
+      "size": 5395
+    },
+    "visualizations/source/docs/sdlc/templates/perf-test-template.md": {
+      "sha256": "7155284de00c1a3c12739fe52b7e507a8e62847a6e7b88c6c44ca5032a1a4b37",
+      "category": "manual-merge",
+      "size": 4944
+    },
+    "visualizations/source/docs/sdlc/templates/postmortem-template.md": {
+      "sha256": "7a074905fd2f03d30c9ff1a94de5fe098d723b23d2f96ba03fdaa034911f6210",
+      "category": "manual-merge",
+      "size": 5626
+    },
+    "visualizations/source/docs/sdlc/templates/runbook-template.md": {
+      "sha256": "a53eb1bdee5a13916e2938ea157f8e3fce84775b196a8885c62937d825827c1d",
+      "category": "manual-merge",
+      "size": 4007
+    },
+    "visualizations/source/docs/sdlc/templates/security-test-template.md": {
+      "sha256": "d7fffc3eedd49eab178860f29e72e049cd23a3940586cff2c0a807134ea00758",
+      "category": "manual-merge",
+      "size": 4848
+    },
+    "visualizations/source/docs/sdlc/templates/sequence-diagram-template.md": {
+      "sha256": "0ecba684c27fa9cd857f79e26afa61e208a442f743fa8d723025112a0435fdc8",
+      "category": "manual-merge",
+      "size": 4738
+    },
+    "visualizations/source/docs/sdlc/templates/threat-model-template.md": {
+      "sha256": "dbc752a239ff3822916007fd82b1d2f61da13d9c995e6da5cc4fb2911e8a771a",
+      "category": "manual-merge",
+      "size": 5558
+    },
+    "visualizations/source/README.md": {
+      "sha256": "5d9f3f199b43a9170a3b54e64676894bbbc18a99e15970d3d8853a5a6c1eb673",
+      "category": "manual-merge",
+      "size": 3588
+    },
+    "visualizations/source/v6-spec-excerpts.md": {
+      "sha256": "9ee340101eb0182afeea1c98860eb56b8bb4142a5399f5549d0eeff4f7d1a3ac",
+      "category": "manual-merge",
+      "size": 142862
+    },
+    "vitest.config.ts": {
+      "sha256": "d684e9518396b3741218969f24ad03303e9f7ff22c7cafcb44fedae71e429d0e",
+      "category": "manual-merge",
+      "size": 355
+    }
+  }
+}

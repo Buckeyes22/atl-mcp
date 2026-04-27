@@ -1,0 +1,144 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContextPack serialization (snapshot) > a minimal pack matches snapshot 1`] = `
+{
+  "acceptanceCriteria": [
+    "passes test",
+  ],
+  "accessDecision": "allowed",
+  "freshness": "current",
+  "generatedAt": "2026-04-25T00:00:00.000Z",
+  "goals": [
+    "one",
+  ],
+  "id": "pack-1",
+  "implementationPlan": [
+    "write code",
+  ],
+  "issueKey": "PCO-1",
+  "linkedArtifacts": [
+    {
+      "id": "PCO-1",
+      "kind": "jira_issue",
+    },
+  ],
+  "nonGoals": [],
+  "openQuestions": [],
+  "projectId": "proj-1",
+  "regenerationKey": "rk-001",
+  "relevantFiles": [
+    {
+      "path": "src/server.ts",
+    },
+  ],
+  "risks": [],
+  "sourcePins": [],
+  "summary": "A minimal pack for snapshot testing",
+  "tenantId": "default",
+  "testPlan": [
+    "assert",
+  ],
+  "title": "Smoke pack",
+  "tokenBudget": {
+    "budgetTokens": 8000,
+    "byCategory": {
+      "claudeMd": 0,
+      "mentionedFile": 0,
+      "teamCoordination": 0,
+      "thinkingText": 0,
+      "toolOutput": 0,
+      "userMessage": 0,
+    },
+    "sections": [],
+    "targetModel": "claude-sonnet-4-6",
+    "usedTokens": 0,
+  },
+}
+`;
+
+exports[`ProjectBlueprint serialization (snapshot) > emptyBlueprint produces a stable shape 1`] = `
+{
+  "architecture": {
+    "components": [],
+    "decisions": [],
+    "summary": "",
+  },
+  "blueprintVersion": 1,
+  "createdAt": "2026-04-25T00:00:00.000Z",
+  "epics": [],
+  "features": [],
+  "goals": [],
+  "id": "proj-1",
+  "key": "PCO",
+  "name": "Smoke",
+  "nonGoals": [],
+  "openQuestions": [],
+  "releasePlan": {
+    "milestones": [],
+    "rolloutStrategy": "",
+  },
+  "requirements": [],
+  "risks": [],
+  "schemaVersion": 1,
+  "securityPrivacy": {
+    "classification": "PRIVATE",
+    "owaspLlmCoverage": [],
+    "piiHandling": "",
+    "threatModelRefs": [],
+  },
+  "sourcePins": [],
+  "stakeholders": [],
+  "state": "DRAFT_INTAKE",
+  "tenantId": "default",
+  "testingStrategy": {
+    "categories": [],
+  },
+  "updatedAt": "2026-04-25T00:00:00.000Z",
+}
+`;
+
+exports[`ProjectBlueprint serialization (snapshot) > emptyBlueprint with goals + nonGoals carries them through 1`] = `
+{
+  "architecture": {
+    "components": [],
+    "decisions": [],
+    "summary": "",
+  },
+  "blueprintVersion": 1,
+  "createdAt": "2026-04-25T00:00:00.000Z",
+  "epics": [],
+  "features": [],
+  "goals": [
+    "ship m1",
+    "ship m2",
+  ],
+  "id": "proj-2",
+  "key": "WG",
+  "name": "With Goals",
+  "nonGoals": [
+    "multi-tenant in v1",
+  ],
+  "openQuestions": [],
+  "releasePlan": {
+    "milestones": [],
+    "rolloutStrategy": "",
+  },
+  "requirements": [],
+  "risks": [],
+  "schemaVersion": 1,
+  "securityPrivacy": {
+    "classification": "PRIVATE",
+    "owaspLlmCoverage": [],
+    "piiHandling": "",
+    "threatModelRefs": [],
+  },
+  "sourcePins": [],
+  "stakeholders": [],
+  "state": "DRAFT_INTAKE",
+  "tenantId": "default",
+  "testingStrategy": {
+    "categories": [],
+  },
+  "updatedAt": "2026-04-25T00:00:00.000Z",
+}
+`;

@@ -1,0 +1,230 @@
+# semgrep/stub-detection.yml
+# Detects hollow/stub implementations common in AI-generated code.
+# Run: semgrep --config semgrep/stub-detection.yml src/
+# CI: semgrep --config semgrep/stub-detection.yml src/ --error
+
+rules:
+  # ─── Rule 1: Not-implemented throws ────────────────────────────────────────
+  # Catches: throw new Error("not implemented"), throw new Error("TODO"),
+  #          throw new Error("to be implemented"), and common variants.
+  # Source: Reference doc stub-detection.yml rule 1
+  - id: stub-not-implemented-throw
+    patterns:
+      - pattern: throw new Error($MSG)
+      - metavariable-regex:
+          metavariable: $MSG
+          regex: '(?i)(not\s+implemented|todo|to\s+be\s+implemented|stub|placeholder|implement\s+me|tbd|coming\s+soon|to\s+do|fixme)'
+    message: >
+      STUB DETECTED: throw new Error("$MSG") indicates an unimplemented function.
+      Implement the function body before committing.
+    languages: [typescript, javascript]
+    severity: ERROR
+    metadata:
+      category: stub-detection
+      technology: [typescript, javascript]
+      references:
+        - https://semgrep.dev/docs/writing-rules/pattern-syntax/
+
+  # ─── Rule 2: NotImplementedError class throws ───────────────────────────────
+  # Catches: throw new NotImplementedError(), throw new UnimplementedError().
+  - id: stub-not-implemented-error-class
+    pattern: throw new $ERROR(...)
+    metavariable-regex:
+      metavariable: $ERROR
+      regex: '(NotImplementedError|UnimplementedError|NotImplemented|TodoError|StubError)'
+    message: >
+      STUB DETECTED: $ERROR thrown — this is a placeholder for unimplemented logic.
+      Complete the implementation before committing.
+    languages: [typescript, javascript]
+    severity: ERROR
+    metadata:
+      category: stub-detection
+
+  # ─── Rule 3: Placeholder return values ─────────────────────────────────────
+  # Catches: `return null`, `return undefined`, `return []`, `return {}`,
+  #          `return ""` in non-trivial functions.
+  # Heuristic: flag when combined with a TODO/STUB comment in the same function.
+  - id: stub-placeholder-return-with-comment
+    patterns:
+      - pattern: |
+          function $FUNC(...) {
+            // $COMMENT
+            return $PLACEHOLDER;
+          }
+      - metavariable-regex:
+          metavariable: $COMMENT
+          regex: '(?i)(todo|stub|fixme|placeholder|not\s+implemented|implement|tbd)'
+      - metavariable-pattern:
+          metavariable: $PLACEHOLDER
+          patterns:
+            - pattern-either:
+              - pattern: "null"
+              - pattern: "undefined"
+              - pattern: "[]"
+              - pattern: "{}"
+              - pattern: '""'
+              - pattern: "0"
+              - pattern: "false"
+    message: >
+      STUB DETECTED: $FUNC returns a placeholder value ($PLACEHOLDER) with a stub
+      comment. This indicates an unfinished implementation.
+    languages: [typescript, javascript]
+    severity: ERROR
+    metadata:
+      category: stub-detection
+
+  # ─── Rule 4: Arrow function returning placeholder with stub comment ─────────
+  # Catches: const fn = () => { /* TODO */ return null; }
+  - id: stub-arrow-placeholder-return-with-comment
+    patterns:
+      - pattern: |
+          const $FUNC = (...) => {
+            // $COMMENT
+            return $PLACEHOLDER;
+          }
+      - metavariable-regex:
+          metavariable: $COMMENT
+          regex: '(?i)(todo|stub|fixme|placeholder|not\s+implemented|implement|tbd)'
+      - metavariable-pattern:
+          metavariable: $PLACEHOLDER
+          patterns:
+            - pattern-either:
+              - pattern: "null"
+              - pattern: "undefined"
+              - pattern: "[]"
+              - pattern: "{}"
+              - pattern: '""'
+    message: >
+      STUB DETECTED: Arrow function $FUNC returns a placeholder with a stub comment.
+    languages: [typescript, javascript]
+    severity: ERROR
+    metadata:
+      category: stub-detection
+
+  # ─── Rule 5: Truncation comment patterns ────────────────────────────────────
+  # Catches: "// ...rest of implementation", "// ... (implementation omitted)",
+  #          "// ... add more here", "/* implementation */"
+  # These are AI-generated truncation markers — the model stopped mid-output.
+  - id: stub-truncation-comment
+    pattern-regex: '//\s*\.{2,}\s*(rest\s+of\s+(implementation|logic|code|method|function)|implementation\s+omitted|add\s+more\s+here|implement\s+remaining|continues?(\s+below)?|rest\s+omitted|etc\.?)'
+    message: >
+      STUB DETECTED: Truncation comment found — the AI model stopped generating
+      implementation mid-function. Complete the implementation.
+    languages: [typescript, javascript]
+    severity: ERROR
+    metadata:
+      category: stub-detection
+
+  # ─── Rule 6: Ellipsis-only comment in function body ─────────────────────────
+  # Catches: functions whose entire comment content is "// ..." or "/* ... */"
+  # AI models commonly emit this when skipping implementation details.
+  - id: stub-ellipsis-only-comment
+    pattern-regex: '^\s*(//\s*\.{3,}\s*$|/\*\s*\.{3,}\s*\*/)'
+    message: >
+      STUB DETECTED: Ellipsis-only comment ("...") in function body.
+      This is an AI truncation marker indicating missing implementation.
+    languages: [typescript, javascript]
+    severity: ERROR
+    metadata:
+      category: stub-detection
+
+  # ─── Rule 7: console.log-only function bodies ────────────────────────────────
+  # Catches: functions whose entire implementation is one or more console.log calls.
+  # These are debugging stubs, not real implementations.
+  - id: stub-console-log-only-function
+    patterns:
+      - pattern: |
+          function $FUNC(...) {
+            console.log(...);
+          }
+    message: >
+      STUB DETECTED: $FUNC contains only console.log() — this is not a real
+      implementation. Replace with actual logic.
+    languages: [typescript, javascript]
+    severity: WARNING
+    metadata:
+      category: stub-detection
+
+  # ─── Rule 8: console.log-only arrow function bodies ─────────────────────────
+  - id: stub-console-log-only-arrow
+    patterns:
+      - pattern: |
+          const $FUNC = (...) => {
+            console.log(...);
+          }
+    message: >
+      STUB DETECTED: Arrow function $FUNC contains only console.log() calls.
+      Replace with actual logic.
+    languages: [typescript, javascript]
+    severity: WARNING
+    metadata:
+      category: stub-detection
+
+  # ─── Rule 9: Empty catch blocks ─────────────────────────────────────────────
+  # Catches: try/catch blocks where the catch is completely empty.
+  # Empty catches silently swallow errors — a common AI stub pattern where
+  # error handling was deferred but never completed.
+  - id: stub-empty-catch-block
+    pattern: |
+      try {
+        ...
+      } catch ($E) {
+      }
+    message: >
+      STUB DETECTED: Empty catch block swallows all errors silently.
+      Implement error handling or re-throw with context.
+    languages: [typescript, javascript]
+    severity: ERROR
+    metadata:
+      category: stub-detection
+
+  # ─── Rule 10: Empty catch with only comment ─────────────────────────────────
+  # Catches: catch blocks containing only a TODO comment.
+  - id: stub-catch-todo-comment
+    patterns:
+      - pattern: |
+          try {
+            ...
+          } catch ($E) {
+            // $COMMENT
+          }
+      - metavariable-regex:
+          metavariable: $COMMENT
+          regex: '(?i)(todo|fixme|stub|handle|implement|tbd|ignore|silence|swallow)'
+    message: >
+      STUB DETECTED: catch block deferred with "$COMMENT" comment.
+      Implement error handling before committing.
+    languages: [typescript, javascript]
+    severity: ERROR
+    metadata:
+      category: stub-detection
+
+  # ─── Rule 11: TODO/STUB/PLACEHOLDER inline comments ─────────────────────────
+  # Catches: inline TODO markers that survived past the comment-only check.
+  # Redundant with ESLint no-warning-comments but provides Semgrep-level
+  # enforcement independent of ESLint config.
+  - id: stub-inline-todo-marker
+    pattern-regex: '(//|/\*)\s*(TODO|FIXME|STUB|PLACEHOLDER|HACK|XXX|NOT IMPLEMENTED)[\s:]'
+    message: >
+      STUB MARKER: Inline $1 comment detected. Resolve before committing.
+    languages: [typescript, javascript]
+    severity: ERROR
+    metadata:
+      category: stub-detection
+
+  # ─── Rule 12: Hardcoded "example" / "sample" / "dummy" return values ─────────
+  # Catches: return "example value", return "dummy data", return "sample response"
+  # AI agents sometimes return hardcoded example strings from stub implementations.
+  - id: stub-example-return-value
+    patterns:
+      - pattern: return $VAL
+      - metavariable-regex:
+          metavariable: $VAL
+          regex: '(?i)"(example|sample|dummy|test|fake|mock|placeholder|lorem|foo|bar|baz)\s*[^"]*"'
+    message: >
+      STUB DETECTED: Function returns hardcoded example/dummy string "$VAL".
+      Replace with real implementation logic.
+    languages: [typescript, javascript]
+    severity: WARNING
+    metadata:
+      category: stub-detection
