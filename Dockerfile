@@ -10,6 +10,7 @@ COPY scripts ./scripts
 # ADR 0006: operator control plane assets are mirrored into dist/ by
 # scripts/copy-runtime-assets.mjs and served at runtime under /ui/.
 COPY docs/control-plane ./docs/control-plane
+COPY docs/velocity-ops-content ./docs/velocity-ops-content
 RUN --mount=type=cache,target=/root/.npm npm install --no-audit --no-fund
 RUN npm run build && npm prune --omit=dev
 

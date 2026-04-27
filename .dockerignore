@@ -9,7 +9,11 @@ coverage
 .vscode
 .idea
 .editorconfig
-docs
+docs/*
+!docs/control-plane/
+!docs/control-plane/**
+!docs/velocity-ops-content/
+!docs/velocity-ops-content/**
 *.md
 !AGENTS.md
 !CLAUDE.md
