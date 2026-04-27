@@ -8,13 +8,18 @@
 // Files are read on demand (small enough to read per request; ~200 KB
 // total). A lazy in-memory cache keeps repeated lookups fast.
 
+import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 
-// Resolves to <repo>/docs/velocity-ops-content/ in dev,
-// <pkg>/dist/docs/velocity-ops-content/ in prod (after copy-runtime-assets runs).
-const CONTENT_ROOT = fileURLToPath(new URL("../../docs/velocity-ops-content/", import.meta.url));
+// Resolves to <repo>/docs/velocity-ops-content in dev and
+// <pkg>/dist/docs/velocity-ops-content in prod after copy-runtime-assets runs.
+const MODULE_DIR = dirname(fileURLToPath(import.meta.url));
+const CONTENT_ROOT = firstExistingPath([
+  resolve(MODULE_DIR, "../docs/velocity-ops-content"),
+  resolve(MODULE_DIR, "../../docs/velocity-ops-content"),
+]);
 
 export type VelocityPhaseSlug =
   | "01-intake"
@@ -218,4 +223,8 @@ function categoryLabel(category: ContentCategory): string {
     case "workflows": return "workflow";
     case "modules": return "module";
   }
+}
+
+function firstExistingPath(candidates: readonly string[]): string {
+  return candidates.find((candidate) => existsSync(candidate)) ?? candidates[0] ?? "";
 }

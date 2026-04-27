@@ -6,16 +6,20 @@
 // scripts/copy-runtime-assets.mjs mirrors docs/control-plane/ into the
 // matching dist path.
 
+import { existsSync } from "node:fs";
 import { readFile, stat } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { resolve, sep } from "node:path";
+import { dirname, resolve, sep } from "node:path";
 import type { Hono } from "hono";
 import type { Logger } from "pino";
 
-// In dev:  src/server/../../docs/control-plane/  → <repo>/docs/control-plane/
-// In prod: dist/server/../../docs/control-plane/ → <runtime>/dist/docs/control-plane/
-//          (provided copy-runtime-assets.mjs copies docs/control-plane/ into dist/docs/control-plane/)
-const CONTROL_PLANE_DIR = fileURLToPath(new URL("../../docs/control-plane/", import.meta.url));
+// In dev, assets live at <repo>/docs/control-plane.
+// In prod, copy-runtime-assets.mjs mirrors them to <pkg>/dist/docs/control-plane.
+const MODULE_DIR = dirname(fileURLToPath(import.meta.url));
+const CONTROL_PLANE_DIR = firstExistingPath([
+  resolve(MODULE_DIR, "../docs/control-plane"),
+  resolve(MODULE_DIR, "../../docs/control-plane"),
+]);
 
 const MIME_TYPES: Readonly<Record<string, string>> = {
   ".html": "text/html; charset=utf-8",
@@ -74,4 +78,8 @@ export function mountControlPlaneUI(app: Hono, logger: Logger): void {
   });
 
   logger.info({ uiDir: baseDir }, "operator control plane UI mounted at /ui/");
+}
+
+function firstExistingPath(candidates: readonly string[]): string {
+  return candidates.find((candidate) => existsSync(candidate)) ?? candidates[0] ?? "";
 }
