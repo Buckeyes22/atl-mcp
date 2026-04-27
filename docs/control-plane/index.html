@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>atl-mcp · operator control plane</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1a1c'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-size='16' font-weight='700' fill='white'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base-styles.css">
+<link rel="stylesheet" href="app.css?v=15">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="mcp-client.js?v=3"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script src="control-surface-model.js?v=1"></script>
+<script type="text/babel" src="components.jsx?v=4"></script>
+<script type="text/babel" src="data-limited.jsx"></script>
+<script type="text/babel" src="use-admin.jsx"></script>
+<script type="text/babel" src="app-tweaks.jsx"></script>
+<script type="text/babel" src="page-dashboard.jsx?v=5"></script>
+<script type="text/babel" src="page-projects.jsx?v=8"></script>
+<script type="text/babel" src="page-jobs-policy.jsx?v=2"></script>
+<script type="text/babel" src="page-audit.jsx"></script>
+<script type="text/babel" src="page-tier23.jsx?v=2"></script>
+<script type="text/babel" src="page-index.jsx"></script>
+<script type="text/babel" src="page-role-workflows.jsx?v=1"></script>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+function NotFoundPage() {
+  return (
+    <div className="cp-page">
+      <PageHead eyebrow="404" title="Route not found" />
+      <p style={{color: 'var(--ink-3)'}}>That hash route is not wired up.</p>
+      <a className="btn" href="#/index" style={{marginTop: 12}}>Back to screen index →</a>
+    </div>
+  );
+}
+
+function App() {
+  const hash = useHashRoute();
+  const path = hash.replace(/^#\/?/, '');
+  const parts = path.split('/').filter(Boolean);
+  const route = parts[0] || 'dashboard';
+
+  let active = 'dashboard';
+  let page = null;
+
+  if (path === '' || route === 'dashboard') {
+    active = 'dashboard'; page = <DashboardPage />;
+  } else if (route === 'projects' && parts.length > 1) {
+    active = 'projects'; page = <ProjectDetailPage projectKey={parts[1]} />;
+  } else if (route === 'projects') {
+    active = 'projects'; page = <ProjectListPage />;
+  } else if (route === 'jobs') {
+    active = 'jobs'; page = <JobsPage />;
+  } else if (route === 'audit') {
+    active = 'audit'; page = <AuditPage />;
+  } else if (route === 'policy') {
+    active = 'policy'; page = <PolicyPage />;
+  } else if (route === 'providers') {
+    active = 'providers'; page = <ProvidersPage />;
+  } else if (route === 'sessions') {
+    active = 'sessions'; page = <SessionsPage />;
+  } else if (route === 'requirements-assist') {
+    active = 'requirements-assist'; page = <RequirementsAssistPage />;
+  } else if (route === 'agent-assignment') {
+    active = 'agent-assignment'; page = <AgentAssignmentPage />;
+  } else if (route === 'alerts') {
+    active = 'alerts'; page = <AlertsPage />;
+  } else if (route === 'migrations') {
+    active = 'migrations'; page = <MigrationsPage />;
+  } else if (route === 'secrets') {
+    active = 'secrets'; page = <SecretsPage />;
+  } else if (route === 'slo') {
+    active = 'slo'; page = <SloPage />;
+  } else if (route === 'capacity') {
+    active = 'capacity'; page = <CapacityPage />;
+  } else if (route === 'dr') {
+    active = 'dr'; page = <DrPage />;
+  } else if (route === 'settings') {
+    active = 'settings'; page = <SettingsPage />;
+  } else if (route === 'index') {
+    active = 'index'; page = <IndexPage />;
+  } else {
+    page = <NotFoundPage />;
+  }
+
+  return (
+    <CPTweaksProvider>
+      <TopNav activeRoute={active} />
+      {page}
+    </CPTweaksProvider>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
